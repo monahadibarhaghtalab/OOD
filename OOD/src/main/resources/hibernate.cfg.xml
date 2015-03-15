@@ -18,6 +18,7 @@
         <mapping class="data.entities.PatientEntity"/>
         <mapping class="data.entities.PrescriptionEntity"/>
         <mapping class="data.entities.DeviceEntity"/>
+        <mapping class="data.entities.UserEntity"/>
 
     </session-factory>
 </hibernate-configuration>
