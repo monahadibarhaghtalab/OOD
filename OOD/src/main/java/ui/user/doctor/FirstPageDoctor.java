@@ -21,9 +21,9 @@ public class FirstPageDoctor extends Temp {
     private myJButton seeList;
 
     public  FirstPageDoctor(){
-        super("ورود به عنوان پزشک");
+        super();
 
-        window = getWindow();
+        window = getWindow("ورود به عنوان پزشک", true);
 
         historyPatient = new myJButton(false);
         seeMessage = new myJButton(false);
@@ -46,7 +46,7 @@ public class FirstPageDoctor extends Temp {
         });
 
         seeMessage.set(150, start + height, 300, height, "B Nazanin", 20);
-        seeMessage.setText("مشاهده پیام ها");
+        seeMessage.setText("مشاهده درخواست ها");
         window.add(seeMessage);
 
         seeConsult.set(150, start + 2 * height, 300, height, "B Nazanin", 20);

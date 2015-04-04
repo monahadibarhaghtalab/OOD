@@ -1,13 +1,47 @@
 package ui.user.patient;
 
+import ui.element.myJButton;
+import ui.element.myJFrame;
+import ui.element.myJLabel;
 import ui.user.Temp;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Mona on 3/30/2015.
  */
-public class ChooseDoctor extends Temp {
+class ChooseDoctor extends Temp {
+
+    private myJFrame winMain;
+
+    private myJButton listDoctor;
+
+    private myJLabel doctor;
 
     protected ChooseDoctor(){
-        super("انتخاب پزشک");
+
+        winMain = getWindow("انتخاب پزشک", true);
+
+        listDoctor = new myJButton(false);
+        listDoctor.setText("مشاهده لیست پزشکان");
+        listDoctor.set(200, 200, 60, 40, "B Nazanin", 20);
+        winMain.add(listDoctor);
+
+
+        listDoctor.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new ListDoctor();
+                //  window.setVisible(false);
+            }
+        });
+
+        doctor = new myJLabel();
+        doctor.setText("پزشک فعلی ");
+
+        winMain.add(doctor);
+
+
+
     }
 }

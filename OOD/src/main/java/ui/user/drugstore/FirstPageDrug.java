@@ -1,11 +1,11 @@
 package ui.user.drugstore;
 
-import ui.element.myJButton;
-import ui.element.myJFrame;
-import ui.element.myJLabel;
-import ui.element.myJTextField;
+import ui.element.*;
 import ui.user.Temp;
 
+import javax.swing.*;
+import javax.swing.event.TableModelEvent;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,9 +21,9 @@ public class FirstPageDrug extends Temp {
 
 
     public FirstPageDrug(){
-        super("ورود به عنوان داروخانه");
+        super();
 
-        window1 = getWindow();
+        window1 = getWindow("ورود به عنوان داروخانه", true);
 
         name = new myJLabel("نام");
         name = name.set(400, 200, 250, 20, "B Nazanin", 20);
@@ -58,11 +58,44 @@ public class FirstPageDrug extends Temp {
         make the second window to show the result
          */
 
+        window2 = getWindow("لیست داروها", false);
+
+        //to make table with radio button
+
+        DefaultTableModel dm = new DefaultTableModel();
+        dm.setDataVector(new Object[][] { { "", new JRadioButton("") }},
+                new Object[] {
+                "نام دارو", "گرفته شده" });
+
+        myJTable table = new myJTable(dm){
+            public void tableChanged(TableModelEvent e) {
+                super.tableChanged(e);
+                repaint();
+            }
+        };
+
+        ButtonGroup group1 = new ButtonGroup();
+        group1.add((JRadioButton) dm.getValueAt(0, 1));
+       ///should extend the row
+        table.getColumn("JRadioButton").setCellRenderer(
+                new RadioButtonRenderer());
+        table.getColumn("JRadioButton").setCellEditor(
+                new RadioButtonEditor(new JCheckBox()));
+        JScrollPane scroll = new JScrollPane(table);
+        window2.getContentPane().add(scroll);
+
+
+        myJButton submit = new myJButton(false);
+        submit.setText("ثبت");
+        submit.set(300, 600, 50, 30, "B Nazanin", 20);
+
+        window2.add(submit);
 
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new showResult();
+               // new showResult();
+                window2.setVisible(true);
                 window1.setVisible(false);
             }
         });

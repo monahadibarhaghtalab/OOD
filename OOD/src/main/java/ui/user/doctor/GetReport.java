@@ -10,16 +10,16 @@ import java.awt.event.ActionListener;
 /**
  * Created by Mona on 3/30/2015.
  */
-public class GetReport extends Temp {
+class GetReport extends Temp {
     private myJFrame window;
 
     private myJButton  getTotal;
     private myJButton  getIndiv;
 
     protected GetReport(){
-        super("دریافت گزارش");
+        super();
 
-        window = getWindow(true);
+        window = getWindow("دریافت گزارش", true);
 
         getTotal = new myJButton(false);
         getTotal.setText("دریافت گزارش تجمیعی");

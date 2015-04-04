@@ -3,7 +3,6 @@ package ui.user.patient;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.user.Temp;
-import ui.user.doctor.LookforPateint;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,27 +14,27 @@ public class FirstPagePatient extends Temp {
     private myJFrame window;
 
     private myJButton history;
-    private myJButton seeMessage;
-    private myJButton seeConsult;
-    private myJButton getReport;
-    private myJButton seeList;
+    private myJButton submitStatus;
+    private myJButton chooseDoctor;
+    private myJButton consult;
+    private myJButton inbox;
 
     public FirstPagePatient(){
-        super("ورود به عنوان بیمار");
+        super();
 
-        window = getWindow();
+        window = getWindow("ورود به عنوان بیمار", true);
 
         history = new myJButton(false);
-        seeMessage = new myJButton(false);
-        seeConsult = new myJButton(false);
-        getReport = new myJButton(false);
-        seeList = new myJButton(false);
+        submitStatus = new myJButton(false);
+        chooseDoctor = new myJButton(false);
+        consult = new myJButton(false);
+        inbox = new myJButton(false);
 
         int start = 200;
         int height = 30;
 
         history.set(150, start, 300, height, "B Nazanin", 20);
-        history.setText( "مشاهده سوابق");
+        history.setText("مشاهده سوابق");
         window.add(history);
 
         history.addActionListener(new ActionListener() {
@@ -45,21 +44,48 @@ public class FirstPagePatient extends Temp {
             }
         });
 
-        seeMessage.set(150, start + height, 300, height, "B Nazanin", 20);
-        seeMessage.setText("مشاهده پیام ها");
-        window.add(seeMessage);
+        submitStatus.set(150, start + height, 300, height, "B Nazanin", 20);
+        submitStatus.setText("ثبت وضعیت بدنی");
+        window.add(submitStatus);
 
-        seeConsult.set(150, start + 2 * height, 300, height, "B Nazanin", 20);
-        seeConsult.setText("مشاهده متن مشاوره");
-        window.add(seeConsult);
+        submitStatus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SubmitStatus();
+                //  window.setVisible(false);
+            }
+        });
 
-        getReport.set(150, start + 3 * height, 300, height, "B Nazanin", 20);
-        getReport.setText("دریافت گزارش");
-        window.add(getReport);
+        chooseDoctor.set(150, start + 2 * height, 300, height, "B Nazanin", 20);
+        chooseDoctor.setText(" انتخاب / تغییر پزشک");
+        window.add(chooseDoctor);
 
-        seeList.set(150, start + 4 * height, 300, height, "B Nazanin", 20);
-        seeList.setText("مشاهده لیست بیماران");
-        window.add(seeList);
+        submitStatus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new ChooseDoctor();
+                //  window.setVisible(false);
+            }
+        });
 
+        consult.set(150, start + 3 * height, 300, height, "B Nazanin", 20);
+        consult.setText("مشاوره");
+        window.add(consult);
+
+        submitStatus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new Consult();
+                //  window.setVisible(false);
+            }
+        });
+
+        inbox.set(150, start + 4 * height, 300, height, "B Nazanin", 20);
+        inbox.setText("مشاهده صندوق پیام");
+        window.add(inbox);
+
+        submitStatus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new Inbox();
+                //  window.setVisible(false);
+            }
+        });
     }
 }

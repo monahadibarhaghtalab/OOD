@@ -12,7 +12,13 @@ public class Temp implements Serializable {
     private myJFrame window;
     private myJLabel titleLabel;
 
-    protected Temp(String title){
+    protected Temp(){
+
+
+    }
+
+    protected myJFrame getWindow(String title, boolean vis){
+
         window = new myJFrame("سامانه سلامت");
         window = window.makeWindow(window);
         window.setDefaultCloseOperation(myJFrame.EXIT_ON_CLOSE);
@@ -20,14 +26,12 @@ public class Temp implements Serializable {
         titleLabel = new myJLabel(title);
         titleLabel = titleLabel.set(150, 50, 600, 50, "B Nazanin", 30);
 
-    }
-
-    protected myJFrame getWindow(){
-//        if(vis){
-//            window.setVisible(true);
-//        }
-//        else
-//            window.setVisible(false);
+        //set if visible or not at first
+        if(vis){
+            window.setVisible(true);
+        }
+        else
+            window.setVisible(false);
         return  window;
     }
 

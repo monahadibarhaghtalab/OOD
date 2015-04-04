@@ -39,8 +39,8 @@ public class Welcome extends Temp {
 
 
     public Welcome() {
-        super("");
-        window = getWindow();
+        super();
+        window = getWindow("", true);
 
         name = new myJLabel("به سامانه سلامت خوش آمدید");
         //name = new myJLabel("Hi welcome");

@@ -9,6 +9,8 @@ import java.awt.*;
 /**
  * Created by Mona on 4/4/2015.
  */
+
+/*
 class showResult extends Temp {
 
     private	JPanel		topPanel;
@@ -46,3 +48,4 @@ class showResult extends Temp {
 
     }
 }
+*/

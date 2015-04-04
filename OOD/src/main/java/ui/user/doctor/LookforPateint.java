@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Mona on 3/15/2015.
  */
-public class LookforPateint  extends Temp {
+class LookforPateint  extends Temp {
 
     private myJFrame window1, window2;
     private myJLabel name, family, docNum;
@@ -22,9 +22,9 @@ public class LookforPateint  extends Temp {
 
 
     protected LookforPateint() {
-        super("جستجوی بیمار");
+        super();
 
-        window1 = getWindow(true);
+        window1 = getWindow("جستجوی بیمار", true);
 
         name = new myJLabel("نام");
         name = name.set(400, 200, 250, 20, "B Nazanin", 20);
@@ -55,7 +55,7 @@ public class LookforPateint  extends Temp {
         search.set(200, 400, 100, 40, "B Nazanin", 30);
         window1.add(search);
 
-        window2 = getWindow(false);
+        window2 = getWindow("لیست بیماران", false);
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 window2.setVisible(true);
