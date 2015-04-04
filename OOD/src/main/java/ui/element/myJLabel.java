@@ -9,7 +9,7 @@ import java.io.Serializable;
  */
 
 public class myJLabel extends JLabel implements Serializable, Element{
-   public myJLabel(){
+    public myJLabel(){
         super();
     }
     public myJLabel(String s){

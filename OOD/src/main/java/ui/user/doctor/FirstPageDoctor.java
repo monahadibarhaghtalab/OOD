@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * Created by Mona on 3/15/2015.
  */
-public class FirstPage extends Temp {
+public class FirstPageDoctor extends Temp {
     private myJFrame window;
 
     private myJButton historyPatient;
@@ -41,7 +41,7 @@ public class FirstPage extends Temp {
         historyPatient.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new LookforPateint();
-              //  window.setVisible(false);
+                //  window.setVisible(false);
             }
         });
 
