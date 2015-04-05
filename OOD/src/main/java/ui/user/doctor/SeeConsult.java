@@ -30,10 +30,9 @@ class SeeConsult extends Temp {
         for (int i = 0; i < numMessage; i++){
             arrayWin[i] = getWindow("پیام", false);
 
-
             arrayLabel[i] = new myJButton(true);
-            arrayLabel[i] = arrayLabel[i].set(500, 60 + i * staticHeight,400, staticHeight, "B Nazanin", 16);
-
+            arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
+            arrayLabel[i].setText("برای تست");
 //            arrayLabel[i].setBorderPainted(false);
 //            arrayLabel[i].setFocusPainted(false);
 //            arrayLabel[i].setContentAreaFilled(false);
@@ -42,7 +41,7 @@ class SeeConsult extends Temp {
 
             myJButton accept = new myJButton(false);
             accept.setText("پاسخ");
-            accept.set(300, 400, 30, 30, "B Nazanin", 18);
+            accept.set(300, 400, 100, 30, "B Nazanin", 18);
 
 //            myJButton reject = new myJButton(false);
 //            reject.setText("رد درخواست");

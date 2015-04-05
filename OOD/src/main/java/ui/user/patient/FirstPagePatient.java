@@ -59,7 +59,7 @@ public class FirstPagePatient extends Temp {
         chooseDoctor.setText(" انتخاب / تغییر پزشک");
         window.add(chooseDoctor);
 
-        submitStatus.addActionListener(new ActionListener() {
+        chooseDoctor.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new ChooseDoctor();
                 //  window.setVisible(false);
@@ -70,7 +70,7 @@ public class FirstPagePatient extends Temp {
         consult.setText("مشاوره");
         window.add(consult);
 
-        submitStatus.addActionListener(new ActionListener() {
+        consult.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new Consult();
                 //  window.setVisible(false);
@@ -81,7 +81,7 @@ public class FirstPagePatient extends Temp {
         inbox.setText("مشاهده صندوق پیام");
         window.add(inbox);
 
-        submitStatus.addActionListener(new ActionListener() {
+        inbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new Inbox();
                 //  window.setVisible(false);

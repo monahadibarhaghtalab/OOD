@@ -27,7 +27,7 @@ class Consult extends Temp {
 
         protected Consult() {
             super();
-            window = getWindow("", true);
+            window = getWindow("مشاوره", true);
 
 
             title = new myJLabel("موضوع");
@@ -35,7 +35,7 @@ class Consult extends Temp {
             window.add(title);
 
             message = new myJLabel("متن پیام");
-            message = message.set(400, 250, 250, 200, "B Nazanin", 20);
+            message = message.set(400, 250, 250, 20, "B Nazanin", 20);
             window.add(message);
 
 
@@ -44,7 +44,7 @@ class Consult extends Temp {
             window.add(ttext);
 
             mtext = new myJTextField("");
-            mtext.setBounds(150, 250, 150, 20);
+            mtext.setBounds(150, 230, 150, 200);
             window.add(mtext);
 
 

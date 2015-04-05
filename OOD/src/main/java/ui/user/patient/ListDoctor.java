@@ -55,7 +55,7 @@ class ListDoctor extends Temp{
         window2 = getWindow("لیست پزشکان", false);
 
 
-        Object rowData[][] = { { }  };
+        Object rowData[][] = { {"Test", "Test" }  };
         Object columnNames[] = { "", ""};
         myJTable table = new myJTable(rowData, columnNames);
 
@@ -64,8 +64,11 @@ class ListDoctor extends Temp{
 
         search = new myJButton(false);
         search.setText("فرستادن درخواست");
-        search.set(200, 500, 100, 40, "B Nazanin", 30);
+        search.set(200, 500, 100, 40, "B Nazanin", 20);
         window2.add(search);
+
+        table.set(100, 200, 400, 300, "B Nazanin", 14);
+        window2.add(table);
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

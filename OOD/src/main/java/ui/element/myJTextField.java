@@ -14,6 +14,7 @@ public class myJTextField extends JTextField implements Serializable, Element{
         this.setHorizontalAlignment(JTextField.RIGHT);
         this.setBounds(x, y, w, l);
         this.setVisible(true);
+        this.repaint();
         return this;
     }
 }

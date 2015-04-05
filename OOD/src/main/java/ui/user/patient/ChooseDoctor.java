@@ -25,7 +25,7 @@ class ChooseDoctor extends Temp {
 
         listDoctor = new myJButton(false);
         listDoctor.setText("مشاهده لیست پزشکان");
-        listDoctor.set(200, 200, 60, 40, "B Nazanin", 20);
+        listDoctor.set(200, 300, 200, 100, "B Nazanin", 20);
         winMain.add(listDoctor);
 
 
@@ -38,7 +38,7 @@ class ChooseDoctor extends Temp {
 
         doctor = new myJLabel();
         doctor.setText("پزشک فعلی ");
-
+        doctor.set(300, 200, 100, 40, "B Nazanin", 20);
         winMain.add(doctor);
 
 

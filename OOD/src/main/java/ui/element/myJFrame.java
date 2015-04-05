@@ -17,6 +17,7 @@ public class myJFrame extends JFrame implements Serializable {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         window.setLayout(null);
+        window.setResizable(false);
         window.setDefaultCloseOperation(myJFrame.EXIT_ON_CLOSE);
         return window;
 

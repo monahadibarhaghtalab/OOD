@@ -41,7 +41,7 @@ class SubmitStatus extends Temp {
 
         connect = new myJButton(false);
         connect.setText("اتصال دستگاه به رایانه");
-        connect.set(200, 400, 100, 40, "B Nazanin", 20);
+        connect.set(200, 400, 200, 40, "B Nazanin", 20);
         window.add(connect);
     }
 }

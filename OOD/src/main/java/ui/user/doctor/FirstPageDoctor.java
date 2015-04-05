@@ -49,17 +49,45 @@ public class FirstPageDoctor extends Temp {
         seeMessage.setText("مشاهده درخواست ها");
         window.add(seeMessage);
 
+        seeMessage.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SeeMessage();
+                //  window.setVisible(false);
+            }
+        });
+
         seeConsult.set(150, start + 2 * height, 300, height, "B Nazanin", 20);
         seeConsult.setText("مشاهده متن مشاوره");
         window.add(seeConsult);
+
+        seeConsult.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SeeConsult();
+                //  window.setVisible(false);
+            }
+        });
 
         getReport.set(150, start + 3 * height, 300, height, "B Nazanin", 20);
         getReport.setText("دریافت گزارش");
         window.add(getReport);
 
-        seeList.set(150, start + 4 * height, 300, height, "B Nazanin", 20);
-        seeList.setText("مشاهده لیست بیماران");
-        window.add(seeList);
+        getReport.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new GetReport();
+                //  window.setVisible(false);
+            }
+        });
+//
+//        seeList.set(150, start + 4 * height, 300, height, "B Nazanin", 20);
+//        seeList.setText("مشاهده لیست بیماران");
+//        window.add(seeList);
+//
+//        historyPatient.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                new GetReport();
+//                //  window.setVisible(false);
+//            }
+//        });
 
     }
 

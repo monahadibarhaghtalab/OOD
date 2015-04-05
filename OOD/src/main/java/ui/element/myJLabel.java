@@ -18,8 +18,10 @@ public class myJLabel extends JLabel implements Serializable, Element{
 
     public myJLabel set(int x, int y, int w, int l, String font, int size){
         this.setBounds(x, y, w, l);
+        //this.setHorizontalAlignment(JTextField.RIGHT);
         this.setVisible(true);
         this.setFont(new Font(font, Font.PLAIN, size));
+        this.repaint();
         return this;
     }
 }

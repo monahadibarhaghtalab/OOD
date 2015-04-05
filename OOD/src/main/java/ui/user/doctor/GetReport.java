@@ -23,12 +23,12 @@ class GetReport extends Temp {
 
         getTotal = new myJButton(false);
         getTotal.setText("دریافت گزارش تجمیعی");
-        getTotal = getTotal.set(200, 200, 100, 50, "B Nazanin", 30);
+        getTotal = getTotal.set(200, 200, 200, 50, "B Nazanin", 20);
         window.add(getTotal);
 
         getTotal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GetReport();
+                new TotalReport();
                 //  window.setVisible(false);
             }
         });
@@ -36,12 +36,12 @@ class GetReport extends Temp {
 
         getIndiv = new myJButton(false);
         getIndiv.setText("دریافت گزارش فردی");
-        getIndiv = getIndiv.set(200, 200, 100, 50, "B Nazanin", 30);
+        getIndiv = getIndiv.set(200, 300, 200, 50, "B Nazanin", 20);
         window.add(getIndiv);
 
         getTotal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GetReport();
+                new IndivReport();
                 //  window.setVisible(false);
             }
         });

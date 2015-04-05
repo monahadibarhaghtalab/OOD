@@ -24,6 +24,7 @@ public class myJButton extends JButton implements Serializable, Element {
         this.setBounds(x, y, w, l);
         this.setVisible(true);
         this.setFont(new Font(font, Font.PLAIN, size));
+        this.repaint();
         return this;
     }
 

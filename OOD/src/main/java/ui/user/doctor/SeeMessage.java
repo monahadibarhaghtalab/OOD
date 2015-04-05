@@ -34,8 +34,8 @@ class SeeMessage extends Temp {
 
 
             arrayLabel[i] = new myJButton(true);
-             arrayLabel[i] = arrayLabel[i].set(500, 60 + i * staticHeight,400, staticHeight, "B Nazanin", 16);
-
+            arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
+            arrayLabel[i].setText("برای تست");
 //            arrayLabel[i].setBorderPainted(false);
 //            arrayLabel[i].setFocusPainted(false);
 //            arrayLabel[i].setContentAreaFilled(false);
@@ -44,11 +44,11 @@ class SeeMessage extends Temp {
 
             myJButton accept = new myJButton(false);
             accept.setText("قبول");
-            accept.set(300, 400, 30, 30, "B Nazanin", 18);
+            accept.set(320, 400, 70, 30, "B Nazanin", 18);
 
             myJButton reject = new myJButton(false);
             reject.setText("رد درخواست");
-            reject.set(300, 450, 30, 30, "B Nazanin", 18);
+            reject.set(300, 450, 110, 30, "B Nazanin", 18);
 
             arrayWin[i].add(accept);
             arrayWin[i].add(reject);

@@ -21,10 +21,12 @@ public class Temp implements Serializable {
 
         window = new myJFrame("سامانه سلامت");
         window = window.makeWindow(window);
-        window.setDefaultCloseOperation(myJFrame.EXIT_ON_CLOSE);
-        window.pack();
+       window.setDefaultCloseOperation(myJFrame.DISPOSE_ON_CLOSE);
+      //  window.pack();
         titleLabel = new myJLabel(title);
-        titleLabel = titleLabel.set(150, 50, 600, 50, "B Nazanin", 30);
+        titleLabel = titleLabel.set(300, 50, 600, 50, "B Nazanin", 30);
+
+        window.add(titleLabel);
 
         //set if visible or not at first
         if(vis){

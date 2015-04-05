@@ -44,7 +44,7 @@ public class Welcome extends Temp {
 
         name = new myJLabel("به سامانه سلامت خوش آمدید");
         //name = new myJLabel("Hi welcome");
-        name = name.set(190, 50, 600, 30, "B Jadid Bold", 40);
+        name = name.set(100, 50, 500, 50, "B Jadid Bold", 40);
         window.add(name);
 
         labelUser = new myJLabel("نام کاربری");

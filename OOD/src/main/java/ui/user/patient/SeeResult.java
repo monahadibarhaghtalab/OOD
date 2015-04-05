@@ -44,7 +44,7 @@ class SeeResult extends Temp{
 
         search = new myJButton(false);
         search.setText("جستجو");
-        search.set(200, 400, 100, 40, "B Nazanin", 30);
+        search.set(200, 400, 100, 40, "B Nazanin", 20);
         winMain.add(search);
 
         /*
@@ -54,13 +54,15 @@ class SeeResult extends Temp{
         window2 = getWindow(second, false);
 
 
-        Object rowData[][] = { { }  };
+        Object rowData[][] = { { "تست", "تست"}  };
         Object columnNames[] = { "", ""};
         myJTable table = new myJTable(rowData, columnNames);
 
         JScrollPane scrollPane = new JScrollPane(table);
         window2.add(scrollPane, BorderLayout.CENTER);
 
+        table.set(100, 200, 400, 300, "B Nazanin", 14);
+        window2.add(table);
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

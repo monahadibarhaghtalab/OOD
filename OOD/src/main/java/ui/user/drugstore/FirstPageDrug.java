@@ -34,7 +34,7 @@ public class FirstPageDrug extends Temp {
         window1.add(family);
 
         idCode = new myJLabel("کد ملی");
-        family = family.set(400, 300, 250, 20, "B Nazanin", 20);
+        idCode = idCode.set(400, 300, 250, 20, "B Nazanin", 20);
         window1.add(idCode);
 
         ntext = new myJTextField("");
@@ -51,7 +51,7 @@ public class FirstPageDrug extends Temp {
 
         search = new myJButton(false);
         search.setText("جستجو");
-        search.set(200, 400, 100, 40, "B Nazanin", 30);
+        search.set(200, 400, 100, 40, "B Nazanin", 20);
         window1.add(search);
 
         /*
@@ -77,17 +77,19 @@ public class FirstPageDrug extends Temp {
         ButtonGroup group1 = new ButtonGroup();
         group1.add((JRadioButton) dm.getValueAt(0, 1));
        ///should extend the row
-        table.getColumn("JRadioButton").setCellRenderer(
+        table.getColumn("گرفته شده").setCellRenderer(
                 new RadioButtonRenderer());
-        table.getColumn("JRadioButton").setCellEditor(
+        table.getColumn("گرفته شده").setCellEditor(
                 new RadioButtonEditor(new JCheckBox()));
         JScrollPane scroll = new JScrollPane(table);
         window2.getContentPane().add(scroll);
 
+        table.set(100, 200, 400, 300, "B Nazanin", 14);
+        window2.add(table);
 
         myJButton submit = new myJButton(false);
         submit.setText("ثبت");
-        submit.set(300, 600, 50, 30, "B Nazanin", 20);
+        submit.set(300, 600, 80, 50, "B Nazanin", 20);
 
         window2.add(submit);
 

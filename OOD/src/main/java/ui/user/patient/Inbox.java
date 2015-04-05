@@ -32,8 +32,8 @@ class Inbox extends Temp {
 
 
             arrayLabel[i] = new myJButton(true);
-            arrayLabel[i] = arrayLabel[i].set(500, 60 + i * staticHeight, 400, staticHeight, "B Nazanin", 16);
-
+            arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
+            arrayLabel[i].setText("برای تست");
 //            arrayLabel[i].setBorderPainted(false);
 //            arrayLabel[i].setFocusPainted(false);
 //            arrayLabel[i].setContentAreaFilled(false);
