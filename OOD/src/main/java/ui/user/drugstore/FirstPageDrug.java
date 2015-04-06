@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
 public class FirstPageDrug extends Temp {
 
     private myJFrame window1, window2;
-    private myJLabel name, family, idCode;
-    private myJTextField ntext, ftext, itext;
+    private myJLabel name, family, idCode,  nameDrug;
+    private myJTextField ntext, ftext, itext, ndtext;
     private myJButton search;
 
 
@@ -93,6 +93,14 @@ public class FirstPageDrug extends Temp {
 
         window2.add(submit);
 
+
+        nameDrug = new myJLabel("نام دارو");
+        nameDrug = nameDrug.set(400, 100, 250, 20, "B Nazanin", 20);
+        window2.add(nameDrug);
+
+        ndtext = new myJTextField("");
+        ndtext.set(150, 100, 150, 20, "B Nazanin", 20);
+        window2.add(ndtext);
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
