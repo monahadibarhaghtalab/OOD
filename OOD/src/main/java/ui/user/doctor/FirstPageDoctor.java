@@ -78,16 +78,16 @@ public class FirstPageDoctor extends Temp {
             }
         });
 //
-//        seeList.set(150, start + 4 * height, 300, height, "B Nazanin", 20);
-//        seeList.setText("مشاهده لیست بیماران");
-//        window.add(seeList);
-//
-//        historyPatient.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                new GetReport();
-//                //  window.setVisible(false);
-//            }
-//        });
+        seeList.set(150, start + 4 * height, 300, height, "B Nazanin", 20);
+        seeList.setText("مشاهده لیست بیماران");
+        window.add(seeList);
+
+        seeList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new ListPatient();
+                //  window.setVisible(false);
+            }
+        });
 
     }
 

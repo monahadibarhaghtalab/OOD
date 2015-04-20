@@ -27,7 +27,7 @@ public class Main {
             session = new DatabaseContext().getSession();
             tx = session.beginTransaction();
 
-            PatientEntity user = new PatientEntity("Mona", "12345", "Salehi");
+            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
             session.save(user);
 
 

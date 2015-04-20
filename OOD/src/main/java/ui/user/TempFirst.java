@@ -1,19 +1,14 @@
 package ui.user;
 
-import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.Serializable;
 
 /**
- * Created by Mona on 3/15/2015.
+ * Created by Mona on 4/14/2015.
  */
-public class Temp extends TempFirst{
-
-    private myJButton profile;
-
+public class TempFirst implements Serializable {
 
     private myJFrame window;
     private myJLabel titleLabel;
@@ -29,24 +24,7 @@ public class Temp extends TempFirst{
         titleLabel = new myJLabel(title);
         titleLabel = titleLabel.set(300, 50, 600, 50, "B Nazanin", 30);
 
-
-
         window.add(titleLabel);
-
-        profile = new myJButton(false);
-        profile.setText("حساب کاربری");
-        profile.set(100, 50, 200, 40, "B Nazanin", 16);
-
-        profile.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // System.out.println("monaaaaaaaa");
-                new Profile();
-              //  window.setVisible(false);
-            }
-        });
-
-
-        window.add(profile);
 
         //set if visible or not at first
         if(vis){
@@ -57,6 +35,10 @@ public class Temp extends TempFirst{
         return  window;
     }
 
-
-
+   /* protected void  add(JComponent com, int x, int y, int w, int h, String text){
+        com.set(x, y, w, h);
+        com.setText(text);
+        window.add(com);
+    }
+    */
 }

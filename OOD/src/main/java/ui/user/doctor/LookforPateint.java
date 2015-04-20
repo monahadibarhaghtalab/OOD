@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
  */
 class LookforPateint  extends Temp {
 
+    private  myJButton seeHistory;
     private myJFrame window1, window2;
     private myJLabel name, family, docNum;
     private myJTextField ntext, ftext, dtext;
@@ -29,29 +30,29 @@ class LookforPateint  extends Temp {
         window1 = getWindow("جستجوی بیمار", true);
 
         name = new myJLabel("نام");
-        name = name.set(300, 200, 100, 20, "B Nazanin", 20);
+        name = name.set(300, 200, 50, 20, "B Nazanin", 20);
         window1.add(name);
 
 
         family = new myJLabel("نام خانوادگی");
-        family = family.set(300, 250, 100, 20, "B Nazanin", 20);
+        family = family.set(300, 250, 50, 20, "B Nazanin", 20);
         window1.add(family);
 
         docNum = new myJLabel("شماره پرونده");
-        family = family.set(300, 300, 100, 20, "B Nazanin", 20);
+        family = family.set(300, 300, 50, 20, "B Nazanin", 20);
         window1.add(docNum);
 
-        ntext = new myJTextField("");
-        ntext=ntext.set(150, 200, 150, 20, "B Nazanin", 20);
-        window1.add(ntext);
-
-        ftext = new myJTextField("");
-        ftext.set(150, 250, 150, 20, "B Nazanin", 20);
-        window1.add(ftext);
-
-        dtext = new myJTextField("");
-        dtext.set(150, 300, 150, 20, "B Nazanin", 20);
-        window1.add(dtext);
+//        ntext = new myJTextField("");
+//        ntext=ntext.set(150, 200, 150, 20, "B Nazanin", 20);
+//        window1.add(ntext);
+//
+//        ftext = new myJTextField("");
+//        ftext.set(150, 250, 150, 20, "B Nazanin", 20);
+//        window1.add(ftext);
+//
+//        dtext = new myJTextField("");
+//        dtext.set(150, 300, 150, 20, "B Nazanin", 20);
+//        window1.add(dtext);
 
         search = new myJButton(false);
         search.setText("جستجو");
@@ -66,6 +67,7 @@ class LookforPateint  extends Temp {
         changePro = new myJButton(false);
         archive = new myJButton(false);
         prescript = new myJButton(false);
+        seeHistory = new myJButton(false);
 
         window2.add(name); window2.add(family); window2.add(docNum);
 
@@ -127,7 +129,16 @@ class LookforPateint  extends Temp {
                 //  window.setVisible(false);
             }
         });
+        seeHistory.setText("مشاهده سابقه بیماری");
+        seeHistory.set(200, 520, 150, 40, "B Nazanin", 20);
+        window2.add(seeHistory);
 
+        seeHistory.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new SeeHistory();
+                //  window.setVisible(false);
+            }
+        });
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 window2.setVisible(true);

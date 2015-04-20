@@ -43,5 +43,25 @@ class SubmitStatus extends Temp {
         connect.setText("اتصال دستگاه به رایانه");
         connect.set(200, 400, 200, 40, "B Nazanin", 20);
         window.add(connect);
+
+
+         String[] devices = { "دستگاه شماره یک", "دستگاه شماره دو", "دستگاه شماره سه", "دستگاه شماره جهار" };
+
+
+            JFrame frame = new JFrame("Input Dialog Example 3");
+            String device = (String) JOptionPane.showInputDialog(frame,
+                    "نام دستگاه مورد نظر را انتخاب کنید",
+                    "انتخاب دستگاه",
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    devices,
+                    devices[0]);
+
+//            // favoritePizza will be null if the user clicks Cancel
+//            System.out.printf("Favorite pizza is %s.\n", favoritePizza);
+//            System.exit(0);
+
+        
+        }
     }
-}
+
