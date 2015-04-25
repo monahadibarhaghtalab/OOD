@@ -1,18 +1,19 @@
 package ui.user.doctor;
 
-import ui.element.myJButton;
-import ui.element.myJFrame;
-import ui.element.myJLabel;
-import ui.element.myJTextField;
+import ui.element.*;
 import ui.user.Temp;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Mona on 3/30/2015.
  */
 class TotalReport extends Temp {
 
+    private myJFrame window2;
     private myJFrame winMain;
     private myJLabel typeSickness;
     private myJLabel midHeight;
@@ -38,7 +39,7 @@ class TotalReport extends Temp {
         midHeight = midHeight.set(400, 250, 250, 20, "B Nazanin", 20);
         winMain.add(midHeight);
 
-        midWeight= new myJLabel("نوع کاربر");
+        midWeight= new myJLabel("تاریخ");
         midWeight = midWeight.set(400, 300, 250, 20, "B Nazanin", 20);
         winMain.add(midWeight);
 
@@ -60,5 +61,32 @@ class TotalReport extends Temp {
         winMain.add(report);
 
 
+        /*
+        make the second window to show the result
+         */
+        window2 = getWindow("" +
+                "گزارش تجمیعی", false);
+
+
+        Object rowData[][] = { { "نوع بیماری", "نام بیمار"}  };
+        Object columnNames[] = { "", ""};
+        myJTable table = new myJTable(rowData, columnNames);
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        window2.add(scrollPane, BorderLayout.CENTER);
+
+        table.set(100, 200, 400, 300, "B Nazanin", 14);
+        window2.add(table);
+
+        report.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // new showResult();
+                window2.setVisible(true);
+                winMain.setVisible(false);
+            }
+        });
+
     }
+
+
 }

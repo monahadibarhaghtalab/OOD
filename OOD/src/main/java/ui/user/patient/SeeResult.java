@@ -4,7 +4,10 @@ import ui.element.*;
 import ui.element.DrawGraph;
 import ui.user.Temp;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created by Mona on 4/4/2015.
@@ -48,7 +51,7 @@ class SeeResult extends Temp{
         /*
         make the second window to show the result
          */
-          window2 = getWindow(second, false);
+         // window2 = getWindow(second, true);
 //
 //
 //        Object rowData[][] = { { "تست", "تست"}  };
@@ -75,18 +78,22 @@ class SeeResult extends Temp{
         int maxDataPoints = 16;
         int maxScore = 20;
         for (int i = 0; i < maxDataPoints ; i++) {
-            System.out.println("make dot!!!!");
             scores.add(random.nextInt(maxScore));
         }
         DrawGraph mainPanel = new DrawGraph(scores);
 
-       // JFrame frame = new JFrame("DrawGraph");
-       // //window2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        window2.getContentPane().add(mainPanel);
-        window2.pack();
-        window2.setLocationByPlatform(true);
-        window2.setVisible(true);
+        myJFrame frame = getWindow(second, true);
+      // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+        frame.getContentPane().add(mainPanel);
+        frame.pack();
+        //  frame.setLocationByPlatform(true);
+        frame.setVisible(true);
+//      //  mainPanel.repaint();
+//        window2.add(mainPanel);
+//        window2.pack();
+////        window2.setLocationByPlatform(true);
+//        window2.setVisible(true);
 
 
     }

@@ -9,6 +9,7 @@ import ui.user.patient.FirstPagePatient;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,6 +42,8 @@ public class Welcome extends TempFirst {
     public Welcome() {
         super();
         window = getWindow("", true);
+       // window.setLayout(new FlowLayout());
+      //  windowanel window = new windowanel();
 
         name = new myJLabel("به سامانه سلامت خوش آمدید");
         //name = new myJLabel("Hi welcome");
@@ -90,6 +93,8 @@ public class Welcome extends TempFirst {
         enroll.set(100, 400, 100, 40, "B Nazanin", 20);
         window.add(enroll);
 
+
+      //  window.getContentPane().add(window);
         enroll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // System.out.println("monaaaaaaaa");

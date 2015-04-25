@@ -20,7 +20,7 @@ public class Temp extends TempFirst{
 
 
 
-    protected myJFrame getWindow(String title, boolean vis){
+   public myJFrame getWindow(String title, boolean vis){
 
         window = new myJFrame("سامانه سلامت");
         window = window.makeWindow(window);
@@ -35,7 +35,7 @@ public class Temp extends TempFirst{
 
         profile = new myJButton(false);
         profile.setText("حساب کاربری");
-        profile.set(100, 50, 200, 40, "B Nazanin", 16);
+        profile.set(90, 50, 200, 40, "B Nazanin", 16);
 
         profile.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

@@ -12,6 +12,8 @@ import javax.swing.*;
  * Created by Mona on 4/5/2015.
  */
 class RefPro extends Temp {
+    private myJTextField ntext;
+    private myJLabel nameDr;
     private myJFrame window;
 
     private myJLabel text;
@@ -39,10 +41,17 @@ class RefPro extends Temp {
         utext.set(150, 200, 150, 200, "B Nazanin", 20);
         window.add(utext);
 
+        nameDr = new myJLabel("نام پزشک");
+        nameDr = nameDr.set(400, 400, 250, 20, "B Nazanin", 20);
+        window.add(nameDr);
+
+        ntext = new myJTextField("");
+        ntext.set(150, 400, 150, 40, "B Nazanin", 20);
+        window.add(ntext);
 
         send = new myJButton(false);
         send.setText("ارسال");
-        send.set(200, 400, 100, 40, "B Nazanin", 20);
+        send.set(200, 500, 100, 40, "B Nazanin", 20);
         window.add(send);
 
     }

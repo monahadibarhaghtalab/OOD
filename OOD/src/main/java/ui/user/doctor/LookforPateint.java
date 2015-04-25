@@ -7,6 +7,7 @@ import ui.element.myJLabel;
 import ui.user.Temp;
 import ui.user.patient.FirstPagePatient;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +30,8 @@ class LookforPateint  extends Temp {
 
         window1 = getWindow("جستجوی بیمار", true);
 
+       // window1anel window1 = new window1anel();
+
         name = new myJLabel("نام");
         name = name.set(300, 200, 50, 20, "B Nazanin", 20);
         window1.add(name);
@@ -42,22 +45,14 @@ class LookforPateint  extends Temp {
         family = family.set(300, 300, 50, 20, "B Nazanin", 20);
         window1.add(docNum);
 
-//        ntext = new myJTextField("");
-//        ntext=ntext.set(150, 200, 150, 20, "B Nazanin", 20);
-//        window1.add(ntext);
-//
-//        ftext = new myJTextField("");
-//        ftext.set(150, 250, 150, 20, "B Nazanin", 20);
-//        window1.add(ftext);
-//
-//        dtext = new myJTextField("");
-//        dtext.set(150, 300, 150, 20, "B Nazanin", 20);
-//        window1.add(dtext);
+
 
         search = new myJButton(false);
         search.setText("جستجو");
         search.set(200, 400, 100, 40, "B Nazanin", 20);
         window1.add(search);
+
+     //   window1.getContentPane().add(window1);
 
         window2 = getWindow("لیست بیماران", false);
 
@@ -130,7 +125,7 @@ class LookforPateint  extends Temp {
             }
         });
         seeHistory.setText("مشاهده سابقه بیماری");
-        seeHistory.set(200, 520, 150, 40, "B Nazanin", 20);
+        seeHistory.set(300, 580, 150, 40, "B Nazanin", 20);
         window2.add(seeHistory);
 
         seeHistory.addActionListener(new ActionListener() {

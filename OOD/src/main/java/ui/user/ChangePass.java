@@ -28,7 +28,7 @@ class ChangePass extends TempFirst {
     ChangePass(){
 
         window = getWindow("", true);
-
+        submit = new myJButton(false);
 
         labelLastPass = new myJLabel("رمز عبور قدیمی");
         labelLastPass = labelLastPass.set(400, 200, 250, 20, "B Nazanin", 20);
@@ -45,6 +45,7 @@ class ChangePass extends TempFirst {
 
         ptext = new myJTextField("");
         ptext.set(150, 200, 150, 20, "B Nazanin", 20);
+        ptext.repaint();
         window.add(ptext);
 
        submit = new myJButton(false);
@@ -55,7 +56,7 @@ class ChangePass extends TempFirst {
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // System.out.println("monaaaaaaaa");
-                new Profile();
+                new ChangeProfile();
                 window.setVisible(false);
             }
         });

@@ -20,7 +20,7 @@ class SeeHistory  extends Temp{
 
     private myJFrame win;
     SeeHistory(){
-        win = getWindow("مشاهده سوابق بیمار", true);
+        winMain = getWindow("مشاهده سوابق بیمار", true);
 
 
 

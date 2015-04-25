@@ -1,9 +1,6 @@
 package ui.user.patient;
 
-import ui.element.myJButton;
-import ui.element.myJFrame;
-import ui.element.myJLabel;
-import ui.element.myJTextField;
+import ui.element.*;
 import ui.user.Temp;
 
 /**
@@ -12,7 +9,9 @@ import ui.user.Temp;
 class Consult extends Temp {
 
 
-        private myJFrame window;
+    private myJComboBox detail;
+    private myJLabel nameDr;
+    private myJFrame window;
 
         private myJLabel title;
         private myJLabel message;
@@ -46,6 +45,17 @@ class Consult extends Temp {
             mtext = new myJTextField("");
             mtext.setBounds(150, 230, 150, 200);
             window.add(mtext);
+
+            nameDr = new myJLabel("نام پزشک");
+            nameDr = message.set(400, 400, 250, 20, "B Nazanin", 20);
+            window.add(nameDr);
+
+
+            detail = new myJComboBox();
+            detail.set(150, 400, 150, 20, "B Nazanin", 20);
+            detail.addItem("دکتر مینایی - عمومی");
+            detail.addItem("دکتر حقی-متخصص قلب");
+            detail.addItem("دکتر سلامتی - متخصص تغذیه");
 
 
             send = new myJButton(false);
