@@ -1,9 +1,7 @@
 package data.dao.imp;
 
-import ir.ood.learning.data.context.DatabaseContext;
-import ir.ood.learning.data.dao.ActionDao;
-import ir.ood.learning.data.entities.ActionEntity;
-import ir.ood.learning.data.entities.UserEntity;
+
+import data.dao.ActionDao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;

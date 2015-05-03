@@ -93,7 +93,8 @@ public class Welcome extends TempFirst {
         enroll.set(100, 400, 100, 40, "B Nazanin", 20);
         window.add(enroll);
 
-
+        window.pack();
+        window.setVisible(true);
       //  window.getContentPane().add(window);
         enroll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

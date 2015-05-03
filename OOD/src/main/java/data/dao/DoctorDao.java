@@ -9,6 +9,6 @@ import java.util.List;
  */
 public interface DoctorDao {
 
-    List<DoctorEntity> allList(DoctorEntity doctor);
+    List<DoctorEntity> getListDoctor(String prof);
 
 }

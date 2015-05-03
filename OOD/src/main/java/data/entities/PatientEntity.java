@@ -1,5 +1,6 @@
 package data.entities;
 
+import logical.User;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 
 @Table(name = "Patient")
 @Entity
-public class PatientEntity {
+public class PatientEntity extends UserEntity{
     private UUID guid;
     private String patientName;
     private String idCode;

@@ -8,6 +8,7 @@ import ui.user.Temp;
 import ui.user.patient.FirstPagePatient;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -51,6 +52,10 @@ class LookforPateint  extends Temp {
         search.setText("جستجو");
         search.set(200, 400, 100, 40, "B Nazanin", 20);
         window1.add(search);
+
+        window1.setLayout(new FlowLayout(FlowLayout.CENTER));
+        //window1.pack();
+        //window1.setVisible(true);
 
      //   window1.getContentPane().add(window1);
 
