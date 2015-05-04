@@ -10,18 +10,34 @@ import java.util.UUID;
  * Created by Mona on 3/14/2015.
  */
 
-@Table(name = "User")
+@Table(name = "MyUser")
 @Entity
 public class UserEntity extends MyEntity{
+
+    private UUID guid;
     @Id
-    @Type(type = "String")
-    @Column(name = "Id")
-    public String getId() {
-        return id;
+    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
+    @GeneratedValue(generator = "generator")
+    @Type(type = "uuid-binary")
+    @Column(name = "UUID" , columnDefinition="raw(16)")
+    public UUID getGuid() {
+        return guid;
     }
-    public void setId(String id) {
-        this.id = id;
+
+    public void setGuid(UUID guid) {
+        this.guid = guid;
     }
+
+
+//    @Id
+//   // @Type(type = "String")
+//    @Column(name = "Id")
+//    public String getId() {
+//        return id;
+//    }
+//    public void setId(String id) {
+//        this.id = id;
+//    }
 
 
 }

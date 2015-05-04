@@ -27,6 +27,14 @@
       <column name="IdCode" sqlType="VARCHAR" precision="23" scale="0" nullable="false" jdbcType="12"/>
       <column name="DoctorName" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
     </table>
+    <table name="user" schema="" catalog="health" type="TABLE">
+      <column name="DTYPE" sqlType="VARCHAR" precision="31" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="DoctorName" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IdCode" sqlType="VARCHAR" precision="23" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PatientName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="Id"/>
+    </table>
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM VIEW">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="DEFAULT_COLLATE_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>

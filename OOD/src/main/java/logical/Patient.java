@@ -6,7 +6,7 @@ package logical;
 public class Patient extends User {
     public String name;
     public String family;
-    
+
     void fun1(){
         int var1;
     }
