@@ -8,7 +8,7 @@ public class Patient extends User {
     public String family;
     
     void fun1(){
-        int var1;
+        System.Out.println();
     }
 
     //String
