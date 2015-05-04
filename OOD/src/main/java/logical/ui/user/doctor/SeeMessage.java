@@ -1,0 +1,72 @@
+package ui.user.doctor;
+
+import ui.element.myJButton;
+import ui.element.myJFrame;
+import ui.user.Temp;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/**
+ * Created by Mona on 3/30/2015.
+ */
+class SeeMessage extends Temp {
+
+    private myJFrame winMain;
+
+    private int numMessage = 1;
+    private myJButton[] arrayLabel;
+    private myJFrame[] arrayWin;
+    private int staticHeight = 30;
+
+
+
+    protected SeeMessage(){
+        super();
+
+        winMain = getWindow("پیام ها", true);
+
+        arrayLabel = new myJButton[numMessage];
+        arrayWin = new myJFrame[numMessage];
+
+        for (int i = 0; i < numMessage; i++){
+            arrayWin[i] = getWindow("پیام", false);
+
+
+            arrayLabel[i] = new myJButton(true);
+            arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
+            arrayLabel[i].setText("برای تست");
+//            arrayLabel[i].setBorderPainted(false);
+//            arrayLabel[i].setFocusPainted(false);
+//            arrayLabel[i].setContentAreaFilled(false);
+
+            winMain.add(arrayLabel[i]);
+
+            myJButton accept = new myJButton(false);
+            accept.setText("قبول");
+            accept.set(320, 400, 70, 30, "B Nazanin", 18);
+
+            myJButton reject = new myJButton(false);
+            reject.setText("رد درخواست");
+            reject.set(300, 450, 110, 30, "B Nazanin", 18);
+
+            arrayWin[i].add(accept);
+            arrayWin[i].add(reject);
+
+            final int finalI = i;
+            arrayLabel[i].addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // new showResult();
+                    arrayWin[finalI].setVisible(true);
+                    winMain.setVisible(false);
+                }
+            });
+        }
+
+
+
+
+
+
+    }
+}
