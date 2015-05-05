@@ -18,7 +18,7 @@ import java.util.UUID;
 @Table(name = "Patient")
 @Entity
 public class PatientEntity extends UserEntity{
-   // private UUID guid;
+    private UUID guid;
     private String patientName;
     private String idCode;
     private String doctorName;
@@ -35,18 +35,18 @@ public class PatientEntity extends UserEntity{
         setDoctorName(doctorName);
     }
 
-//    @Id
-//    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
-//    @GeneratedValue(generator = "generator")
-//    @Type(type = "uuid-binary")
-//    @Column(name = "UUID" , columnDefinition="raw(16)")
-//    public UUID getGuid() {
-//        return guid;
-//    }
-//
-//    public void setGuid(UUID guid) {
-//        this.guid = guid;
-//    }
+    @Id
+    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
+    @GeneratedValue(generator = "generator")
+    @Type(type = "uuid-binary")
+    @Column(name = "UUID" , columnDefinition="raw(16)")
+    public UUID getGuid() {
+        return guid;
+    }
+
+    public void setGuid(UUID guid) {
+        this.guid = guid;
+    }
 
     @Column(name = "PatientName",
             nullable = false,
