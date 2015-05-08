@@ -7,8 +7,8 @@ import java.util.ArrayList;
  */
 public class admin extends user {
     private ArrayList<message> messages;
-    public admin(String username, char[] password, String name) {
-        super(username, password, name);
+    public admin(String username, char[] password, String name, String familyName, int id) {
+        super(username, password, name, familyName, id);
         messages = new ArrayList<message>();
     }
 

@@ -1,10 +1,13 @@
 package main;
 
 import data.context.DatabaseContext;
-import data.entities.entityfile.PatientEntity;
+//import data.entities.PatientEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ui.user.general.Welcome;
+
+import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by Mona on 3/14/2015.
@@ -21,16 +24,15 @@ public class Main {
         Session session = null;
         Transaction tx = null;
       //  try {
-            session = new DatabaseContext().getSession();
-            tx = session.beginTransaction();
-
-            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
-            session.save(user);
-
-            System.out.println("after save!!");
-
-            tx.commit();
-            System.out.println("Everything saved successfully");
+//            session = new DatabaseContext().getSession();
+//            tx = session.beginTransaction();
+//
+//            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
+//            session.save(user);
+//
+//
+//            tx.commit();
+//            System.out.println("Everything saved successfully");
 //        } catch (Exception ex) {
 //            if (tx != null)
 //                tx.rollback();

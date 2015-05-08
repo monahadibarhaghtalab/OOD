@@ -10,12 +10,14 @@ import java.util.ArrayList;
  */
 public class doctor extends user{
     private ArrayList<patient> patients;
-    //ArrayList<message> messages;
+    String type;
+    ArrayList<message> messages;
     //ArrayList<message> consultations;
 
-    public doctor(String username, char[] password, String name) {
-        super(username, password, name);
+    public doctor(String username, char[] password, String name, String familyName, int doctorId) {
+        super(username, password, name, familyName, doctorId);
         patients = new ArrayList<patient>();
+        //this.type = type;
     }
 
     public ArrayList<patient> getPatients() {
@@ -25,4 +27,16 @@ public class doctor extends user{
     public void setPatients(ArrayList<patient> patients) {
         this.patients = patients;
     }
+//
+//    public patient searchPatients(patient p){
+//        for (int i = 0; i < patients.size(); i++){
+//            if(patients.get(i).getId() == p.getId())
+//                return patients.get(i);
+//        }
+//        return null;
+//    }
+//
+//    public ArrayList<message> getInbox(){
+//        return messages;
+//    }
 }

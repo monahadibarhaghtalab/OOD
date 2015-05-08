@@ -7,8 +7,10 @@ public class user {
     private String username;
     private char[] password;
     private String name;
-    private String type;
-    //private int id;
+    private String familyName;
+
+   // private String type;
+    private int id;
 
     public String getUsername() {
         return username;
@@ -34,19 +36,29 @@ public class user {
         this.name = name;
     }
 
+//
+//    public String getType() {
+//        return type;
+//    }
+//
+//    public void setType(String type) {
+//        this.type = type;
+//    }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public user(String username, char[] password, String name){
+    public user(String username, char[] password, String name, String familyName, int id){
         this.username = username;
         this.password = password;
         this.name = name;
+        this.familyName = familyName;
+        this.id = id;
       //  this.type = type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
