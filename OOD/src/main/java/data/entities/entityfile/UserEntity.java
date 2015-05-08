@@ -1,7 +1,8 @@
-package data.entities;
+package data.entities.entityfile;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -10,16 +11,16 @@ import java.util.UUID;
  * Created by Mona on 3/14/2015.
  */
 
-@Table(name = "MyUser")
+@Table(name = "mona")
 @Entity
-public class UserEntity extends MyEntity{
+public class UserEntity extends MyEntity {
 
     private UUID guid;
     @Id
     @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
     @GeneratedValue(generator = "generator")
     @Type(type = "uuid-binary")
-    @Column(name = "UUID" , columnDefinition="raw(16)")
+    @Column(name = "UUID" )
     public UUID getGuid() {
         return guid;
     }

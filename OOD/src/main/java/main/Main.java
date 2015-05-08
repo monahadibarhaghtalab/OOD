@@ -1,13 +1,10 @@
 package main;
 
 import data.context.DatabaseContext;
-import data.entities.PatientEntity;
+import data.entities.entityfile.PatientEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ui.user.general.Welcome;
-
-import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  * Created by Mona on 3/14/2015.
@@ -30,6 +27,7 @@ public class Main {
             PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
             session.save(user);
 
+            System.out.println("after save!!");
 
             tx.commit();
             System.out.println("Everything saved successfully");
