@@ -1,4 +1,4 @@
-package data.dao;
+package data.dao.inter;
 
 import data.entities.DoctorEntity;
 

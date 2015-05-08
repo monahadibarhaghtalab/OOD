@@ -1,23 +1,22 @@
-package data.entities;
+package data.entities.entityfile;
 
-import logical.User;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
+//import logical.User;
+//import org.hibernate.annotations.GenericGenerator;
+//import org.hibernate.annotations.Type;
+
+import data.entities.entityfile.UserEntity;
 
 import javax.persistence.*;
 
-import java.sql.Timestamp;
+import java.io.Serializable;
 import java.util.UUID;
 
 
 
-/**
- * Created by Mona on 3/14/2015.
- */
 
-@Table(name = "Patient")
 @Entity
-public class PatientEntity extends UserEntity{
+@Table(name = "Patient")
+public class PatientEntity  extends UserEntity implements Serializable {
     private UUID guid;
     private String patientName;
     private String idCode;
@@ -33,22 +32,23 @@ public class PatientEntity extends UserEntity{
         setIdCode(idCode);
         setPatientName(patientName);
         setDoctorName(doctorName);
+        System.out.println("inPatientEntity!!!!!  "+ patientName);
     }
 
-    @Id
-    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
-    @GeneratedValue(generator = "generator")
-    @Type(type = "uuid-binary")
-    @Column(name = "UUID" , columnDefinition="raw(16)")
-    public UUID getGuid() {
-        return guid;
-    }
+//    @Id
+//    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
+//    @GeneratedValue(generator = "generator")
+//    @Type(type = "uuid-binary")
+//    @Column(name = "UUID")
+//    public UUID getGuid() {
+//        return guid;
+//    }
+//
+//    public void setGuid(UUID guid) {
+//        this.guid = guid;
+//    }
 
-    public void setGuid(UUID guid) {
-        this.guid = guid;
-    }
-
-    @Column(name = "PatientName",
+    @Column(name = "patientname",
             nullable = false,
             length = 100)
     @Basic

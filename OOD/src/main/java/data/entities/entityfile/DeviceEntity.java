@@ -1,4 +1,4 @@
-package data.entities;
+package data.entities.entityfile;
 
 /**
  * Created by Mona on 3/14/2015.
