@@ -4,11 +4,25 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Health</property>
         <property name="hibernate.connection.username">root</property>
+<<<<<<< HEAD
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+=======
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
         <property name="show_sql">true</property>
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/healthsystem</property>
+        <property name="hibernate.connection.username">modb</property>
+        <property name="hibernate.connection.password">123</property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.default_schema">healthsystem</property>
+
+
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
 

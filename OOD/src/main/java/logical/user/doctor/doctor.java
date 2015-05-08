@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class doctor extends user{
     private ArrayList<patient> patients;
+<<<<<<< HEAD
     String type;
     ArrayList<message> messages;
     //ArrayList<message> consultations;
@@ -18,6 +19,14 @@ public class doctor extends user{
         super(username, password, name, familyName, doctorId);
         patients = new ArrayList<patient>();
         //this.type = type;
+=======
+    //ArrayList<message> messages;
+    //ArrayList<message> consultations;
+
+    public doctor(String username, char[] password, String name) {
+        super(username, password, name);
+        patients = new ArrayList<patient>();
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
     }
 
     public ArrayList<patient> getPatients() {
@@ -27,6 +36,7 @@ public class doctor extends user{
     public void setPatients(ArrayList<patient> patients) {
         this.patients = patients;
     }
+<<<<<<< HEAD
 //
 //    public patient searchPatients(patient p){
 //        for (int i = 0; i < patients.size(); i++){
@@ -39,4 +49,6 @@ public class doctor extends user{
 //    public ArrayList<message> getInbox(){
 //        return messages;
 //    }
+=======
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
 }

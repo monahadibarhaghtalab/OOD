@@ -7,10 +7,15 @@ public class user {
     private String username;
     private char[] password;
     private String name;
+<<<<<<< HEAD
     private String familyName;
 
    // private String type;
     private int id;
+=======
+    private String type;
+    //private int id;
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
 
     public String getUsername() {
         return username;
@@ -36,6 +41,7 @@ public class user {
         this.name = name;
     }
 
+<<<<<<< HEAD
 //
 //    public String getType() {
 //        return type;
@@ -60,5 +66,21 @@ public class user {
 
     public void setId(int id) {
         this.id = id;
+=======
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public user(String username, char[] password, String name){
+        this.username = username;
+        this.password = password;
+        this.name = name;
+      //  this.type = type;
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
     }
 }

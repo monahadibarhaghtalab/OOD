@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package data.dao.imp;
 import data.dao.AdminDao;
 import data.dao.UserFuncDao;
@@ -6,10 +7,14 @@ import logical.user.message;
 import logical.user.user;
 
 import java.util.ArrayList;
+=======
+package data.dao;
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
 
 /**
  * Created by a on 5/1/15.
  */
+<<<<<<< HEAD
 public class AdminDaoImpl implements UserFuncDao{
 
     @Override
@@ -49,4 +54,7 @@ public class AdminDaoImpl implements UserFuncDao{
         //get list of all patients from db and return it
         return null;
     }
+=======
+public class AdminDaoImpl implements AdminDao {
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
 }

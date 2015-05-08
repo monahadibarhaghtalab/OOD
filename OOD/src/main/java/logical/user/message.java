@@ -6,6 +6,7 @@ import java.util.Date;
  * Created by a on 5/1/15.
  */
 public class message {
+<<<<<<< HEAD
     private user sender;
     private user receiver;
     private String Content;
@@ -54,4 +55,11 @@ public class message {
     public void answermessage(String content){
         Content = content;
     }
+=======
+    String NameOfSender;
+    String NameOfReceiver;
+    String Content;
+    Date dateOdCreate;
+
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
 }

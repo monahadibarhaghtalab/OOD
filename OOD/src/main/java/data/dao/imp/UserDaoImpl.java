@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package data.dao.imp;
 
 import data.dao.UserDao;
@@ -46,3 +47,12 @@ public class UserDaoImpl implements UserDao {
 
 
 }
+=======
+package data.dao;
+
+/**
+ * Created by a on 5/1/15.
+ */
+//public class UserDaoImpl implements UserDao {
+//}
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
