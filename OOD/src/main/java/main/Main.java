@@ -1,15 +1,7 @@
 package main;
 
 import data.context.DatabaseContext;
-<<<<<<< HEAD
 //import data.entities.PatientEntity;
-=======
-<<<<<<< HEAD
-//import data.entities.PatientEntity;
-=======
-import data.entities.entityfile.PatientEntity;
->>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
->>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ui.user.general.Welcome;
@@ -32,10 +24,6 @@ public class Main {
         Session session = null;
         Transaction tx = null;
       //  try {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
 //            session = new DatabaseContext().getSession();
 //            tx = session.beginTransaction();
 //
@@ -45,21 +33,6 @@ public class Main {
 //
 //            tx.commit();
 //            System.out.println("Everything saved successfully");
-<<<<<<< HEAD
-=======
-=======
-            session = new DatabaseContext().getSession();
-            tx = session.beginTransaction();
-
-            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
-            session.save(user);
-
-            System.out.println("after save!!");
-
-            tx.commit();
-            System.out.println("Everything saved successfully");
->>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
->>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
 //        } catch (Exception ex) {
 //            if (tx != null)
 //                tx.rollback();

@@ -21,21 +21,12 @@
       <column name="id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
       <primary-key name="PRIMARY" columns="id"/>
     </table>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
     <table name="patient" schema="" catalog="health" type="TABLE">
       <column name="UUID" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12"/>
       <column name="PatientName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <column name="IdCode" sqlType="VARCHAR" precision="23" scale="0" nullable="false" jdbcType="12"/>
       <column name="DoctorName" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
     </table>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
->>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
     <table name="CHARACTER_SETS" schema="" catalog="information_schema" type="SYSTEM VIEW">
       <column name="CHARACTER_SET_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="DEFAULT_COLLATE_NAME" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
