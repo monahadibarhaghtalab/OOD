@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="DataSourceManagerImpl" format="xml" hash="3533897440">
+=======
+<<<<<<< HEAD
+  <component name="DataSourceManagerImpl" format="xml" hash="3533897440">
+=======
+  <component name="DataSourceManagerImpl" format="xml" hash="2473335942">
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
+>>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
     <data-source source="LOCAL" name="MySQL - Health@localhost" uuid="055ee427-463e-404f-9fae-ee28b513b538">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>

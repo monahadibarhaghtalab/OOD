@@ -7,6 +7,21 @@
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Health</property>
         <property name="hibernate.connection.username">root</property>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+=======
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
+        <property name="show_sql">true</property>
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/healthsystem</property>
+        <property name="hibernate.connection.username">modb</property>
+        <property name="hibernate.connection.password">123</property>
+        <property name="hibernate.connection.pool_size">10</property>
+>>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <!-- DB schema will be updated if needed -->

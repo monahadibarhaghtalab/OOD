@@ -12,11 +12,26 @@
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
         <mapping class="data.entities.DoctorEntity"/>
         <mapping class="data.entities.PatientEntity"/>
         <mapping class="data.entities.PrescriptionEntity"/>
         <mapping class="data.entities.DeviceEntity"/>
         <mapping class="data.entities.UserEntity"/>
+<<<<<<< HEAD
+=======
+=======
+        <mapping class="data.entities.entityfile.DoctorEntity"/>
+        <mapping class="data.entities.entityfile.PatientEntity"/>
+        <mapping class="data.entities.entityfile.PrescriptionEntity"/>
+        <mapping class="data.entities.entityfile.DeviceEntity"/>
+        <mapping class="data.entities.entityfile.UserEntity"/>
+        <mapping class="data.entities.entityfile.MyEntity"/>
+>>>>>>> 8811055fb541bc0d27c5edf7237993e31ef0c1d0
+>>>>>>> 47c94e9c1d0f41233979693bf53419de80897aa8
 
     </session-factory>
 </hibernate-configuration>
