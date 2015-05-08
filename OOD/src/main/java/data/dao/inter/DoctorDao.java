@@ -1,14 +1,15 @@
 package data.dao.inter;
 
-import data.entities.DoctorEntity;
+import data.entities.entityfile.DoctorEntity;
 
 import java.util.List;
 
 /**
  * Created by Mona on 4/2/2015.
  */
-public interface DoctorDao {
+public interface DoctorDao extends UserDao{
 
-    List<DoctorEntity> getListDoctor(String prof);
+    List<DoctorEntity> getListDoctorProf(String prof);
+    void savePatient(String Id);
 
 }

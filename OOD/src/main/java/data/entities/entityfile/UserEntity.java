@@ -1,6 +1,5 @@
 package data.entities.entityfile;
 
-import data.entities.MyEntity;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 

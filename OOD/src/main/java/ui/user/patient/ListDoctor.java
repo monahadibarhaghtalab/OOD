@@ -1,5 +1,9 @@
 package ui.user.patient;
 
+import data.dao.UserFuncDao;
+import data.dao.imp.patientDaoImpl;
+import logical.user.doctor.OrdDoctor;
+import logical.user.user;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -7,20 +11,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by Mona on 4/4/2015.
  */
 class ListDoctor extends Temp{
 
-
+    private UserFuncDao patientdao;
     private myJFrame winMain, window2;
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search, search1;
+    private ArrayList<OrdDoctor> searchDoctor;
 
-
-    protected ListDoctor(){
+    protected ListDoctor(ArrayList<OrdDoctor > doctor){
         super();
 
         winMain = getWindow("لیست پزشکان", true);
@@ -73,6 +78,7 @@ class ListDoctor extends Temp{
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
+
                 window2.setVisible(true);
                 winMain.setVisible(false);
             }
@@ -81,6 +87,13 @@ class ListDoctor extends Temp{
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
+                patientdao = new patientDaoImpl();
+                //field problem
+                ArrayList<user> temp = patientdao.search();
+
+                searchDoctor = new ArrayList<OrdDoctor>();
+                for (int i = 0; i< temp.size(); i++)
+                    searchDoctor.add((OrdDoctor)temp.get(i));
                 window2.setVisible(false);
               //  winMain.setVisible(false);
             }

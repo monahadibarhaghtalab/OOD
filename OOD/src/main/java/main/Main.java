@@ -1,7 +1,7 @@
 package main;
 
 import data.context.DatabaseContext;
-import data.entities.PatientEntity;
+//import data.entities.PatientEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ui.user.general.Welcome;
@@ -24,15 +24,15 @@ public class Main {
         Session session = null;
         Transaction tx = null;
       //  try {
-            session = new DatabaseContext().getSession();
-            tx = session.beginTransaction();
-
-            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
-            session.save(user);
-
-
-            tx.commit();
-            System.out.println("Everything saved successfully");
+//            session = new DatabaseContext().getSession();
+//            tx = session.beginTransaction();
+//
+//            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
+//            session.save(user);
+//
+//
+//            tx.commit();
+//            System.out.println("Everything saved successfully");
 //        } catch (Exception ex) {
 //            if (tx != null)
 //                tx.rollback();

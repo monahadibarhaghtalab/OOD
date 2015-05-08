@@ -1,6 +1,15 @@
 package ui.user.general;
+import data.dao.DoctorDao;
+import data.dao.UserDao;
+import data.dao.UserFuncDao;
+import data.dao.imp.AdminDaoImpl;
+import data.dao.imp.DoctorDaoImpl;
+import data.dao.imp.patientDaoImpl;
+import logical.user.doctor.OrdDoctor;
+import logical.user.user;
 
 import ui.element.*;
+import ui.user.FirstPageAdmin;
 import ui.user.TempFirst;
 import ui.user.doctor.FirstPageDoctor;
 import ui.user.drugstore.FirstPageDrug;
@@ -17,6 +26,10 @@ import java.awt.event.ActionListener;
  * Created by Mona on 3/14/2015.
  */
 public class Welcome extends TempFirst {
+    private user loginUser;
+    private UserFuncDao userdao;
+    //admin
+
     private static int height;
     private static int width;
 
@@ -77,10 +90,11 @@ public class Welcome extends TempFirst {
 
         type = new myJComboBox();
         type.set(150, 300, 150, 20, "B Nazanin", 20);
-        type.addItem("پزشک");
+        type.addItem("پزشک عمومی");
+        type.addItem("پزشک متخصص");
         type.addItem("بیمار");
         type.addItem("داروخانه");
-
+        type.addItem("مدیر سامانه");
         window.add(type);
 
         enter = new myJButton(false);
@@ -99,7 +113,7 @@ public class Welcome extends TempFirst {
         enroll.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // System.out.println("monaaaaaaaa");
-                new Enroll();
+                new Enroll(loginUser);
                 window.setVisible(false);
             }
         });
@@ -136,11 +150,44 @@ public class Welcome extends TempFirst {
 
     }
 
+    boolean authentication( char[] password){
+        if(ptext.getPassword().length != password.length)
+            return false;
+        for (int i = 0; i < password.length; i++){
+            if(password[i] != ptext.getPassword()[i])
+                return false;
+        }
+        return true;
+    }
     void actionEnter(){
-        if(type.getSelectedItem().toString().equals("پزشک")){
+        if(type.getSelectedItem().toString().equals("پزشک عمومی")){
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    userdao = new DoctorDaoImpl();
+
+                    loginUser = userdao.getUser(utext.getText());
+                    if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                       // userdao.Login(loginUser);
+                        userdao.retriveData(loginUser);
+                    }
                    // System.out.println("monaaaaaaaa");
+                    new FirstPageDoctor();
+                    window.setVisible(false);
+                }
+            });
+        }
+
+        if(type.getSelectedItem().toString().equals("پزشک متخصص")){
+            enter.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    // System.out.println("monaaaaaaaa");
+                    userdao = new DoctorDaoImpl();
+
+                    loginUser = userdao.getUser(utext.getText());
+                    if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                        // userdao.Login(loginUser);
+                        userdao.retriveData(loginUser);
+                    }
                     new FirstPageDoctor();
                     window.setVisible(false);
                 }
@@ -150,7 +197,31 @@ public class Welcome extends TempFirst {
             System.out.println("monaaaaaaaaaaaaaaaa ");
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    userdao = new patientDaoImpl();
+
+//                    loginUser = userdao.getUser(utext.getText());
+//                    if(!(loginUser.equals(null)) &&loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+//                        // userdao.Login(loginUser);
+//                        userdao.retriveData(loginUser);
+//                    }
                     new FirstPagePatient();
+                    window.setVisible(false);
+                }
+            });
+        }
+
+        else if(type.getSelectedItem().toString().equals("مدیر سامانه")){
+            System.out.println("monaaaaaaaaaaaaaaaa ");
+            enter.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    userdao = new AdminDaoImpl();
+
+                    loginUser = userdao.getUser(utext.getText());
+                    if(!(loginUser.equals(null)) && loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                        // userdao.Login(loginUser);
+                        //userdao.retriveData(loginUser);
+                    }
+                    new FirstPageAdmin();
                     window.setVisible(false);
                 }
             });
