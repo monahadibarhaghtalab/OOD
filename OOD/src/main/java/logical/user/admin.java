@@ -5,18 +5,18 @@ import java.util.ArrayList;
 /**
  * Created by a on 5/1/15.
  */
-public class admin extends user {
-    private ArrayList<message> messages;
-    public admin(String username, char[] password, String name, String familyName, int id) {
+public class Admin extends User {
+    private ArrayList<Message> messages;
+    public Admin(String username, char[] password, String name, String familyName, int id) {
         super(username, password, name, familyName, id);
-        messages = new ArrayList<message>();
+        messages = new ArrayList<Message>();
     }
 
-    public ArrayList<message> getMessages() {
+    public ArrayList<Message> getMessages() {
         return messages;
     }
 
-    public void setMessages(ArrayList<message> messages) {
+    public void setMessages(ArrayList<Message> messages) {
         this.messages = messages;
     }
 }

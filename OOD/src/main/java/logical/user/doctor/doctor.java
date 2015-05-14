@@ -1,30 +1,30 @@
 package logical.user.doctor;
-import logical.*;
 import logical.user.*;
-import logical.user.patient.patient;
+import logical.user.patient.Patient;
+
 
 import java.util.ArrayList;
 
 /**
  * Created by a on 5/1/15.
  */
-public class doctor extends user{
-    private ArrayList<patient> patients;
-    String type;
-    ArrayList<message> messages;
+public class Doctor extends User {
+    private ArrayList<Patient> patients;
+    String mytype;
+    ArrayList<Message> messages;
     //ArrayList<message> consultations;
 
-    public doctor(String username, char[] password, String name, String familyName, int doctorId) {
+    public Doctor(String username, String password, String name, String familyName, String doctorId) {
         super(username, password, name, familyName, doctorId);
-        patients = new ArrayList<patient>();
+        patients = new ArrayList<Patient>();
         //this.type = type;
     }
 
-    public ArrayList<patient> getPatients() {
+    public ArrayList<Patient> getPatients() {
         return patients;
     }
 
-    public void setPatients(ArrayList<patient> patients) {
+    public void setPatients(ArrayList<Patient> patients) {
         this.patients = patients;
     }
 //

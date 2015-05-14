@@ -5,26 +5,26 @@ import java.util.Date;
 /**
  * Created by a on 5/1/15.
  */
-public class message {
-    private user sender;
-    private user receiver;
+public class Message {
+    private User sender;
+    private User receiver;
     private String Content;
     private Date dateOdCreate;
 
 
-    public user getSender() {
+    public User getSender() {
         return sender;
     }
 
-    public void setSender(user sender) {
+    public void setSender(User sender) {
         sender = sender;
     }
 
-    public user getReceiver() {
+    public User getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(user receiver) {
+    public void setReceiver(User receiver) {
         receiver = receiver;
     }
 
@@ -45,7 +45,7 @@ public class message {
     }
 
 
-    public message(user sender, user receiver, Date date){
+    public Message(User sender, User receiver, Date date){
         this.receiver = receiver;
         this.sender = sender;
         dateOdCreate = date;

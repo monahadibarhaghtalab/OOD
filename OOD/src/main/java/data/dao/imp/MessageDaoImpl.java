@@ -10,7 +10,7 @@ import logical.user.*;
 public class MessageDaoImpl implements MessageDao {
 
     @Override
-    public void sendMessage(message message) {
+    public void sendMessage(Message message) {
         //save message in to receiver's db
     }
 }

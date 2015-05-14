@@ -12,11 +12,11 @@
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="data.entities.DoctorEntity"/>
-        <mapping class="data.entities.PatientEntity"/>
-        <mapping class="data.entities.PrescriptionEntity"/>
-        <mapping class="data.entities.DeviceEntity"/>
-        <mapping class="data.entities.UserEntity"/>
+        <mapping class="data.entities.entityfile.DoctorEntity"/>
+        <mapping class="data.entities.entityfile.PatientEntity"/>
+        <mapping class="data.entities.entityfile.PrescriptionEntity"/>
+        <mapping class="data.entities.entityfile.DeviceEntity"/>
+        <mapping class="data.entities.entityfile.UserEntity"/>
 
     </session-factory>
 </hibernate-configuration>

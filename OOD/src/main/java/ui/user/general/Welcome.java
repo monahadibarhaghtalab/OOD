@@ -1,12 +1,10 @@
 package ui.user.general;
-import data.dao.DoctorDao;
-import data.dao.UserDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
 import data.dao.imp.patientDaoImpl;
-import logical.user.doctor.OrdDoctor;
-import logical.user.user;
+import data.entities.autoentity.makeEntityFile;
+import logical.user.User;
 
 import ui.element.*;
 import ui.user.FirstPageAdmin;
@@ -16,9 +14,6 @@ import ui.user.drugstore.FirstPageDrug;
 import ui.user.patient.FirstPagePatient;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -26,7 +21,7 @@ import java.awt.event.ActionListener;
  * Created by Mona on 3/14/2015.
  */
 public class Welcome extends TempFirst {
-    private user loginUser;
+    private User loginUser;
     private UserFuncDao userdao;
     //admin
 
@@ -166,7 +161,7 @@ public class Welcome extends TempFirst {
                     userdao = new DoctorDaoImpl();
 
                     loginUser = userdao.getUser(utext.getText());
-                    if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                    if(loginUser.getMypassword().length != 0 && authentication(loginUser.getMypassword())){
                        // userdao.Login(loginUser);
                         userdao.retriveData(loginUser);
                     }
@@ -184,7 +179,7 @@ public class Welcome extends TempFirst {
                     userdao = new DoctorDaoImpl();
 
                     loginUser = userdao.getUser(utext.getText());
-                    if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                    if(loginUser.getMypassword().length != 0 && authentication(loginUser.getMypassword())){
                         // userdao.Login(loginUser);
                         userdao.retriveData(loginUser);
                     }
@@ -198,9 +193,10 @@ public class Welcome extends TempFirst {
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     userdao = new patientDaoImpl();
+                    new makeEntityFile();
 
 //                    loginUser = userdao.getUser(utext.getText());
-//                    if(!(loginUser.equals(null)) &&loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+//                    if(!(loginUser.equals(null)) &&loginUser.getMypassword().length != 0 && authentication(loginUser.getMypassword())){
 //                        // userdao.Login(loginUser);
 //                        userdao.retriveData(loginUser);
 //                    }
@@ -217,7 +213,7 @@ public class Welcome extends TempFirst {
                     userdao = new AdminDaoImpl();
 
                     loginUser = userdao.getUser(utext.getText());
-                    if(!(loginUser.equals(null)) && loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                    if(!(loginUser.equals(null)) && loginUser.getMypassword().length != 0 && authentication(loginUser.getMypassword())){
                         // userdao.Login(loginUser);
                         //userdao.retriveData(loginUser);
                     }

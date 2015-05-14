@@ -4,12 +4,10 @@ package ui.user;
  * Created by a on 5/8/15.
  */
 
-import data.dao.AdminDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import ui.element.myJButton;
 import ui.element.myJFrame;
-import ui.user.patient.*;
 import logical.user.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -90,7 +88,7 @@ public class FirstPageAdmin extends Temp {
         inbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 adminDao = new AdminDaoImpl();
-                ArrayList<message> messages =adminDao.readInbox();
+                ArrayList<Message> messages =adminDao.readInbox();
                 new Inbox(messages);
                 //  window.setVisible(false);
             }

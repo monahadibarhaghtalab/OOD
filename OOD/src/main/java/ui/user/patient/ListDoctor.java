@@ -3,7 +3,7 @@ package ui.user.patient;
 import data.dao.UserFuncDao;
 import data.dao.imp.patientDaoImpl;
 import logical.user.doctor.OrdDoctor;
-import logical.user.user;
+import logical.user.User;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -89,7 +89,7 @@ class ListDoctor extends Temp{
                 // new showResult();
                 patientdao = new patientDaoImpl();
                 //field problem
-                ArrayList<user> temp = patientdao.search();
+                ArrayList<User> temp = patientdao.search();
 
                 searchDoctor = new ArrayList<OrdDoctor>();
                 for (int i = 0; i< temp.size(); i++)

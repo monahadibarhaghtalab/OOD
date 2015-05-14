@@ -1,5 +1,6 @@
 package data.entities.entityfile;
 
+import logical.user.User;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
@@ -11,34 +12,18 @@ import java.util.UUID;
  * Created by Mona on 3/14/2015.
  */
 
-@Table(name = "mona")
-@Entity
+
 public class UserEntity extends MyEntity {
 
-    private UUID guid;
-    @Id
-    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
-    @GeneratedValue(generator = "generator")
-    @Type(type = "uuid-binary")
-    @Column(name = "UUID" )
-    public UUID getGuid() {
-        return guid;
+
+    private String username;
+    private String password;
+    private String name;
+    private String familyName;
+    private String id;
+
+    public User getUser(){
+        User res = new User(this.username, this.password, this.name, this.familyName, this.id);
+        return res;
     }
-
-    public void setGuid(UUID guid) {
-        this.guid = guid;
-    }
-
-
-//    @Id
-//   // @Type(type = "String")
-//    @Column(name = "Id")
-//    public String getId() {
-//        return id;
-//    }
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-
-
 }

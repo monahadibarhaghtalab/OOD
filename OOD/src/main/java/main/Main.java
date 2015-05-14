@@ -23,24 +23,24 @@ public class Main {
     private static void createSomeData() {
         Session session = null;
         Transaction tx = null;
-      //  try {
-//            session = new DatabaseContext().getSession();
-//            tx = session.beginTransaction();
-//
+        try {
+            session = new DatabaseContext().getSession();
+            tx = session.beginTransaction();
+
 //            PatientEntity user = new PatientEntity("Mona2", "12345", "Hadi");
 //            session.save(user);
-//
-//
-//            tx.commit();
-//            System.out.println("Everything saved successfully");
-//        } catch (Exception ex) {
-//            if (tx != null)
-//                tx.rollback();
-//            throw new RuntimeException(ex);
-//        }
-        //finally {
-//            if (session != null)
-//                session.close();
-//        }
+
+
+            tx.commit();
+            System.out.println("Everything saved successfully");
+        } catch (Exception ex) {
+            if (tx != null)
+                tx.rollback();
+            throw new RuntimeException(ex);
+        }
+        finally {
+            if (session != null)
+                session.close();
+        }
     }
 }

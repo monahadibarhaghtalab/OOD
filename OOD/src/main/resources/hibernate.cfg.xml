@@ -6,17 +6,17 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Health</property>
-        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.myusername">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <!-- DB schema will be updated if needed -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="data.entities.DoctorEntity"/>
-        <mapping class="data.entities.PatientEntity"/>
-        <mapping class="data.entities.PrescriptionEntity"/>
-        <mapping class="data.entities.DeviceEntity"/>
-        <mapping class="data.entities.UserEntity"/>
+        <mapping class="data.entities.entityfile.DoctorEntity"/>
+        <mapping class="data.entities.entityfile.PatientEntity"/>
+        <mapping class="data.entities.entityfile.PrescriptionEntity"/>
+        <mapping class="data.entities.entityfile.DeviceEntity"/>
+        <mapping class="data.entities.entityfile.UserEntity"/>
 
     </session-factory>
 </hibernate-configuration>

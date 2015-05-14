@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Created by a on 5/1/15.
  */
-public class profile {
-    private ArrayList<recipe> recipes;
+public class Profile {
+    private ArrayList<Recipe> recipes;
     private ArrayList<disease> DiseaseHistory;
    // private ArrayList<activity> Activities;
    // private ArrayList<physicalState> PhysicalStates;

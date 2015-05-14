@@ -4,5 +4,17 @@
     <data-source name="MySQL - Health@localhost" uuid="055ee427-463e-404f-9fae-ee28b513b538">
       <user-name>root</user-name>
     </data-source>
+    <data-source name="MySQL - health@localhost" uuid="6a28825a-c400-4a77-b90e-83107bd48cf9">
+      <secret-storage>master_key</secret-storage>
+      <user-name>modb</user-name>
+      <schema-pattern>health.*</schema-pattern>
+      <default-schemas>health.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - healthsystem@localhost" uuid="e948ca33-c243-4d63-ba8d-ddd989bc5e17">
+      <secret-storage>master_key</secret-storage>
+      <user-name>modb</user-name>
+      <schema-pattern>healthsystem.*</schema-pattern>
+      <default-schemas>healthsystem.*</default-schemas>
+    </data-source>
   </component>
 </project>

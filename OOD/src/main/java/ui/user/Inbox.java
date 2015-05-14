@@ -1,6 +1,6 @@
 package ui.user;
 
-import logical.user.message;
+import logical.user.Message;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 
@@ -20,7 +20,7 @@ class Inbox extends Temp {
     private int staticHeight = 30;
 
 
-    protected Inbox(ArrayList<message> messages) {
+    protected Inbox(ArrayList<Message> messages) {
         super();
 
         winMain = getWindow("پیام ها", true);

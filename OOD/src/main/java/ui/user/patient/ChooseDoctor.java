@@ -1,10 +1,9 @@
 package ui.user.patient;
 
-import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.patientDaoImpl;
 import logical.user.doctor.OrdDoctor;
-import logical.user.user;
+import logical.user.User;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -40,7 +39,7 @@ class ChooseDoctor extends Temp {
             public void actionPerformed(ActionEvent e) {
                 pationtdao = new patientDaoImpl();
                 ArrayList<OrdDoctor> doctor = new ArrayList<OrdDoctor>();
-                ArrayList<user> temp = pationtdao.showListOfUser();
+                ArrayList<User> temp = pationtdao.showListOfUser();
                 for (int i = 0; i < temp.size();i++){
                     doctor.add((OrdDoctor)temp.get(i));
                 }

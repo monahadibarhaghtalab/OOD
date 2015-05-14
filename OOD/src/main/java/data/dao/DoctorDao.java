@@ -1,8 +1,7 @@
 package data.dao;
 
-import logical.user.doctor.doctor;
-import logical.user.patient.patient;
-import logical.user.user;
+import logical.user.doctor.Doctor;
+import logical.user.patient.Patient;
 
 import java.util.ArrayList;
 
@@ -10,7 +9,7 @@ import java.util.ArrayList;
  * Created by a on 5/1/15.
  */
 public interface DoctorDao {
-    public ArrayList<patient> showListOfPatient(doctor doctor);
-    public patient searchPatient(doctor doctor, int ID);
+    public ArrayList<Patient> showListOfPatient(Doctor doctor);
+    public Patient searchPatient(Doctor doctor, String ID);
 
 }

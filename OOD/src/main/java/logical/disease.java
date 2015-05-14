@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by a on 5/1/15.
  */
-public class disease {
+public class Disease {
     private String NameOfDisease;
     private String NameOfDoctor;
     private String NameOfPatient;

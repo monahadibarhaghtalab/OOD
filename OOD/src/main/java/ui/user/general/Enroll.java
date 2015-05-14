@@ -1,23 +1,17 @@
 package ui.user.general;
 
-import data.dao.AdminDao;
 import data.dao.MessageDao;
 import data.dao.UserDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
-import data.dao.imp.DoctorDaoImpl;
-import logical.user.admin;
+import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
-import logical.user.doctor.doctor;
-import logical.user.doctor.expertDoctor;
-import logical.user.message;
-import logical.user.patient.patient;
-import logical.user.user;
+import logical.user.doctor.ExpertDoctor;
+import logical.user.Message;
+import logical.user.patient.Patient;
+import logical.user.User;
 import ui.element.*;
 import ui.user.TempFirst;
-import ui.user.doctor.FirstPageDoctor;
-import ui.user.drugstore.FirstPageDrug;
-import ui.user.patient.FirstPagePatient;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +25,7 @@ class Enroll  extends TempFirst {
 
     private UserDao userdao;
     private MessageDao messagedao;
-    private admin admin;
+    private Admin admin;
     private  myJComboBox type;
     private myJFrame window;
 
@@ -56,7 +50,7 @@ class Enroll  extends TempFirst {
     private myJButton enter;
 
 
-    public Enroll(user user) {
+    public Enroll(User user) {
         super();
         //change
        // tempUser = user;
@@ -142,23 +136,23 @@ class Enroll  extends TempFirst {
                 // System.out.println("monaaaaaaaa");
                 //check type of user
                 UserFuncDao adminDao = new AdminDaoImpl();
-                admin = (admin)adminDao.getUser("admin");
+                admin = (Admin)adminDao.getUser("admin");
                 if(type.getSelectedItem().toString().equals("پزشک عمومی")){
-                    user tempUser = new OrdDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
-                    message request = new message(tempUser, admin, new Date());
+                    User tempUser = new OrdDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
+                    Message request = new Message(tempUser, admin, new Date());
                     messagedao.sendMessage(request);
 //
 
                 }
                 else if(type.getSelectedItem().toString().equals("پزشک متخصص")){
-                    user tempUser = new expertDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
-                    message request = new message(tempUser, admin, new Date());
+                    User tempUser = new ExpertDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
+                    Message request = new Message(tempUser, admin, new Date());
                     messagedao.sendMessage(request);
 
                 }
                 else if(type.getSelectedItem().toString().equals("بیمار")){
-                    user tempUser = new patient(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
-                    message request = new message(tempUser, admin, new Date());
+                    User tempUser = new Patient(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
+                    Message request = new Message(tempUser, admin, new Date());
                     messagedao.sendMessage(request);
                 }
 

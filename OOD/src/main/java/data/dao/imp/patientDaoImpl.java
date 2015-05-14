@@ -1,8 +1,8 @@
 package data.dao.imp;
 
 import data.dao.UserFuncDao;
-import logical.user.message;
-import logical.user.user;
+import logical.user.Message;
+import logical.user.User;
 
 import java.util.ArrayList;
 
@@ -11,40 +11,40 @@ import java.util.ArrayList;
  */
 public class patientDaoImpl implements UserFuncDao {
     @Override
-    public ArrayList<message> readInbox() {
+    public ArrayList<Message> readInbox() {
         //liste payamhaye bimar
         return null;
     }
 
     @Override
-    public void SignUp(user user) {
+    public void SignUp(User user) {
         //save patient to db
     }
 
     @Override
-    public void Login(user user) {
+    public void Login(User user) {
 
     }
 
     @Override
-    public user getUser(String username) {
+    public User getUser(String username) {
         //return patient from db
         return null;
     }
 
     @Override
-    public void retriveData(user user) {
+    public void retriveData(User user) {
         //find list of messages ..
     }
 
     @Override
-    public ArrayList<user> search() {
+    public ArrayList<User> search() {
         //doctor omoomi motenaseb ba field ha ra miabim
         return null;
     }
 
     @Override
-    public ArrayList<user> showListOfUser() {
+    public ArrayList<User> showListOfUser() {
         //liste doctorhaye omoomi az db khande va namayesh dade mishavad
         return null;
     }

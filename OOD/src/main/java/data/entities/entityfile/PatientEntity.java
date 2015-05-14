@@ -4,7 +4,7 @@ package data.entities.entityfile;
 //import org.hibernate.annotations.GenericGenerator;
 //import org.hibernate.annotations.Type;
 
-import data.entities.entityfile.UserEntity;
+import logical.user.patient.Patient;
 
 import javax.persistence.*;
 
@@ -28,11 +28,9 @@ public class PatientEntity  extends UserEntity implements Serializable {
 
     public PatientEntity() { }
 
-    public PatientEntity(String patientName, String idCode, String doctorName) {
-        setIdCode(idCode);
-        setPatientName(patientName);
-        setDoctorName(doctorName);
-        System.out.println("inPatientEntity!!!!!  "+ patientName);
+
+    public PatientEntity(Patient user) {
+        super();
     }
 
 //    @Id

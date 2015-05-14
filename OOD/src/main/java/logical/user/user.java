@@ -3,29 +3,29 @@ package logical.user;
 /**
  * Created by a on 5/1/15.
  */
-public class user {
-    private String username;
-    private char[] password;
+public class User {
+    private String myusername;
+    private String mypassword;
     private String name;
     private String familyName;
 
    // private String type;
-    private int id;
+    private String id;
 
-    public String getUsername() {
-        return username;
+    public String getMyusername() {
+        return myusername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setMyusername(String myusername) {
+        this.myusername = myusername;
     }
 
-    public char[] getPassword() {
-        return password;
+    public String getMypassword() {
+        return mypassword;
     }
 
-    public void setPassword(char[] password) {
-        this.password = password;
+    public void setMypassword(String mypassword) {
+        this.mypassword = mypassword;
     }
 
     public String getName() {
@@ -45,20 +45,20 @@ public class user {
 //        this.type = type;
 //    }
 
-    public user(String username, char[] password, String name, String familyName, int id){
-        this.username = username;
-        this.password = password;
+    public User(String username, String password, String name, String familyName, String id){
+        this.myusername = username;
+        this.mypassword = password;
         this.name = name;
         this.familyName = familyName;
         this.id = id;
       //  this.type = type;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }
