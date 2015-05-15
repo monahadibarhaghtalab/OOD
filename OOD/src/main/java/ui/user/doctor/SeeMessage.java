@@ -1,28 +1,46 @@
 package ui.user.doctor;
 
+import data.dao.UserFuncDao;
+import data.dao.imp.DoctorDaoImpl;
+import data.dao.imp.patientDaoImpl;
+import logical.user.doctor.OrdDoctor;
+import logical.user.doctor.Doctor;
+import logical.user.doctor.ExpertDoctor;
+import logical.user.Message;
+import logical.user.patient.Patient;
+import logical.user.User;
 import ui.element.myJButton;
 import ui.element.myJFrame;
+import ui.element.myJLabel;
+import ui.element.myJTextField;
 import ui.user.Temp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by Mona on 3/30/2015.
  */
-class SeeMessage extends Temp {
+public class SeeMessage extends Temp {
 
     private myJFrame winMain;
 
-    private int numMessage = 1;
+    private int numMessage;
     private myJButton[] arrayLabel;
     private myJFrame[] arrayWin;
     private int staticHeight = 30;
+    private myJLabel labelsender;
+    private myJTextField sendertext;
+    private UserFuncDao myUserdao;
+    private ArrayList<Message> messages;
 
 
 
-    protected SeeMessage(){
+    public SeeMessage(ArrayList<Message> mymessages, String type){
         super();
+        messages = mymessages;
+        numMessage = messages.size();
 
         winMain = getWindow("پیام ها", true);
 
@@ -35,7 +53,7 @@ class SeeMessage extends Temp {
 
             arrayLabel[i] = new myJButton(true);
             arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
-            arrayLabel[i].setText("برای تست");
+            arrayLabel[i].setText(messages.get(i).getContent());
 //            arrayLabel[i].setBorderPainted(false);
 //            arrayLabel[i].setFocusPainted(false);
 //            arrayLabel[i].setContentAreaFilled(false);
@@ -45,10 +63,45 @@ class SeeMessage extends Temp {
             myJButton accept = new myJButton(false);
             accept.setText("قبول");
             accept.set(320, 400, 70, 30, "B Nazanin", 18);
+            final int finalTemp = i;
+            final String finalType = type;
+            accept.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    if(finalType.equals("doctor")) {
+                        myUserdao = new DoctorDaoImpl();
+                        DoctorDaoImpl tempMyUserDao = (DoctorDaoImpl)myUserdao;
+                        tempMyUserDao.addPatient((Doctor) messages.get(finalTemp).getReceiver(), (Patient) messages.get(finalTemp).getSender());
+                    }
+                    //  window.setVisible(false);
+                    if(finalType.equals("admin")) {
+                        User t = messages.get(finalTemp).getSender();
+                        if (t.getClass().equals(Doctor.class)|| t.getClass().equals(OrdDoctor.class) || t.getClass().equals(ExpertDoctor.class))
+                            myUserdao = new DoctorDaoImpl();
+                        if (t.getClass().equals(Patient.class))
+                            myUserdao = new patientDaoImpl();
+
+                        myUserdao.SignUp(messages.get(finalTemp).getSender());
+                       // doctordao.addPatient((doctor) messages.get(finalTemp).getReceiver(), (patient) messages.get(finalTemp).getSender());
+                    }
+                }
+            });
 
             myJButton reject = new myJButton(false);
             reject.setText("رد درخواست");
             reject.set(300, 450, 110, 30, "B Nazanin", 18);
+
+
+            labelsender = new myJLabel("نام کاربری");
+            labelsender = labelsender.set(400, 250, 250, 20, "B Nazanin", 20);
+            arrayWin[i].add(labelsender);
+
+            sendertext = new myJTextField(messages.get(i).getSender().getName() +" "+ messages.get(i).getSender().getFamilyName());
+            sendertext.set(150, 250, 150, 20, "B Nazanin", 20);
+            arrayWin[i].add(sendertext);
+
+//            typrtext = new myJTextField(messages.get(i).getSender().getName() +" "+ messages.get(i).getSender().getFamilyName());
+//            typetext.set(150, 400, 150, 20, "B Nazanin", 20);
+//            arrayWin[i].add(typetext);
 
             arrayWin[i].add(accept);
             arrayWin[i].add(reject);

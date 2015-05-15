@@ -1,22 +1,29 @@
 package ui.user.doctor;
 
+import data.dao.UserFuncDao;
+import data.dao.imp.DoctorDaoImpl;
+import data.dao.imp.patientDaoImpl;
+import logical.user.doctor.Doctor;
+import logical.user.patient.Patient;
+import logical.user.User;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJTextField;
 import ui.element.myJLabel;
 import ui.user.Temp;
-import ui.user.patient.FirstPagePatient;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by Mona on 3/15/2015.
  */
-class LookforPateint  extends Temp {
-
+public class LookforPateint  extends Temp {
+    private UserFuncDao userdao;
+    private Patient p;
+    private Doctor d;
     private  myJButton seeHistory;
     private myJFrame window1, window2;
     private myJLabel name, family, docNum;
@@ -26,7 +33,7 @@ class LookforPateint  extends Temp {
     private myJButton submitHealth, referencePro, addHistory, changePro, archive, prescript;
 
 
-    protected LookforPateint() {
+    public LookforPateint() {
         super();
 
         window1 = getWindow("جستجوی بیمار", true);
@@ -69,7 +76,19 @@ class LookforPateint  extends Temp {
         prescript = new myJButton(false);
         seeHistory = new myJButton(false);
 
-        window2.add(name); window2.add(family); window2.add(docNum);
+        window2.add(name); window2.add(family); //window2.add(docNum);
+
+        ntext = new myJTextField("");
+        ntext.set(150, 200, 50, 20, "B Nazanin", 20);
+        window2.add(ntext);
+
+        ftext = new myJTextField("");
+        ftext.set(150, 250, 50, 20, "B Nazanin", 20);
+        window2.add(ftext);
+
+        ntext.setText(p.getName());
+        ftext.setText(p.getFamilyName());
+
 
         submitHealth.setText("ثبت وضعیت جسمانی");
         submitHealth.set(400, 400, 150, 40, "B Nazanin", 20);
@@ -99,7 +118,7 @@ class LookforPateint  extends Temp {
 
         addHistory.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new AddHistiory();
+                new AddHistiory(p, d);
                 //  window.setVisible(false);
             }
         });
@@ -125,7 +144,7 @@ class LookforPateint  extends Temp {
 
         prescript.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new WritePres();
+                new WritePres(p, d);
                 //  window.setVisible(false);
             }
         });
@@ -141,6 +160,14 @@ class LookforPateint  extends Temp {
         });
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                userdao = new DoctorDaoImpl();
+
+                ArrayList<User> tmp = userdao.search();
+                if (tmp.size() != 0){
+                    p = (Patient) tmp.get(0);
+                    d = new patientDaoImpl().findOrdDoctor(p);
+                }
+
                 window2.setVisible(true);
                 window1.setVisible(false);
             }

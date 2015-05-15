@@ -1,30 +1,37 @@
 package ui.user.doctor;
 
+import data.dao.UserFuncDao;
+import data.dao.imp.DoctorDaoImpl;
+import logical.user.doctor.Doctor;
+import logical.user.Message;
+import logical.user.patient.Patient;
+import logical.user.User;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.user.Temp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * Created by Mona on 3/15/2015.
  */
 public class FirstPageDoctor extends Temp {
     private myJFrame window;
-
+    private UserFuncDao doctordao;
+    private Doctor mydoctor;
     private myJButton historyPatient;
     private myJButton seeMessage;
     private myJButton seeConsult;
     private myJButton getReport;
     private myJButton seeList;
 
-    public  FirstPageDoctor(){
+    public  FirstPageDoctor(final Doctor doctor){
         super();
 
         window = getWindow("ورود به عنوان پزشک", true);
-
+        mydoctor = doctor;
         historyPatient = new myJButton(false);
         seeMessage = new myJButton(false);
         seeConsult = new myJButton(false);
@@ -51,7 +58,10 @@ public class FirstPageDoctor extends Temp {
 
         seeMessage.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SeeMessage();
+                doctordao = new DoctorDaoImpl();
+                //noe doctor
+                ArrayList<Message> messages = doctordao.readInbox(mydoctor);
+                new SeeMessage(messages,"doctor");
                 //  window.setVisible(false);
             }
         });
@@ -84,7 +94,12 @@ public class FirstPageDoctor extends Temp {
 
         seeList.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new ListPatient();
+                ArrayList<User> tmp = doctordao.showListOfUser();
+                ArrayList<Patient> patients = new ArrayList<Patient>();
+                for (int i = 0; i< tmp.size(); i++){
+                    patients.add((Patient) tmp.get(i));
+                }
+                new ListPatient(patients);
                 //  window.setVisible(false);
             }
         });

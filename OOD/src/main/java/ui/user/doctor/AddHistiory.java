@@ -1,18 +1,27 @@
 package ui.user.doctor;
 
+import data.dao.imp.patientDaoImpl;
+import logical.Disease;
+import logical.user.doctor.Doctor;
+import logical.user.patient.Patient;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
 import ui.element.myJTextField;
 import ui.user.Temp;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+
 /**
  * Created by Mona on 4/5/2015.
  */
 class AddHistiory extends Temp {
-
+    private Patient p;
+    private Doctor d;
     private myJFrame window;
-
+    private patientDaoImpl userdao;
     private myJLabel date;
     private myJLabel name;
     private myJLabel type;
@@ -28,8 +37,10 @@ class AddHistiory extends Temp {
     private myJButton enter;
 
 
-    public AddHistiory() {
+    public AddHistiory(Patient patient, Doctor doctor) {
         super();
+        p = patient;
+        d = doctor;
         window = getWindow("افزودن سابقه بیماری", true);
 
 
@@ -70,6 +81,15 @@ class AddHistiory extends Temp {
         enter.setText("ثبت");
         enter.set(200, 500, 100, 40, "B Nazanin", 20);
         window.add(enter);
+        enter.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                userdao = new patientDaoImpl();
+                Disease hist = new Disease(htext.getText(), d.getUsername(),  p.getUsername(), new Date());
+//signs
+                userdao.addHistory(p, hist);
+
+            }
+        });
     }
 
 }

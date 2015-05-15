@@ -4,13 +4,13 @@ package logical.user;
  * Created by a on 5/1/15.
  */
 public class User {
-    private String myusername;
-    private char[] mypassword;
-    private String name;
-    private String familyName;
+    public String username;
+    public char[] password;
+    public String name;
+    public String familyName;
 
    // private String type;
-    private String id;
+    public int id;
 
     public String getMyusername() {
         return myusername;
@@ -20,12 +20,12 @@ public class User {
         this.myusername = myusername;
     }
 
-    public char[] getMypassword() {
-        return mypassword;
+    public char[] getPassword() {
+        return password;
     }
 
-    public void setMypassword(char[] mypassword) {
-        this.mypassword = mypassword;
+    public void setPassword(char[] password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -45,9 +45,9 @@ public class User {
 //        this.type = type;
 //    }
 
-    public User(String username, char[] password, String name, String familyName, String id){
-        this.myusername = username;
-        this.mypassword = password;
+    public User(String username, char[] password, String name, String familyName, int id){
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.familyName = familyName;
         this.id = id;
@@ -60,5 +60,13 @@ public class User {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
 }
