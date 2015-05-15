@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by a on 5/8/15.
  */
-public class patientDaoImpl extends DaoImp implements UserFuncDao{
+public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     @Override
     public ArrayList<Message> readInbox() {
         //liste payamhaye bimar

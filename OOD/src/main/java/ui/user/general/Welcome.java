@@ -2,8 +2,7 @@ package ui.user.general;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
-import data.dao.imp.patientDaoImpl;
-import data.entities.autoentity.MakeEntityFile;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.User;
 
 import ui.element.*;
@@ -192,7 +191,7 @@ public class Welcome extends TempFirst {
             System.out.println("monaaaaaaaaaaaaaaaa ");
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    userdao = new patientDaoImpl();
+                    userdao = new PatientDaoImpl();
                     new makeEntityFile();
 
 //                    loginUser = userdao.getUser(utext.getText());
