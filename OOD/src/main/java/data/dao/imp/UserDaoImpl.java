@@ -14,19 +14,24 @@ import java.util.List;
 /**
  * Created by a on 5/8/15.
  */
-public class UserDaoImpl implements UserDao {
-    Session  session;
-    SQLQuery query;
+public class UserDaoImpl extends DaoImp implements UserDao {
+//    Session  session;
+//    SQLQuery query;
 
-    UserDaoImpl(){
-        Transaction tx = session.beginTransaction();
-
-    }
+//    UserDaoImpl(){
+//        Transaction tx = session.beginTransaction();
+//
+//    }
 
     @Override
     public void SignUp(User user) {
         //save user in db
 
+
+    }
+
+    @Override
+    public void Login(User user) {
 
     }
 
@@ -43,6 +48,11 @@ public class UserDaoImpl implements UserDao {
 
 
         return user.get(0).getUser();
+    }
+
+    @Override
+    public void retriveData(User user) {
+
     }
 
 //    @Override

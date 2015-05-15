@@ -1,5 +1,7 @@
 package data.entities.entityfile;
 
+import logical.user.Message;
+
 import java.util.UUID;
 
 /**
@@ -7,9 +9,18 @@ import java.util.UUID;
  */
 public class MessageEntity {
     private long id;
+    private Message message;
+
+    public MessageEntity(Message message) {
+
+    }
 
     public void setid(long id) {
         this.id = id;
+    }
+
+    public Message getMessage() {
+        return message;
     }
 //
 //    public void setsenderId(UUID senderId) {

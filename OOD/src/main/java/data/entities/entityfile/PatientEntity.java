@@ -21,6 +21,7 @@ public class PatientEntity  extends UserEntity implements Serializable {
     private String patientName;
     private String idCode;
     private String doctorName;
+    private Patient patient;
     //  private String problem;
     //  private UUID userId;
 
@@ -80,6 +81,10 @@ public class PatientEntity  extends UserEntity implements Serializable {
     }
     public void setDoctorName(String doctorName) {
         this.doctorName = doctorName;
+    }
+
+    public Patient getPatient() {
+        return patient;
     }
 /*
 

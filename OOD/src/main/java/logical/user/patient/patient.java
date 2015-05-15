@@ -14,7 +14,7 @@ public class Patient extends User {
     private String NameOfDoctor;
    // private int NationalId;
     private ArrayList<Message> messages;
-    public Patient(String username, char[] password, String name, String familyName, int id) {
+    public Patient(String username, String password, String name, String familyName, String id) {
         super(username, password, name, familyName, id);
     }
 }

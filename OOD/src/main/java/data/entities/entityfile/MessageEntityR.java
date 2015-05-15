@@ -1,5 +1,6 @@
 package data.entities.entityfile;
 
+import logical.user.Message;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Basic;
@@ -17,6 +18,10 @@ public class MessageEntityR extends MessageEntity {
 
     private UUID userIdSender;
     private UUID userIdReceiver;
+
+    public MessageEntityR(Message message) {
+        super(message);
+    }
 
 
     @Column(name = "UserIdSender",

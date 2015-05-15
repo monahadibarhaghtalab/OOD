@@ -21,15 +21,15 @@ import java.util.UUID;
 /**
  * Created by a on 5/1/15.
  */
-public class AdminDaoImpl implements UserFuncDao{
+public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
 
-    Session session;
-    Transaction tx;
-
-    public AdminDaoImpl(){
-        session = new DatabaseContext().getSession();
-        tx = session.beginTransaction();
-    }
+//    Session session;
+//    Transaction tx;
+//
+//    public AdminDaoImpl(){
+//        session = new DatabaseContext().getSession();
+//        tx = session.beginTransaction();
+//    }
 
     @Override
     public ArrayList<Message> readInbox() {
@@ -104,7 +104,7 @@ public class AdminDaoImpl implements UserFuncDao{
     public ArrayList<User> showListOfUser() {
         //get list of all patients from db and return it
 
-        List<UserEntity> list = session.createSQLQuery("from myMessage").list();
+        List<UserEntity> list = session.createSQLQuery("from myUser").list();
         ArrayList<User> users = new ArrayList<User>();
 
         for(int i = 0; i < list.size(); i++){

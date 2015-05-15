@@ -3,7 +3,7 @@ import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
 import data.dao.imp.patientDaoImpl;
-import data.entities.autoentity.makeEntityFile;
+import data.entities.autoentity.MakeEntityFile;
 import logical.user.User;
 
 import ui.element.*;

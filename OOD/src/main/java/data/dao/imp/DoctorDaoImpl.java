@@ -1,6 +1,8 @@
 package data.dao.imp;
 import data.context.DatabaseContext;
 import data.dao.*;
+import data.entities.entityfile.DoctorEntity;
+import data.entities.entityfile.PatientEntity;
 import data.entities.entityfile.UserEntity;
 import logical.user.doctor.Doctor;
 import logical.user.Message;
@@ -15,15 +17,15 @@ import java.util.List;
 /**
  * Created by a on 5/1/15.
  */
-public class DoctorDaoImpl implements UserFuncDao, DoctorDao {
+public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 
-    Session session;
-    Transaction tx;
-
-    public DoctorDaoImpl(){
-        session = new DatabaseContext().getSession();
-        tx = session.beginTransaction();
-    }
+//    Session session;
+//    Transaction tx;
+//
+//    public DoctorDaoImpl(){
+//        session = new DatabaseContext().getSession();
+//        tx = session.beginTransaction();
+//    }
 
     @Override
     public ArrayList<Message> readInbox() {
@@ -76,21 +78,32 @@ public class DoctorDaoImpl implements UserFuncDao, DoctorDao {
     public ArrayList<Patient> showListOfPatient(Doctor doctor) {
         //liste bimaran pezash az db khande return mishavad
         String id = doctor.getId();
-        List<UserEntity> list = session.createSQLQuery("from mydoctor where myid= :myid").setParameter("myid", id).list();
-        ArrayList<User> users = new ArrayList<User>();
-
-        for(int i = 0; i < list.size(); i++){
-            users.add(list.get(i).getUser());
+        List<DoctorEntity> listDoctor = session.createSQLQuery("from mydoctor where myid= :myid").setParameter("myid", id).list();
+        ArrayList<PatientEntity> patientsEn = listDoctor.get(0).getPatients();
+        ArrayList<Patient> patients = new ArrayList<Patient>();
+        for(int i = 0; i < patientsEn.size(); i++){
+            patients.add(patientsEn.get(i).getPatient());
         }
-        return users;
 
-        return null;
+        return patients;
+
+
     }
 
     @Override
     public Patient searchPatient(Doctor doctor, String ID) {
         //bimar ba code melli ID az db khande shode return mishavad
+        String id = doctor.getId();
+        List<DoctorEntity> listDoctor = session.createSQLQuery("from mydoctor where myid= :myid").setParameter("myid", id).list();
 
+        ArrayList<PatientEntity> patientsEn = listDoctor.get(0).getPatients();
+        //ArrayList<Patient> patients = new ArrayList<Patient>();
+        for(int i = 0; i < patientsEn.size(); i++){
+            String pID = patientsEn.get(i).getId();
+            if(pID.equals(ID)){
+                return patientsEn.get(i).getPatient();
+            }
+        }
 
         return null;
     }
