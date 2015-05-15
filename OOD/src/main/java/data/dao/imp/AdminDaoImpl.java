@@ -23,13 +23,7 @@ import java.util.UUID;
  */
 public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
 
-//    Session session;
-//    Transaction tx;
-//
-//    public AdminDaoImpl(){
-//        session = new DatabaseContext().getSession();
-//        tx = session.beginTransaction();
-//    }
+
 
     @Override
     public ArrayList<Message> readInbox() {

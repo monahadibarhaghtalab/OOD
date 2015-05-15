@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Admin extends User {
     private ArrayList<Message> messages;
-    public Admin(String username, String password, String name, String familyName, String id) {
+    public Admin(String username, char[] password, String name, String familyName, String id) {
         super(username, password, name, familyName, id);
         messages = new ArrayList<Message>();
     }

@@ -138,20 +138,20 @@ class Enroll  extends TempFirst {
                 UserFuncDao adminDao = new AdminDaoImpl();
                 admin = (Admin)adminDao.getUser("admin");
                 if(type.getSelectedItem().toString().equals("پزشک عمومی")){
-                    User tempUser = new OrdDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
+                    User tempUser = new OrdDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  wtext.getText());
                     Message request = new Message(tempUser, admin, new Date());
                     messagedao.sendMessage(request);
 //
 
                 }
                 else if(type.getSelectedItem().toString().equals("پزشک متخصص")){
-                    User tempUser = new ExpertDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
+                    User tempUser = new ExpertDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(), wtext.getText());
                     Message request = new Message(tempUser, admin, new Date());
                     messagedao.sendMessage(request);
 
                 }
                 else if(type.getSelectedItem().toString().equals("بیمار")){
-                    User tempUser = new Patient(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  Integer.parseInt(wtext.getText()));
+                    User tempUser = new Patient(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(), wtext.getText());
                     Message request = new Message(tempUser, admin, new Date());
                     messagedao.sendMessage(request);
                 }

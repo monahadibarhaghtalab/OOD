@@ -52,6 +52,16 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     @Override
     public ArrayList<User> search() {
         //doctor omoomi motenaseb ba field ha ra miabim
+        //liste doctorhaye omoomi az db khande va namayesh dade mishavad
+        List<UserEntity> list = session.createQuery("from myuser where mytype = :mytype")
+                .setParameter("mytype", "General").list();
+        ArrayList<User> doctorList = new ArrayList<User>();
+
+        for(int i = 0; i < list.size(); i++){
+            doctorList.add(list.get(i).getUser());
+        }
+        return doctorList;
+
         return null;
     }
 

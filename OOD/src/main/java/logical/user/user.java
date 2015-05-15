@@ -5,7 +5,7 @@ package logical.user;
  */
 public class User {
     private String myusername;
-    private String mypassword;
+    private char[] mypassword;
     private String name;
     private String familyName;
 
@@ -20,11 +20,11 @@ public class User {
         this.myusername = myusername;
     }
 
-    public String getMypassword() {
+    public char[] getMypassword() {
         return mypassword;
     }
 
-    public void setMypassword(String mypassword) {
+    public void setMypassword(char[] mypassword) {
         this.mypassword = mypassword;
     }
 
@@ -45,7 +45,7 @@ public class User {
 //        this.type = type;
 //    }
 
-    public User(String username, String password, String name, String familyName, String id){
+    public User(String username, char[] password, String name, String familyName, String id){
         this.myusername = username;
         this.mypassword = password;
         this.name = name;

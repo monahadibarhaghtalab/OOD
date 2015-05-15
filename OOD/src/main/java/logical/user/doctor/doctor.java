@@ -14,7 +14,7 @@ public class Doctor extends User {
     ArrayList<Message> messages;
     //ArrayList<message> consultations;
 
-    public Doctor(String username, String password, String name, String familyName, String doctorId) {
+    public Doctor(String username, char[] password, String name, String familyName, String doctorId) {
         super(username, password, name, familyName, doctorId);
         patients = new ArrayList<Patient>();
         //this.type = type;

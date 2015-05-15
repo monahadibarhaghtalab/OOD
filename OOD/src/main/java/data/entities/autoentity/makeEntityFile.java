@@ -26,12 +26,20 @@ public class MakeEntityFile {
             String type = fieldName.getType().getSimpleName();
             String name = fieldName.getName();
             System.out.println(name + "%%%%%%%%%%");
-            if ( !name.equals("id")) {
+            if (name.equals("id")) {
+                res += " public String "+clazz.getSimpleName().toLowerCase()+"_id;\n   @Id\n" +
+                        "    @Column(name = \""+clazz.getSimpleName().toLowerCase()+"_" + name + "\")\n" +
+                        "    public String get" + name.substring(0, 1).toUpperCase() + name.substring(1) + "(){\n" +
+                        "        return "+clazz.getSimpleName().toLowerCase()+"_" + name + ";\n" +
+                        "    }\n" +
+                        "    public void set" + name.substring(0, 1).toUpperCase() + name.substring(1) + "(" + type + " " + name + ") {\n" +
+                        "        this.patient_" + name + " = " + name + ";\n" +
+                        "    }\n \n \n ";
 
-
+            } else {
                 res += "public " + type + " " + name + ";\n" +
                         "    @Column(name = \"" + name + "\")\n" + "    @Basic\n" +
-                        "    public String get" + name.substring(0, 1).toUpperCase() + name.substring(1) + "(){\n" +
+                        "    public "+type+" get" + name.substring(0, 1).toUpperCase() + name.substring(1) + "(){\n" +
                         "        return " + name + ";\n" +
                         "    }\n" +
                         "    public void set" + name.substring(0, 1).toUpperCase() + name.substring(1) + "(" + type + " " + name + ") {\n" +
@@ -40,6 +48,7 @@ public class MakeEntityFile {
 
             }
         }
+
         return res;
     }
 
@@ -59,11 +68,12 @@ public class MakeEntityFile {
                 "import javax.persistence.*;\n" +
                 "import java.sql.Timestamp;\n" +
                 "import logic.*;" +
-                "\n" +
+                "\n" +"import java.util.HashSet;\n" +
+                "import java.util.Set;\n"+
 
                 "@Table(name = \"my"+clazz.getSimpleName()+ "\")\n" +
                 "@Entity\n" +
-                "public class " + nameFile + " extends MyEntity{\n";
+                "public class " + nameFile + " {\n";
         return content;
 
 

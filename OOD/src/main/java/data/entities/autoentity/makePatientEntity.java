@@ -18,6 +18,23 @@ public class MakePatientEntity extends MakeEntityFile {
         contentFile += namefile(p, "PatientEntity");
         contentFile += construct(p, "PatientEntity");
         contentFile += content(p);
+        contentFile += "    private Set<DoctorEntity> doctors = new HashSet<DoctorEntity>(0);\n" +
+                "\n" +
+                "\n" +
+                "    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)\n" +
+                "    @JoinTable(name = \"patient_doctor\", joinColumns = {\n" +
+                "            @JoinColumn(name = \"patient_ID\") },\n" +
+                "            inverseJoinColumns = { @JoinColumn(name = \"doctor_ID\") })\n" +
+                "    public Set<DoctorEntity> getDoctors() {\n" +
+                "        return this.doctors;\n" +
+                "    }\n" +
+                "\n" +
+                "    public void setDoctors(Set<DoctorEntity> doctors) {\n" +
+                "        this.doctors = doctors;\n" +
+                "    }\n" +
+                "    public void addDoctors(DoctorEntity doctor) {\n" +
+                "        doctors.add(doctor);\n" +
+                "    }\n";
         contentFile += "}";
         File file = new File("src\\main\\java\\data\\entities\\entityfile\\"+ "PatientEntity" +".java");
 
