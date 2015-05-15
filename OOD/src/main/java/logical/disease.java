@@ -44,4 +44,12 @@ public class Disease {
     public void setDateOfCreate(Date dateOfCreate) {
         DateOfCreate = dateOfCreate;
     }
+
+    public Disease(String name, String doctor, String patient, Date d){
+        setNameOfDisease(name);
+        setNameOfDoctor(doctor);
+        setNameOfPatient(patient);
+        setDateOfCreate(d);
+        signs = new ArrayList<String>();
+    }
 }

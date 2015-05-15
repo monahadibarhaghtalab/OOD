@@ -1,8 +1,11 @@
 package ui.user.patient;
 
+import data.dao.MessageDao;
 import data.dao.UserFuncDao;
-import data.dao.imp.PatientDaoImpl;
+import data.dao.imp.patientDaoImpl;
 import logical.user.doctor.OrdDoctor;
+import logical.user.Message;
+import logical.user.patient.Patient;
 import logical.user.User;
 import ui.element.*;
 import ui.user.Temp;
@@ -12,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Mona on 4/4/2015.
@@ -24,17 +28,20 @@ class ListDoctor extends Temp{
     private myJTextField ntext, ftext, itext;
     private myJButton search, search1;
     private ArrayList<OrdDoctor> searchDoctor;
+    private ButtonGroup bg;
+    private Patient mypatient;
+    private MessageDao messagedao;
 
-    protected ListDoctor(ArrayList<OrdDoctor > doctor){
+    protected ListDoctor(Patient patient){
         super();
-
+        mypatient = patient;
         winMain = getWindow("لیست پزشکان", true);
-
-        from = new myJLabel("محل مطب");
+        bg = new ButtonGroup();
+        from = new myJLabel("نام");
         from = from.set(400, 200, 250, 20, "B Nazanin", 20);
         winMain.add(from);
 
-        until = new myJLabel("نام");
+        until = new myJLabel("نام خانوادگی");
         until = until.set(400, 250, 250, 20, "B Nazanin", 20);
         winMain.add(until);
 
@@ -52,6 +59,22 @@ class ListDoctor extends Temp{
         search.setText("جستجو");
         search.set(200, 400, 100, 40, "B Nazanin", 20);
         winMain.add(search);
+        search.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // new showResult();
+                patientdao = new patientDaoImpl();
+                //field problem
+                ArrayList<User> temp = patientdao.search();
+
+                searchDoctor = new ArrayList<OrdDoctor>();
+                for (int i = 0; i< temp.size(); i++)
+                    searchDoctor.add((OrdDoctor)temp.get(i));
+                window2.setVisible(false);
+                //  winMain.setVisible(false);
+            }
+        });
+
+
 
         /*
         make the second window to show the result
@@ -59,9 +82,16 @@ class ListDoctor extends Temp{
 
         window2 = getWindow("لیست پزشکان", false);
 
+        JRadioButton rowData[][] = new JRadioButton[searchDoctor.size()][1];
+        Object columnNames[] = {"نام"};
 
-        Object rowData[][] = { {"Test", "Test" }  };
-        Object columnNames[] = { "", ""};
+        for (int i = 0; i < searchDoctor.size(); i++){
+
+            rowData[i][0].setText(searchDoctor.get(i).getName() + " " + searchDoctor.get(i).getFamilyName());
+            rowData[i][0].setActionCommand(Integer.toString(i));
+            bg.add(rowData[i][0]);
+            //rowData[i][1].setText(searchDoctor.get(i).getFamilyName());
+        }
         myJTable table = new myJTable(rowData, columnNames);
 
         JScrollPane scrollPane = new JScrollPane(table);
@@ -84,19 +114,15 @@ class ListDoctor extends Temp{
             }
         });
 
-        search.addActionListener(new ActionListener() {
+        search1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
-                patientdao = new PatientDaoImpl();
-                //field problem
-                ArrayList<User> temp = patientdao.search();
+                String num = bg.getSelection().getActionCommand();
+                Message request = new Message(mypatient, searchDoctor.get(Integer.parseInt(num)), new Date());
+                messagedao.sendMessage(request);
 
-                searchDoctor = new ArrayList<OrdDoctor>();
-                for (int i = 0; i< temp.size(); i++)
-                    searchDoctor.add((OrdDoctor)temp.get(i));
-                window2.setVisible(false);
-              //  winMain.setVisible(false);
             }
         });
+
     }
 }

@@ -2,7 +2,6 @@ package logical.user.doctor;
 import logical.user.*;
 import logical.user.patient.Patient;
 
-
 import java.util.ArrayList;
 
 /**
@@ -10,11 +9,11 @@ import java.util.ArrayList;
  */
 public class Doctor extends User {
     private ArrayList<Patient> patients;
-    String mytype;
+    public String type;
     ArrayList<Message> messages;
     //ArrayList<message> consultations;
 
-    public Doctor(String username, String password, String name, String familyName, String doctorId) {
+    public Doctor(String username, char[] password, String name, String familyName, int doctorId) {
         super(username, password, name, familyName, doctorId);
         patients = new ArrayList<Patient>();
         //this.type = type;

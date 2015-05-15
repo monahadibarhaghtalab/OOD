@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Profile {
     private ArrayList<Recipe> recipes;
-    private ArrayList<Disease> diseaseHistory;
+    private ArrayList<Disease> DiseaseHistory;
    // private ArrayList<activity> Activities;
    // private ArrayList<physicalState> PhysicalStates;
     private ArrayList<String> DoctersName;

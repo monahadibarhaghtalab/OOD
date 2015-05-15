@@ -4,28 +4,28 @@ package logical.user;
  * Created by a on 5/1/15.
  */
 public class User {
-    private String myusername;
-    private String mypassword;
-    private String name;
-    private String familyName;
+    public String username;
+    public char[] password;
+    public String name;
+    public String familyName;
 
    // private String type;
-    private String id;
+    public int id;
 
-    public String getMyusername() {
-        return myusername;
+    public String getUsername() {
+        return username;
     }
 
-    public void setMyusername(String myusername) {
-        this.myusername = myusername;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getMypassword() {
-        return mypassword;
+    public char[] getPassword() {
+        return password;
     }
 
-    public void setMypassword(String mypassword) {
-        this.mypassword = mypassword;
+    public void setPassword(char[] password) {
+        this.password = password;
     }
 
     public String getName() {
@@ -45,20 +45,28 @@ public class User {
 //        this.type = type;
 //    }
 
-    public User(String username, String password, String name, String familyName, String id){
-        this.myusername = username;
-        this.mypassword = password;
+    public User(String username, char[] password, String name, String familyName, int id){
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.familyName = familyName;
         this.id = id;
       //  this.type = type;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getFamilyName() {
+        return familyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
 }

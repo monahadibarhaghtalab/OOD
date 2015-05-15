@@ -1,9 +1,6 @@
 package ui.user.patient;
 
-import data.dao.UserFuncDao;
-import data.dao.imp.PatientDaoImpl;
-import logical.user.doctor.OrdDoctor;
-import logical.user.User;
+import logical.user.patient.Patient;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -11,7 +8,6 @@ import ui.user.Temp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 /**
  * Created by Mona on 3/30/2015.
@@ -21,12 +17,12 @@ class ChooseDoctor extends Temp {
     private myJFrame winMain;
 
     private myJButton listDoctor;
-
+    private Patient mypatient;
     private myJLabel doctor;
-    private UserFuncDao pationtdao;
 
-    protected ChooseDoctor(){
 
+    protected ChooseDoctor(Patient patient){
+        mypatient = patient;
         winMain = getWindow("انتخاب پزشک", true);
 
         listDoctor = new myJButton(false);
@@ -37,13 +33,8 @@ class ChooseDoctor extends Temp {
 
         listDoctor.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pationtdao = new PatientDaoImpl();
-                ArrayList<OrdDoctor> doctor = new ArrayList<OrdDoctor>();
-                ArrayList<User> temp = pationtdao.showListOfUser();
-                for (int i = 0; i < temp.size();i++){
-                    doctor.add((OrdDoctor)temp.get(i));
-                }
-                new ListDoctor( doctor);
+
+                new ListDoctor(mypatient );
                 //  window.setVisible(false);
             }
         });
