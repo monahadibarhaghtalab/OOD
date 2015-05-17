@@ -23,14 +23,17 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     @Override
     public void SignUp(User user) {
         //save admin to db
-        if(user instanceof Doctor){
-            DoctorEntity doctor = new DoctorEntity((Doctor) user);
-            session.save(doctor);
-        }
-        else if(user instanceof Patient){
-            PatientEntity patient = new PatientEntity((Patient) user);
-            session.save(patient);
-        }
+
+        UserEntity userEn = new UserEntity(user);
+        session.save(userEn);
+//        if(user instanceof Doctor){
+//            DoctorEntity doctor = new DoctorEntity((Doctor) user);
+//            session.save(doctor);
+//        }
+//        else if(user instanceof Patient){
+//            PatientEntity patient = new PatientEntity((Patient) user);
+//            session.save(patient);
+//        }
     //    else if(User instace of drugstore ) for drug store
 
 
@@ -86,7 +89,7 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
 
     @Override
     public ArrayList<Message> readInbox(User user) {
-        List<MessageEntity> list = session.createSQLQuery("from mymessage where reciver= :reciver").setParameter("reciver", user.getId()).list();
+        List<MessageEntity> list = session.createSQLQuery("from mymessage where receiver= :receiver").setParameter("receiver", user.getId()).list();
         ArrayList<Message> messages = new ArrayList<Message>();
 
         for(int i = 0; i < list.size(); i++){

@@ -28,7 +28,8 @@ public class UserEntity  {
         setMypassword(obj.getPassword());
         setMyname(obj.getName());
         setMyfamilyName(obj.getFamilyName());
-        message = new ArrayList<MessageEntity>();
+        messageSend = new ArrayList<MessageEntity>();
+        messageReceive = new ArrayList<MessageEntity>();
 
     }
 
@@ -93,23 +94,38 @@ public class UserEntity  {
         this.mytype = mytype;
     }
 
-    @OneToMany(mappedBy = "user")
-    private ArrayList<MessageEntity> message;
+    @OneToMany(mappedBy = "sender")
+    private  ArrayList<MessageEntity> messageSend;
 
-    public ArrayList<MessageEntity> getMessage() {
-        return message;
+    public ArrayList<MessageEntity> getMessageSend() {
+        return messageSend;
     }
 
-    public void setMessage(ArrayList<MessageEntity> message) {
-        this.message = message;
+    public void setMessageSend(ArrayList<MessageEntity> message) {
+        this.messageSend = message;
     }
 
-    public void addMessage(MessageEntity newmessage) {
-        message.add(newmessage);
+    public void addMessageSend(MessageEntity newmessage) {
+        messageSend.add(newmessage);
+    }
+
+    @OneToMany(mappedBy = "receiver")
+    private  ArrayList<MessageEntity> messageReceive;
+
+    public ArrayList<MessageEntity> getMessageRec() {
+        return messageReceive;
+    }
+
+    public void setMessageRec(ArrayList<MessageEntity> message) {
+        this.messageReceive = message;
+    }
+
+    public void addMessageRec(MessageEntity newmessage) {
+        messageReceive.add(newmessage);
     }
 
     public User getUser(){
-        User res = new User(this.myusername, this.mypassword, this.myname, this.myfamilyName, this.id);
+        User res = new User(this.myusername, this.mypassword, this.myname, this.myfamilyName, this.id, this.getMytype());
         return res;
     }
 }

@@ -3,8 +3,11 @@ package data.dao.imp;
 import data.dao.UserFuncDao;
 import data.entities.entityfile.MessageEntity;
 import data.entities.entityfile.UserEntity;
+import logical.Disease;
+import logical.Recipe;
 import logical.user.Message;
 import logical.user.User;
+import logical.user.patient.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +32,10 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     public User getUser(String username) {
         //return patient from db
 
-        return null;
+        List<UserEntity> list = session.createSQLQuery("from myuser where myusername= :myusername").setParameter("myusername", username).list();
+
+        return list.get(0).getUser();
+
     }
 
     @Override
@@ -76,6 +82,15 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
             messageList.add(list.get(i).getMessage());
         }
         return messageList;
+
+    }
+
+    public void addRecipe(Patient mypatient, Recipe r) {
+
+
+    }
+
+    public void addHistory(Patient p, Disease hist) {
 
     }
 }

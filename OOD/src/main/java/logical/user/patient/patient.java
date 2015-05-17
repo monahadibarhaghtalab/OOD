@@ -26,4 +26,8 @@ public class Patient extends User {
         this.id = id;
         this.doctors = doctors;
     }
+
+    public Patient(String id) {
+
+    }
 }

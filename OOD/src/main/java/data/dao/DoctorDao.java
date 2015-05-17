@@ -12,4 +12,5 @@ public interface DoctorDao {
     public ArrayList<Patient> showListOfPatient(Doctor doctor);
     public Patient searchPatient(Doctor doctor, String ID);
 
+    void addPatient(Doctor receiver, Patient sender);
 }

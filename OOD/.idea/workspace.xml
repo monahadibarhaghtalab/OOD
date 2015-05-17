@@ -2,36 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3edfe8e-182e-430a-ad33-ad770a10bb1c" name="Default" comment="query complete">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/doctor/AddHistiory.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/doctor/AddHistiory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/imp/AdminDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/imp/AdminDaoImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/DoctorDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/DoctorDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/DoctorEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/DoctorEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/patient/FirstPagePatient.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/patient/FirstPagePatient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/patient/ListDoctor.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/patient/ListDoctor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/doctor/LookforPateint.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/doctor/LookforPateint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/main/Main.java" afterPath="$PROJECT_DIR$/src/main/java/main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/imp/MessageDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/imp/MessageDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntityR.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntityR.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MyEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MyEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/logical/user/doctor/OrdDoctor.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/doctor/OrdDoctor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/doctor/SeeMessage.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/doctor/SeeMessage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PrescriptionEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PrescriptionEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/UserEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/entityfile/UserEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/data/dao/UserFuncDao.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/UserFuncDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/general/Welcome.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/general/Welcome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ui/user/doctor/WritePres.java" afterPath="$PROJECT_DIR$/src/main/java/ui/user/doctor/WritePres.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\data\dao\imp\patientDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/data/dao/imp/PatientDaoImpl.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\data\entities\autoentity\makeDoctorEntity.java" afterPath="$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakeDoctorEntity.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\disease.java" afterPath="$PROJECT_DIR$/src/main/java/logical/Disease.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\profile.java" afterPath="$PROJECT_DIR$/src/main/java/logical/Profile.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\recipe.java" afterPath="$PROJECT_DIR$/src/main/java/logical/Recipe.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\user\admin.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/Admin.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\user\doctor\doctor.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/doctor/Doctor.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\user\doctor\expertDoctor.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/doctor/ExpertDoctor.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\user\message.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/Message.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\user\patient\patient.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/patient/Patient.java" />
-      <change type="MOVED" beforePath="D:\Term 8\OOD\phase 4\raha\OOD\OOD\src\main\java\logical\user\user.java" afterPath="$PROJECT_DIR$/src/main/java/logical/user/User.java" />
     </list>
     <ignored path="OOD.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,61 +48,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdminDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/AdminDaoImpl.java">
+      <file leaf-file-name="DoctorDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="1547">
-              <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1989">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="46" selection-end-column="37" />
               <folding>
-                <element signature="e#2449#2458#0" expanded="true" />
+                <element signature="e#3516#3525#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SeeMessage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/SeeMessage.java">
+      <file leaf-file-name="PatientDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/PatientDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.1034484" vertical-offset="187" max-vertical-offset="1870">
-              <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="1564">
+              <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/logical/user/User.java">
+      <file leaf-file-name="PrescriptionEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/PrescriptionEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1258">
-              <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
-              <folding>
-                <element signature="e#790#791#0" expanded="true" />
-                <element signature="e#819#820#0" expanded="true" />
-                <element signature="e#863#864#0" expanded="true" />
-                <element signature="e#899#900#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DoctorDaoImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1751">
-              <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
-              <folding>
-                <element signature="e#2803#2804#0" expanded="true" />
-                <element signature="e#2830#2831#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Patient.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/logical/user/patient/Patient.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="595">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="442">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,33 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PatientEntity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java">
+      <file leaf-file-name="MessageEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7017544" vertical-offset="349" max-vertical-offset="1938">
-              <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
-              <folding>
-                <element signature="e#1017#1025#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DeviceEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/DeviceEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DaoImp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/DaoImp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1360">
+              <caret line="99" column="5" selection-start-line="19" selection-start-column="3" selection-end-line="99" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -167,53 +95,29 @@
       <file leaf-file-name="DoctorEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/DoctorEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1785">
+            <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1717">
               <caret line="16" column="0" selection-start-line="16" selection-start-column="2" selection-end-line="19" selection-end-column="33" />
-              <folding>
-                <element signature="e#827#828#0" expanded="true" />
-                <element signature="e#852#853#0" expanded="true" />
-                <element signature="e#2037#2038#0" expanded="true" />
-                <element signature="e#2073#2074#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/UserEntity.java">
+      <file leaf-file-name="Recipe.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/logical/Recipe.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1348" max-vertical-offset="2057">
-              <caret line="87" column="31" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#826#827#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-                <element signature="e#1056#1057#0" expanded="true" />
-                <element signature="e#1107#1108#0" expanded="true" />
-                <element signature="e#1151#1152#0" expanded="true" />
-                <element signature="e#1232#1233#0" expanded="true" />
-                <element signature="e#1265#1266#0" expanded="true" />
-                <element signature="e#1316#1317#0" expanded="true" />
-                <element signature="e#1360#1361#0" expanded="true" />
-                <element signature="e#1432#1433#0" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1510#1511#0" expanded="true" />
-                <element signature="e#1546#1547#0" expanded="true" />
-                <element signature="e#1630#1631#0" expanded="true" />
-                <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="e#1720#1721#0" expanded="true" />
-                <element signature="e#1768#1769#0" expanded="true" />
-                <element signature="e#1870#1871#0" expanded="true" />
-                <element signature="e#1914#1915#0" expanded="true" />
-                <element signature="e#1950#1951#0" expanded="true" />
-                <element signature="e#2083#2084#0" expanded="true" />
-                <element signature="e#2113#2114#0" expanded="true" />
-                <element signature="e#2177#2178#0" expanded="true" />
-                <element signature="e#2215#2216#0" expanded="true" />
-                <element signature="e#2271#2272#0" expanded="true" />
-                <element signature="e#2310#2311#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.44191918" vertical-offset="29" max-vertical-offset="544">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MakePrescriptionEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakePrescriptionEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+              <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -226,7 +130,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/Entity.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
         <option value="$PROJECT_DIR$/src/main/java/logical/profile.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/user/message.java" />
@@ -237,17 +140,14 @@
         <option value="$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakeMessageEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakePrescriptionEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/UserDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/DoctorDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/DaoImp.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/PersistentDoctorDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/MessageDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ui/user/general/Enroll.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakeEntityFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/user/user.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/recipe.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/disease.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logical/Recipe.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/Profile.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/Disease.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/user/admin.java" />
@@ -264,19 +164,23 @@
         <option value="$PROJECT_DIR$/src/main/java/ui/user/doctor/AddHistiory.java" />
         <option value="$PROJECT_DIR$/src/main/java/ui/user/general/Welcome.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/patientDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/PatientDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakePatientEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntityR.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MyEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/logical/user/Message.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/DoctorEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logical/user/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logical/user/patient/Patient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/DoctorDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/UserEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/AdminDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logical/user/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/logical/user/patient/Patient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/MessageDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/dao/imp/PatientDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/logical/Recipe.java" />
+        <option value="$PROJECT_DIR$/src/main/java/data/entities/entityfile/PrescriptionEntity.java" />
       </list>
     </option>
   </component>
@@ -1248,7 +1152,7 @@
       <workItem from="1431605371550" duration="794000" />
       <workItem from="1431633686466" duration="6158000" />
       <workItem from="1431679539211" duration="6750000" />
-      <workItem from="1431830934895" duration="8734000" />
+      <workItem from="1431830934895" duration="14500000" />
     </task>
     <task id="LOCAL-00001" summary="query complete">
       <created>1431681675115</created>
@@ -1260,20 +1164,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143457000" />
+    <option name="totallyTimeSpent" value="149223000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32861635" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33333334" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1327,14 +1231,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/DoctorDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <caret line="12" column="54" selection-start-line="12" selection-start-column="54" selection-end-line="12" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakeMessageEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
@@ -1370,14 +1266,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/MessageDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="544">
-          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/UserDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="1139">
@@ -1389,14 +1277,6 @@
             <element signature="e#1342#1343#0" expanded="false" />
             <element signature="e#1369#1370#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logical/Recipe.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.8448275" vertical-offset="63" max-vertical-offset="544">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1480,16 +1360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/AddHistiory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="263" max-vertical-offset="1683">
-          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/TempFirst.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
@@ -1564,34 +1434,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/general/Enroll.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1821" max-vertical-offset="2584">
-          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/drugstore/FirstPageDrug.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1989">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/PatientDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="887" max-vertical-offset="1360">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakePrescriptionEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
-          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
           <folding />
         </state>
       </provider>
@@ -1628,26 +1474,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/WritePres.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="1054">
-          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/MyEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="578">
           <caret line="25" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/PrescriptionEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21303259" vertical-offset="0" max-vertical-offset="399">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1660,110 +1490,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="774" max-vertical-offset="1734">
-          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding>
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#565#566#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#877#878#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1092#1093#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
-            <element signature="e#1199#1200#0" expanded="true" />
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1282#1283#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-            <element signature="e#1650#1651#0" expanded="true" />
-            <element signature="e#1690#1691#0" expanded="true" />
-            <element signature="e#1729#1730#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/DoctorEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1785">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="2" selection-end-line="19" selection-end-column="33" />
-          <folding>
-            <element signature="e#827#828#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
-            <element signature="e#2037#2038#0" expanded="true" />
-            <element signature="e#2073#2074#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/DeviceEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/UserEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1348" max-vertical-offset="2057">
-          <caret line="87" column="31" selection-start-line="87" selection-start-column="31" selection-end-line="87" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#826#827#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1056#1057#0" expanded="true" />
-            <element signature="e#1107#1108#0" expanded="true" />
-            <element signature="e#1151#1152#0" expanded="true" />
-            <element signature="e#1232#1233#0" expanded="true" />
-            <element signature="e#1265#1266#0" expanded="true" />
-            <element signature="e#1316#1317#0" expanded="true" />
-            <element signature="e#1360#1361#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1510#1511#0" expanded="true" />
-            <element signature="e#1546#1547#0" expanded="true" />
-            <element signature="e#1630#1631#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1720#1721#0" expanded="true" />
-            <element signature="e#1768#1769#0" expanded="true" />
-            <element signature="e#1870#1871#0" expanded="true" />
-            <element signature="e#1914#1915#0" expanded="true" />
-            <element signature="e#1950#1951#0" expanded="true" />
-            <element signature="e#2083#2084#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-            <element signature="e#2177#2178#0" expanded="true" />
-            <element signature="e#2215#2216#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/SeeMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.1034484" vertical-offset="187" max-vertical-offset="1870">
-          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/AdminDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1054" max-vertical-offset="1547">
-          <caret line="94" column="23" selection-start-line="94" selection-start-column="23" selection-end-line="94" selection-end-column="23" />
-          <folding>
-            <element signature="e#2449#2458#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1775,20 +1506,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/UserEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1751">
-          <caret line="76" column="45" selection-start-line="76" selection-start-column="45" selection-end-line="76" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.3834197" vertical-offset="1790" max-vertical-offset="2329">
+          <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
           <folding>
-            <element signature="e#2803#2804#0" expanded="true" />
-            <element signature="e#2830#2831#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#862#863#0" expanded="true" />
+            <element signature="e#887#888#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1168#1169#0" expanded="true" />
+            <element signature="e#1212#1213#0" expanded="true" />
+            <element signature="e#1293#1294#0" expanded="true" />
+            <element signature="e#1326#1327#0" expanded="true" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1522#1523#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
+            <element signature="e#1691#1692#0" expanded="true" />
+            <element signature="e#1726#1727#0" expanded="true" />
+            <element signature="e#1781#1782#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="e#1902#1903#0" expanded="true" />
+            <element signature="e#1931#1932#0" expanded="true" />
+            <element signature="e#1975#1976#0" expanded="true" />
+            <element signature="e#2011#2012#0" expanded="true" />
+            <element signature="e#2155#2156#0" expanded="true" />
+            <element signature="e#2189#2190#0" expanded="true" />
+            <element signature="e#2257#2258#0" expanded="true" />
+            <element signature="e#2299#2300#0" expanded="true" />
+            <element signature="e#2359#2360#0" expanded="true" />
+            <element signature="e#2402#2403#0" expanded="true" />
+            <element signature="e#2550#2551#0" expanded="true" />
+            <element signature="e#2587#2588#0" expanded="true" />
+            <element signature="e#2654#2655#0" expanded="true" />
+            <element signature="e#2699#2700#0" expanded="true" />
+            <element signature="e#2758#2759#0" expanded="true" />
+            <element signature="e#2804#2805#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6616541" vertical-offset="0" max-vertical-offset="1938">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logical/user/patient/Patient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9119171" vertical-offset="158" max-vertical-offset="663">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/DoctorDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4722222" vertical-offset="0" max-vertical-offset="396">
+          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/SeeMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.5932202" vertical-offset="0" max-vertical-offset="1870">
+          <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/AdminDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53263706" vertical-offset="1139" max-vertical-offset="1598">
+          <caret line="91" column="120" selection-start-line="91" selection-start-column="120" selection-end-line="91" selection-end-column="120" />
+          <folding>
+            <element signature="e#2549#2558#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/logical/user/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="1258">
+        <state vertical-scroll-proportion="0.6005222" vertical-offset="722" max-vertical-offset="1258">
           <caret line="68" column="22" selection-start-line="68" selection-start-column="22" selection-end-line="68" selection-end-column="22" />
           <folding>
             <element signature="e#790#791#0" expanded="true" />
@@ -1799,23 +1607,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/logical/user/patient/Patient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/DoctorDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="595">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="1989">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="46" selection-end-column="37" />
+          <folding>
+            <element signature="e#3516#3525#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/general/Enroll.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2185" max-vertical-offset="2584">
+          <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/MessageDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3131313" vertical-offset="46" max-vertical-offset="442">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/WritePres.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.75718015" vertical-offset="560" max-vertical-offset="1054">
+          <caret line="64" column="29" selection-start-line="64" selection-start-column="29" selection-end-line="64" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ui/user/doctor/AddHistiory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4673629" vertical-offset="1300" max-vertical-offset="1683">
+          <caret line="88" column="33" selection-start-line="88" selection-start-column="33" selection-end-line="88" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/PatientEntity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/dao/imp/PatientDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7017544" vertical-offset="349" max-vertical-offset="1938">
-          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1113" max-vertical-offset="1564">
+          <caret line="88" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/autoentity/MakePrescriptionEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/PrescriptionEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="12" max-vertical-offset="442">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#1017#1025#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/MessageEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="896" max-vertical-offset="1360">
+          <caret line="99" column="5" selection-start-line="19" selection-start-column="3" selection-end-line="99" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/data/entities/entityfile/DoctorEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1717">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="2" selection-end-line="19" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/logical/Recipe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44191918" vertical-offset="29" max-vertical-offset="544">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

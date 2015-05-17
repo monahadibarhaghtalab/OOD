@@ -15,17 +15,17 @@ import java.util.UUID;
 public class MessageEntity {
     private String id;
     public String content;
-
-
     public Date dateOdCreate;
 
-    public MessageEntity(Message message) {
-        setId(message.id);
-        setMyContent(message.getContent());
+    public MessageEntity(Message mymessage) {
+        setId(mymessage.id);
+        setMyContent(mymessage.getContent());
+        setReceiver(new UserEntity(mymessage.getReceiver()));
+        setSender(new UserEntity(mymessage.getSender()));
     }
 
     @Id
-    @Column(name = "user_id" )
+    @Column(name = "message_id" )
     public String getId() {
         return id;
     }
@@ -70,7 +70,7 @@ public class MessageEntity {
 
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id" , nullable = false)
     private UserEntity sender;
 
     public void setSender(UserEntity sender) {
@@ -82,7 +82,7 @@ public class MessageEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity receiver;
 
     public void setReceiver(UserEntity receiver) {

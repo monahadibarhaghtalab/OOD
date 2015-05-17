@@ -13,13 +13,7 @@ import org.hibernate.Transaction;
  */
 public class MessageDaoImpl extends DaoImp implements MessageDao {
 
-    Session session;
-    Transaction tx;
 
-    public MessageDaoImpl(){
-        session = new DatabaseContext().getSession();
-        tx = session.beginTransaction();
-    }
 
     @Override
     public void sendMessage(Message message) {

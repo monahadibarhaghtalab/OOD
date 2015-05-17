@@ -40,12 +40,12 @@ public class PatientEntity  implements Serializable {
     }
 
     public Patient getPatient() {
-        ArrayList<Doctor> doctors1 = new ArrayList<Doctor>();
-        ArrayList<DoctorEntity> doctorsEn =getDoctors();
-        for(int i= 0; i < doctorsEn.size(); i++){
-            doctors1.add(doctorsEn.get(i).getDoctor())
-        }
-        return new Patient(getId(), getDoctors().getListDoctor());
+//        ArrayList<Doctor> doctors1 = new ArrayList<Doctor>();
+//        ArrayList<DoctorEntity> doctorsEn =getDoctors();
+//        for(int i= 0; i < doctorsEn.size(); i++){
+//            doctors1.add(doctorsEn.get(i).getDoctor())
+//        }
+        return new Patient(getId());
     }
 
     @Id
