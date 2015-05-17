@@ -1,12 +1,10 @@
 package data.dao.imp;
 
-import antlr.debug.MessageAdapter;
 import data.dao.UserFuncDao;
 import data.entities.entityfile.MessageEntity;
 import data.entities.entityfile.UserEntity;
 import logical.user.Message;
 import logical.user.User;
-import logical.user.doctor.Doctor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,17 +13,7 @@ import java.util.List;
  * Created by a on 5/8/15.
  */
 public class PatientDaoImpl extends DaoImp implements UserFuncDao{
-    @Override
-    public ArrayList<Message> readInbox() {
-        //liste payamhaye bimar
-        List<MessageEntity> list = session.createSQLQuery("from myMessage").list();
-        ArrayList<Message> messageList = new ArrayList<Message>();
 
-        for(int i = 0; i < list.size(); i++){
-            messageList.add(list.get(i).getMessage());
-        }
-        return messageList;
-    }
 
     @Override
     public void SignUp(User user) {
@@ -62,7 +50,6 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
         }
         return doctorList;
 
-        return null;
     }
 
     @Override
@@ -76,6 +63,19 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
             doctorList.add(list.get(i).getUser());
         }
         return doctorList;
+
+    }
+
+    @Override
+    public ArrayList<Message> readInbox(User user) {
+        //liste payamhaye bimar
+        List<MessageEntity> list = session.createSQLQuery("from myMessage").list();
+        ArrayList<Message> messageList = new ArrayList<Message>();
+
+        for(int i = 0; i < list.size(); i++){
+            messageList.add(list.get(i).getMessage());
+        }
+        return messageList;
 
     }
 }

@@ -1,5 +1,4 @@
 package data.dao.imp;
-import data.context.DatabaseContext;
 import data.dao.*;
 import data.entities.entityfile.DoctorEntity;
 import data.entities.entityfile.PatientEntity;
@@ -8,8 +7,6 @@ import logical.user.doctor.Doctor;
 import logical.user.Message;
 import logical.user.patient.Patient;
 import logical.user.User;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +24,6 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 //        tx = session.beginTransaction();
 //    }
 
-    @Override
-    public ArrayList<Message> readInbox() {
-        //list payam haye pezashk
-        return null;
-    }
 
     @Override
     public void SignUp(User user) {
@@ -49,7 +41,7 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 
         //return doctor
 
-        List<UserEntity> list = session.createSQLQuery("from myDoctor where myusername= :myusername").setParameter("myusername", username).list();
+        List<UserEntity> list = session.createSQLQuery("from myuser where myusername= :myusername").setParameter("myusername", username).list();
 
         return list.get(0).getUser();
 
@@ -105,6 +97,11 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
             }
         }
 
+        return null;
+    }
+
+    @Override
+    public ArrayList<Message> readInbox(User user) {
         return null;
     }
 }

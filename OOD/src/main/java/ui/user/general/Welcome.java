@@ -2,7 +2,8 @@ package ui.user.general;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
-import data.dao.imp.patientDaoImpl;
+
+import data.dao.imp.PatientDaoImpl;
 import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.ExpertDoctor;
@@ -195,7 +196,7 @@ public class Welcome extends TempFirst {
             System.out.println("monaaaaaaaaaaaaaaaa ");
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    userdao = new patientDaoImpl();
+                    userdao = new PatientDaoImpl();
 
 //                    loginUser = userdao.getUser(utext.getText());
 //                    if(!(loginUser.equals(null)) &&loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){

@@ -8,16 +8,13 @@ import java.util.ArrayList;
  * Created by a on 5/1/15.
  */
 public class Doctor extends User {
-    private ArrayList<Patient> patients;
+    public ArrayList<Patient> patients;
     public String type;
-    ArrayList<Message> messages;
+    public ArrayList<Message> messages;
     //ArrayList<message> consultations;
 
-<<<<<<< HEAD
     public Doctor(String username, char[] password, String name, String familyName, String doctorId) {
-=======
-    public Doctor(String username, char[] password, String name, String familyName, int doctorId) {
->>>>>>> 22ea7e51ffe473627c228a1dceacf0ad145985f4
+
         super(username, password, name, familyName, doctorId);
         patients = new ArrayList<Patient>();
         //this.type = type;

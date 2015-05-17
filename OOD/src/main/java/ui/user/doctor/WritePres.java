@@ -1,6 +1,6 @@
 package ui.user.doctor;
 
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
 import logical.Recipe;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
@@ -21,7 +21,7 @@ import java.util.Date;
 class WritePres extends Temp{
     private Patient mypatient;
     private Doctor mydoctor;
-    private patientDaoImpl userdao;
+    private PatientDaoImpl userdao;
     private myJFrame window;
 
     private myJLabel text;
@@ -59,7 +59,7 @@ class WritePres extends Temp{
 
         send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                userdao = new patientDaoImpl();
+                userdao = new PatientDaoImpl();
                 Recipe r = new Recipe(mydoctor.getUsername(), mypatient.getUsername(), new Date());
 //medicines
                 userdao.addRecipe(mypatient, r);

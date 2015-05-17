@@ -1,7 +1,6 @@
 package data.entities.autoentity;
 
 import logical.user.doctor.Doctor;
-import logical.user.patient.Patient;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,7 +15,7 @@ public class MakeDoctorEntity extends MakeEntityFile {
     String contentFile = "";
 
 
-    MakeDoctorEntity(Doctor d) throws IOException {
+    public MakeDoctorEntity(Doctor d) throws IOException {
         contentFile += namefile(d, "DoctorEntity");
         contentFile += construct(d, "DoctorEntity");
         contentFile += content(d);
@@ -42,5 +41,9 @@ public class MakeDoctorEntity extends MakeEntityFile {
 
         bw.close();
         // }
+    }
+
+    public MakeDoctorEntity() {
+
     }
 }

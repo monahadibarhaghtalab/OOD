@@ -2,7 +2,7 @@ package ui.user.patient;
 
 import data.dao.MessageDao;
 import data.dao.UserFuncDao;
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.doctor.OrdDoctor;
 import logical.user.Message;
 import logical.user.patient.Patient;
@@ -62,7 +62,7 @@ class ListDoctor extends Temp{
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
-                patientdao = new patientDaoImpl();
+                patientdao = new PatientDaoImpl();
                 //field problem
                 ArrayList<User> temp = patientdao.search();
 

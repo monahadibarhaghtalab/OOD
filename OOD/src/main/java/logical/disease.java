@@ -7,11 +7,11 @@ import java.util.Date;
  * Created by a on 5/1/15.
  */
 public class Disease {
-    private String NameOfDisease;
-    private String NameOfDoctor;
-    private String NameOfPatient;
-    private ArrayList<String> signs;
-    private Date DateOfCreate;
+    public String NameOfDisease;
+    public String NameOfDoctor;
+    public String NameOfPatient;
+    public ArrayList<String> signs;
+    public Date DateOfCreate;
 
     public String getNameOfDisease() {
         return NameOfDisease;

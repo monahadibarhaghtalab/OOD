@@ -7,10 +7,10 @@ import java.util.Date;
  * Created by a on 5/1/15.
  */
 public class Recipe {
-    private String NameOfDoctor;
-    private String NameOfPatient;
-    private Date DateOfCreate;
-    private ArrayList<String> medicines;
+    public String NameOfDoctor;
+    public String NameOfPatient;
+    public Date DateOfCreate;
+    public ArrayList<String> medicines;
 
     public Recipe(String doctor, String patient, Date d){
         NameOfDoctor = doctor;

@@ -4,36 +4,51 @@ package logical.user;
  * Created by a on 5/1/15.
  */
 public class User {
-    public String username;
-    public char[] password;
-    public String name;
-    public String familyName;
+    public String myusername;
+    public char[] mypassword;
+    public String myname;
+    public String myfamilyName;
+
+
+
+    public String mytype;
 
    // private String type;
-    public int id;
+    public String id;
 
-    public String getMyusername() {
+    public User() {
+    }
+
+    public String getUsername() {
         return myusername;
     }
 
-    public void setMyusername(String myusername) {
+    public void setUername(String myusername) {
         this.myusername = myusername;
     }
 
     public char[] getPassword() {
-        return password;
+        return mypassword;
     }
 
-    public void setPassword(char[] password) {
-        this.password = password;
+    public void setPassword(char[] mypassword) {
+        this.mypassword = mypassword;
     }
 
     public String getName() {
-        return name;
+        return myname;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.myname = name;
+    }
+
+    public String getMytype() {
+        return mytype;
+    }
+
+    public void setMytype(String mytype) {
+        this.mytype = mytype;
     }
 
 //
@@ -45,12 +60,13 @@ public class User {
 //        this.type = type;
 //    }
 
-    public User(String username, char[] password, String name, String familyName, int id){
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.familyName = familyName;
+    public User(String username, char[] password, String name, String familyName, String id, String type){
+        this.myusername = username;
+        this.mypassword = password;
+        this.myname = name;
+        this.myfamilyName = familyName;
         this.id = id;
+        this.mytype = type;
       //  this.type = type;
     }
 
@@ -63,10 +79,10 @@ public class User {
     }
 
     public String getFamilyName() {
-        return familyName;
+        return myfamilyName;
     }
 
     public void setFamilyName(String familyName) {
-        this.familyName = familyName;
+        this.myfamilyName = familyName;
     }
 }

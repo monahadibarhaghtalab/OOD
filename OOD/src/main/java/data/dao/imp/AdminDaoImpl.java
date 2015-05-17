@@ -1,5 +1,4 @@
 package data.dao.imp;
-import data.context.DatabaseContext;
 import data.dao.UserFuncDao;
 import data.entities.entityfile.DoctorEntity;
 import data.entities.entityfile.MessageEntity;
@@ -10,13 +9,9 @@ import logical.user.Message;
 import logical.user.User;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by a on 5/1/15.
@@ -24,26 +19,6 @@ import java.util.UUID;
 public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
 
 
-
-    @Override
-    public ArrayList<Message> readInbox() {
-
-//
-//        SQLQuery query = session.createSQLQuery( "from MessageEntity where username = :username")
-//                .setParameter("username", username).list());
-//        List<Object[]> rows = query.list();
-//        for(Object[] row : rows){
-//            MessageEntity msg = new MessageEntity();
-//            msg.setSenderId(UUID.fromString(row[0].toString()));
-//            msg.setReceiverId(UUID.fromString(row[1].toString()));
-//            msg.content(row[2].toString());
-//            System.out.println(msg);
-//        }
-
-
-
-        return null;
-    }
 
     @Override
     public void SignUp(User user) {
@@ -73,7 +48,9 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     @Override
     public User getUser(String Username) {
         //return admin from db
-        return null;
+        List<UserEntity> list = session.createSQLQuery("from myuser where mytype= :mytype").setParameter("mytype", "admin").list();
+
+        return list.get(0).getUser();
     }
 //
     @Override
@@ -84,7 +61,7 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     @Override
     public ArrayList<User> search() {
         //search patient from db and return it
-        List<UserEntity> list = session.createSQLQuery("from myMessage where mytype= :mytype").setParameter("mytype", "patient").list();
+        List<UserEntity> list = session.createSQLQuery("from myuser where mytype= :mytype").setParameter("mytype", "patient").list();
         ArrayList<User> users = new ArrayList<User>();
 
         for(int i = 0; i < list.size(); i++){
@@ -98,12 +75,23 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     public ArrayList<User> showListOfUser() {
         //get list of all patients from db and return it
 
-        List<UserEntity> list = session.createSQLQuery("from myUser").list();
+        List<UserEntity> list = session.createSQLQuery("from myuser").list();
         ArrayList<User> users = new ArrayList<User>();
 
         for(int i = 0; i < list.size(); i++){
             users.add(list.get(i).getUser());
         }
         return users;
+    }
+
+    @Override
+    public ArrayList<Message> readInbox(User user) {
+        List<MessageEntity> list = session.createSQLQuery("from mymessage where reciver= :reciver").setParameter("reciver", user.getId()).list();
+        ArrayList<Message> messages = new ArrayList<Message>();
+
+        for(int i = 0; i < list.size(); i++){
+            messages.add(list.get(i).getMessage());
+        }
+        return messages;
     }
 }

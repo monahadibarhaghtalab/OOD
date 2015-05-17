@@ -6,10 +6,11 @@ import java.util.Date;
  * Created by a on 5/1/15.
  */
 public class Message {
-    private User sender;
-    private User receiver;
-    private String Content;
-    private Date dateOdCreate;
+    public User sender;
+    public User receiver;
+    public String Content;
+    public Date dateOdCreate;
+    public String id;
 
 
     public User getSender() {

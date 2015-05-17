@@ -6,12 +6,12 @@ import java.util.ArrayList;
  * Created by a on 5/1/15.
  */
 public class Profile {
-    private ArrayList<Recipe> recipes;
-    private ArrayList<Disease> DiseaseHistory;
-   // private ArrayList<activity> Activities;
-   // private ArrayList<physicalState> PhysicalStates;
-    private ArrayList<String> DoctersName;
-    private ArrayList<String> expertName;
+    public ArrayList<Recipe> recipes;
+    public ArrayList<Disease> DiseaseHistory;
+   // public ArrayList<activity> Activities;
+   // public ArrayList<physicalState> PhysicalStates;
+    public ArrayList<String> DoctersName;
+    public ArrayList<String> expertName;
 
 
 

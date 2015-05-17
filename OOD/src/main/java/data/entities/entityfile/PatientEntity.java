@@ -4,11 +4,14 @@ package data.entities.entityfile;
 //import org.hibernate.annotations.GenericGenerator;
 //import org.hibernate.annotations.Type;
 
+import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
 
 import javax.persistence.*;
+import javax.print.Doc;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.UUID;
 
 
@@ -16,94 +19,104 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "Patient")
-public class PatientEntity  extends UserEntity implements Serializable {
-    private UUID guid;
-    private String patientName;
-    private String idCode;
-    private String doctorName;
-    private Patient patient;
-    //  private String problem;
-    //  private UUID userId;
+public class PatientEntity  implements Serializable {
+//    public String myusername;
+//    public char[] mypassword;
+//    public String myname;
+//    public String myfamilyName;
+    public String id;
 
-    //  private UserEntity user;
+    public PatientEntity(Patient obj) {
+        setId(obj.getId());
+        doctors =  new ArrayList<DoctorEntity>();
+//        setMyusername(obj.getUsername());
+//        setMypassword(obj.getPassword());
+//        setMyname(obj.getName());
+//        setMyfamilyName(obj.getFamilyName());
 
-    public PatientEntity() { }
-
-
-    public PatientEntity(Patient user) {
-        super();
     }
 
-//    @Id
-//    @GenericGenerator(name = "generator", strategy = "uuid2", parameters = {})
-//    @GeneratedValue(generator = "generator")
-//    @Type(type = "uuid-binary")
-//    @Column(name = "UUID")
-//    public UUID getGuid() {
-//        return guid;
-//    }
-//
-//    public void setGuid(UUID guid) {
-//        this.guid = guid;
-//    }
-
-    @Column(name = "patientname",
-            nullable = false,
-            length = 100)
-    @Basic
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
-
-    @Column(name = "IdCode",
-            nullable = false,
-            length = 23)
-    @Basic
-    public String getIdCode() {
-        return idCode;
-    }
-
-    public void setIdCode(String idCode) {
-        this.idCode = idCode;
-    }
-
-
-    @Column(name = "DoctorName",
-            nullable = true,
-            length = 100)
-    @Basic
-    public String getDoctorName() {
-        return doctorName;
-    }
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
+    public PatientEntity() {
     }
 
     public Patient getPatient() {
-        return patient;
-    }
-/*
-
-    @ManyToOne
-    @JoinColumn(name = "UserId",
-            referencedColumnName = "Guid",
-            updatable = false,
-            insertable = false,
-            nullable = false)
-    public UserEntity getUser() {
-        return user;
+        ArrayList<Doctor> doctors1 = new ArrayList<Doctor>();
+        ArrayList<DoctorEntity> doctorsEn =getDoctors();
+        for(int i= 0; i < doctorsEn.size(); i++){
+            doctors1.add(doctorsEn.get(i).getDoctor())
+        }
+        return new Patient(getId(), getDoctors().getListDoctor());
     }
 
-    public void setUser(UserEntity user) {
-        this.user = user;
+    @Id
+    @Column(name = "patient_id" )
+    public String getId() {
+        return id;
     }
 
-*/
 
+    public void setId(String id) {
+        //  System.out.println(id +"IIIIIIIIIIIID");
+        this.id = id;
+    }
+
+//    @Column(name = "myusername")
+//    @Basic
+//    public String getMyusername(){
+//        return myusername;
+//    }
+//    public void setMyusername(String myusername) {
+//        this.myusername = myusername;
+//    }
+//
+//
+//    @Column(name = "mypassword")
+//    @Basic
+//    public char[] getMypassword(){
+//        return mypassword;
+//    }
+//    public void setMypassword(char[] mypassword) {
+//        this.mypassword = mypassword;
+//    }
+//
+//    @Column(name = "myname")
+//    @Basic
+//    public String getMyname(){
+//        return myname;
+//    }
+//    public void setMyname(String myfamilyName) {
+//        this.myname = myname;
+//    }
+//
+//    @Column(name = "myfamilyname")
+//    @Basic
+//    public String getMyfamilyName(){
+//        return myfamilyName;
+//    }
+//    public void setMyfamilyName(String myfamilyName) {
+//        this.myfamilyName = myfamilyName;
+//    }
+
+
+
+
+    private ArrayList<DoctorEntity> doctors ;
+
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "patient_doctor", joinColumns = {
+            @JoinColumn(name = "patient_id") },
+            inverseJoinColumns = { @JoinColumn(name = "doctor_id") })
+    public ArrayList<DoctorEntity> getDoctors() {
+        return this.doctors;
+    }
+
+    public void setDoctors(ArrayList<DoctorEntity> doctors) {
+        this.doctors = doctors;
+    }
+    public void addDoctors(DoctorEntity doctor) {
+        doctors.add(doctor);
+    }
 
 
 

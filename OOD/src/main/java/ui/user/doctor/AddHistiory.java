@@ -1,6 +1,6 @@
 package ui.user.doctor;
 
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
 import logical.Disease;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
@@ -21,7 +21,7 @@ class AddHistiory extends Temp {
     private Patient p;
     private Doctor d;
     private myJFrame window;
-    private patientDaoImpl userdao;
+    private PatientDaoImpl userdao;
     private myJLabel date;
     private myJLabel name;
     private myJLabel type;
@@ -83,7 +83,7 @@ class AddHistiory extends Temp {
         window.add(enter);
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                userdao = new patientDaoImpl();
+                userdao = new PatientDaoImpl();
                 Disease hist = new Disease(htext.getText(), d.getUsername(),  p.getUsername(), new Date());
 //signs
                 userdao.addHistory(p, hist);

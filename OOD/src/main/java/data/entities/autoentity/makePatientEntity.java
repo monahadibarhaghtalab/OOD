@@ -18,7 +18,7 @@ public class MakePatientEntity extends MakeEntityFile {
         contentFile += namefile(p, "PatientEntity");
         contentFile += construct(p, "PatientEntity");
         contentFile += content(p);
-        contentFile += "    private Set<DoctorEntity> doctors = new HashSet<DoctorEntity>(0);\n" +
+        contentFile += "    private ArrayList<DoctorEntity> doctors = new ArrayList<DoctorEntity>(0);\n" +
                 "\n" +
                 "\n" +
                 "    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)\n" +

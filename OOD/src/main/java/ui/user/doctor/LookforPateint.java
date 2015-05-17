@@ -2,7 +2,7 @@ package ui.user.doctor;
 
 import data.dao.UserFuncDao;
 import data.dao.imp.DoctorDaoImpl;
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
 import logical.user.User;
@@ -165,7 +165,7 @@ public class LookforPateint  extends Temp {
                 ArrayList<User> tmp = userdao.search();
                 if (tmp.size() != 0){
                     p = (Patient) tmp.get(0);
-                    d = new patientDaoImpl().findOrdDoctor(p);
+                    d = new PatientDaoImpl().findOrdDoctor(p);
                 }
 
                 window2.setVisible(true);

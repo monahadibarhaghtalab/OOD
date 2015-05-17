@@ -2,7 +2,7 @@ package ui.user.doctor;
 
 import data.dao.UserFuncDao;
 import data.dao.imp.DoctorDaoImpl;
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.Doctor;
 import logical.user.doctor.ExpertDoctor;
@@ -78,7 +78,7 @@ public class SeeMessage extends Temp {
                         if (t.getClass().equals(Doctor.class)|| t.getClass().equals(OrdDoctor.class) || t.getClass().equals(ExpertDoctor.class))
                             myUserdao = new DoctorDaoImpl();
                         if (t.getClass().equals(Patient.class))
-                            myUserdao = new patientDaoImpl();
+                            myUserdao = new PatientDaoImpl();
 
                         myUserdao.SignUp(messages.get(finalTemp).getSender());
                        // doctordao.addPatient((doctor) messages.get(finalTemp).getReceiver(), (patient) messages.get(finalTemp).getSender());
