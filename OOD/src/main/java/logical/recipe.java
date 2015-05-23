@@ -19,9 +19,12 @@ public class Recipe {
         NameOfDoctor = doctor;
         NameOfPatient = patient;
         DateOfCreate = d;
-        medicines = new ArrayList<String>();
+     //   this.medicines = medicines;
 
     }
+//
+//    public Recipe(String username, String username1, Date date) {
+//    }
 
     public ArrayList<String> getMedicines() {
         return medicines;

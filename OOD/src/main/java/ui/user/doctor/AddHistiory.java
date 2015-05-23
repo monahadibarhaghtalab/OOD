@@ -84,8 +84,9 @@ class AddHistiory extends Temp {
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 userdao = new PatientDaoImpl();
-                Disease hist = new Disease(htext.getText(), d.getUsername(),  p.getUsername(), new Date());
+               // Disease hist = new Disease(htext.getText(), d.getUsername(),  p.getUsername(), new Date());
 //signs
+                String hist = htext.getText();
                 userdao.addHistory(p, hist);
 
             }

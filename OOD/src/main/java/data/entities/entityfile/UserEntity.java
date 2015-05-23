@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 @Table(name = "myuser")
 @Entity
-public class UserEntity  {
+@AttributeOverride(name = "id", column = @Column(name = "user_id"))
+public class UserEntity  extends User{
 
     public String myusername;
     public char[] mypassword;
@@ -22,7 +23,7 @@ public class UserEntity  {
 
     public String mytype;
 
-    public UserEntity(User obj) {
+    public UserEntity(User obj){
         setId(obj.id);
         setMyusername(obj.getUsername());
         setMypassword(obj.getPassword());
@@ -36,17 +37,7 @@ public class UserEntity  {
     public UserEntity() {
     }
 
-    @Id
-    @Column(name = "user_id" )
-    public String getId() {
-        return id;
-    }
 
-
-    public void setId(String id) {
-        //  System.out.println(id +"IIIIIIIIIIIID");
-        this.id = id;
-    }
     @Column(name = "myusername")
     @Basic
     public String getMyusername(){

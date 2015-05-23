@@ -60,7 +60,7 @@ class WritePres extends Temp{
         send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 userdao = new PatientDaoImpl();
-                Recipe r = new Recipe(mydoctor.getUsername(), mypatient.getUsername(), new Date());
+                Recipe r = new Recipe(mydoctor, mypatient, new Date());
 //medicines
                 userdao.addRecipe(mypatient, r);
 

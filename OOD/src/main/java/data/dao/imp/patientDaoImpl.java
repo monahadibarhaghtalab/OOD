@@ -1,12 +1,12 @@
 package data.dao.imp;
 
 import data.dao.UserFuncDao;
-import data.entities.entityfile.MessageEntity;
-import data.entities.entityfile.UserEntity;
+import data.entities.entityfile.*;
 import logical.Disease;
 import logical.Recipe;
 import logical.user.Message;
 import logical.user.User;
+import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
 
 import java.util.ArrayList;
@@ -86,11 +86,34 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     }
 
     public void addRecipe(Patient mypatient, Recipe r) {
+        RecipeEntity rc = new RecipeEntity(r);
+        session.save(r);
+        List<PatientEntity> patient = session.createQuery("from mypatient where patient_id = :myid")
+                .setParameter("myid", mypatient.getId()).list();
+        patient.get(0). addRec(rc);
 
 
     }
 
-    public void addHistory(Patient p, Disease hist) {
+    public void addHistory(Patient p, String hist) {
+        List<PatientEntity> patient = session.createQuery("from mypatient where patient_id = :myid")
+                .setParameter("myid", p.getId()).list();
+        patient.get(0). addHistory(hist);
 
+    }
+
+    public Doctor findOrdDoctor(Patient p) {
+
+        String id = p.getId();
+        List<PatientEntity> list = session.createQuery("from mypatient where patient_id = :myid")
+                .setParameter("myid", id).list();
+        ArrayList<DoctorEntity> doctors = list.get(0).getDoctors();
+        for (int i = 0; i < doctors.size(); i++){
+            DoctorEntity doctor = doctors.get(i);
+            if(doctor.getTypeDoctor().equals("General")){
+                return new Doctor(doctor.getUsername(), doctor.getPassword(), doctor.getName(), doctor.getFamilyName(), doctor.getId(), "General");
+            }
+        }
+        return null;
     }
 }

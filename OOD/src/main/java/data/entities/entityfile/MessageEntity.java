@@ -12,39 +12,46 @@ import java.util.UUID;
  */
 @Table(name = "mymessage")
 @Entity
-public class MessageEntity {
+@AttributeOverride(name = "id", column = @Column(name = "message_id"))
+public class MessageEntity extends Message{
     private String id;
     public String content;
     public Date dateOdCreate;
 
     public MessageEntity(Message mymessage) {
-        setId(mymessage.id);
-        setMyContent(mymessage.getContent());
-        setReceiver(new UserEntity(mymessage.getReceiver()));
-        setSender(new UserEntity(mymessage.getSender()));
+//        super(mymessage.sender, mymessage.receiver, mymessage.dateOdCreate, mymessage.Content, mymessage.id);
+        super(mymessage.sender, mymessage.receiver, mymessage.dateOdCreate);
+//        setId(mymessage.id);
+//        setMyContent(mymessage.getContent());
+//        setReceiver(new UserEntity(mymessage.getReceiver()));
+//        setSender(new UserEntity(mymessage.getSender()));
     }
 
-    @Id
-    @Column(name = "message_id" )
-    public String getId() {
-        return id;
-    }
+//    public MessageEntity(User sender, User receiver, Date date) {
+//        super(sender, receiver, date);
+//    }
+
+//    @Id
+//    @Column(name = "message_id" )
+//    public String getId() {
+//        return id;
+//    }
+//
+//
+//    public void setId(String id) {
+//        //  System.out.println(id +"IIIIIIIIIIIID");
+//        this.id = id;
+//    }
 
 
-    public void setId(String id) {
-        //  System.out.println(id +"IIIIIIIIIIIID");
-        this.id = id;
-    }
-
-
-    @Column(name = "mycontent")
-    @Basic
-    public String getMyContent(){
-        return content;
-    }
-    public void setMyContent(String content) {
-        this.content = content;
-    }
+//    @Column(name = "mycontent")
+//    @Basic
+//    public String getMyContent(){
+//        return content;
+//    }
+//    public void setMyContent(String content) {
+//        this.content = content;
+//    }
 
     @Column(name = "mydate")
     @Basic

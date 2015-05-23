@@ -5,6 +5,6 @@ package logical.user.doctor;
  */
 public class ExpertDoctor extends Doctor {
     public ExpertDoctor(String username, char[] password, String name, String familyName, String doctorId) {
-        super(username, password, name, familyName, doctorId);
+        super(username, password, name, familyName, doctorId, "Spec");
     }
 }

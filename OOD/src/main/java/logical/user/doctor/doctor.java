@@ -7,26 +7,26 @@ import java.util.ArrayList;
 /**
  * Created by a on 5/1/15.
  */
-public class Doctor extends User {
+public class Doctor extends User{
     public ArrayList<Patient> patients;
-    public String type;
+    public String typeDoctor;
     public ArrayList<Message> messages;
     //ArrayList<message> consultations;
 
-    public Doctor(String username, char[] password, String name, String familyName, String doctorId) {
+    public Doctor(String username, char[] password, String name, String familyName, String id,  String typeDoctor) {
 
-        super(username, password, name, familyName, doctorId);
+        super(username, password, name, familyName, id, "doctor");
         patients = new ArrayList<Patient>();
         //this.type = type;
     }
 
-    public ArrayList<Patient> getPatients() {
-        return patients;
+    public Doctor() {
     }
 
-    public void setPatients(ArrayList<Patient> patients) {
-        this.patients = patients;
-    }
+//    public ArrayList<Patient> getPatients() {
+//        return patients;
+//    }
+
 //
 //    public patient searchPatients(patient p){
 //        for (int i = 0; i < patients.size(); i++){
