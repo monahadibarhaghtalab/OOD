@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * Created by a on 5/1/15.
  */
-@MappedSuperclass
+
 public class Message {
     public User sender;
     public User receiver;
@@ -22,9 +22,11 @@ public class Message {
 
     }
 
+    public Message() {
+    }
 
-    @Id
-    @Column(name = "message_id" )
+
+
     public String getId() {
         return id;
     }
@@ -34,7 +36,7 @@ public class Message {
     }
 
 
-
+//
     public User getSender() {
         return sender;
     }
@@ -48,7 +50,7 @@ public class Message {
         return receiver;
     }
 
-    
+
     public void setReceiver(User receiver) {
         receiver = receiver;
     }

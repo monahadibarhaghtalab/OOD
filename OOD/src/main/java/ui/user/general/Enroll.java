@@ -6,7 +6,7 @@ import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
-import logical.user.doctor.ExpertDoctor;
+import logical.user.doctor.*;
 import logical.user.Message;
 import logical.user.patient.Patient;
 import logical.user.User;

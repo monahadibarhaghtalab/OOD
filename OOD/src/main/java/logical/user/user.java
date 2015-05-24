@@ -1,13 +1,11 @@
 package logical.user;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 /**
  * Created by a on 5/1/15.
  */
-@MappedSuperclass
+
 public class User  {
     public String myusername;
     public char[] mypassword;
@@ -83,18 +81,14 @@ public class User  {
       //  this.type = type;
     }
 
-    @Id
-    @Column(name = "user_id" )
+
     public String getId() {
         return id;
     }
-
-
     public void setId(String id) {
         //  System.out.println(id +"IIIIIIIIIIIID");
         this.id = id;
     }
-
     
     public String getFamilyName() {
         return myfamilyName;

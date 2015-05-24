@@ -5,7 +5,7 @@ import data.dao.imp.DoctorDaoImpl;
 import data.dao.imp.PatientDaoImpl;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.Doctor;
-import logical.user.doctor.ExpertDoctor;
+import logical.user.doctor.*;
 import logical.user.Message;
 import logical.user.patient.Patient;
 import logical.user.User;

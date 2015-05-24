@@ -42,9 +42,9 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 
         //return doctor
 
-        List<UserEntity> list = session.createSQLQuery("from myuser where myusername= :myusername").setParameter("myusername", username).list();
+        List<UserEntity> list = session.createSQLQuery("from UserEntity where myusername= :myusername").setParameter("myusername", username).list();
 
-        return list.get(0).getUser();
+        return list.get(0);
 
     }
 
@@ -71,14 +71,14 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
     public ArrayList<Patient> showListOfPatient(Doctor doctor) {
         //liste bimaran pezash az db khande return mishavad
         String id = doctor.getId();
-        List<DoctorEntity> listDoctor = session.createSQLQuery("from mydoctor where doctor_id= :myid").setParameter("myid", id).list();
-        ArrayList<PatientEntity> patientsEn = listDoctor.get(0).getPatients();
-        ArrayList<Patient> patients = new ArrayList<Patient>();
-        for(int i = 0; i < patientsEn.size(); i++){
-            patients.add(patientsEn.get(i).getPatient());
-        }
+        List<DoctorEntity> listDoctor = session.createSQLQuery("from DoctorEntity where doctor_id= :myid").setParameter("myid", id).list();
+        List<PatientEntity> patientsEn = listDoctor.get(0).getPatients();
+//        ArrayList<Patient> patients = new ArrayList<Patient>();
+//        for(int i = 0; i < patientsEn.size(); i++){
+//            patients.add(patientsEn.get(i).getPatient());
+//        }
 
-        return patients;
+        return new ArrayList<Patient>(patientsEn);
 
 
     }
@@ -87,14 +87,14 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
     public Patient searchPatient(Doctor doctor, String ID) {
         //bimar ba code melli ID az db khande shode return mishavad
         String id = doctor.getId();
-        List<DoctorEntity> listDoctor = session.createSQLQuery("from mydoctor where doctor_id= :myid").setParameter("myid", id).list();
+        List<DoctorEntity> listDoctor = session.createSQLQuery("from DoctorEntity where doctor_id= :myid").setParameter("myid", id).list();
 
-        ArrayList<PatientEntity> patientsEn = listDoctor.get(0).getPatients();
+        List<PatientEntity> patientsEn = listDoctor.get(0).getPatients();
         //ArrayList<Patient> patients = new ArrayList<Patient>();
         for(int i = 0; i < patientsEn.size(); i++){
             String pID = patientsEn.get(i).getId();
             if(pID.equals(ID)){
-                return patientsEn.get(i).getPatient();
+                return patientsEn.get(i);
             }
         }
 
@@ -103,20 +103,20 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 
     @Override
     public void addPatient(Doctor receiver, Patient sender) {
-        List<PatientEntity> patient = session.createSQLQuery("from mypatient where patient_id= :myid").setParameter("myid", sender.getId()).list();
-        List<DoctorEntity> doctor= session.createSQLQuery("from mydoctor where doctor_id= :myid").setParameter("myid", receiver.getId()).list();;
+        List<PatientEntity> patient = session.createSQLQuery("from PatientEntity where patient_id= :myid").setParameter("myid", sender.getId()).list();
+        List<DoctorEntity> doctor= session.createSQLQuery("from DoctorEntity where doctor_id= :myid").setParameter("myid", receiver.getId()).list();;
         doctor.get(0).addPatients(patient.get(0));
     }
 
     //maybe should change
     @Override
     public ArrayList<Message> readInbox(User user) {
-        List<MessageEntity> list = session.createSQLQuery("from mymessage where receiver= :receiver").setParameter("receiver", user.getId()).list();
-        ArrayList<Message> messages = new ArrayList<Message>();
-
-        for(int i = 0; i < list.size(); i++){
-            messages.add(list.get(i).getMessage());
-        }
-        return messages;
+        List<MessageEntity> list = session.createSQLQuery("from MessageEntity where receiver= :receiver").setParameter("receiver", user.getId()).list();
+//        ArrayList<Message> messages = new ArrayList<Message>();
+//
+//        for(int i = 0; i < list.size(); i++){
+//            messages.add(list.get(i).getMessage());
+//        }
+        return new ArrayList<Message>(list);
     }
 }

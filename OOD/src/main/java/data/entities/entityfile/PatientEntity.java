@@ -14,37 +14,39 @@ import javax.print.Doc;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 
 
-
+@Inheritance(strategy=InheritanceType.JOINED)
 @Entity
 @Table(name = "mypatient")
 @AttributeOverride(name = "id", column = @Column(name = "patient_id"))
-public class PatientEntity  extends Patient {
+public class PatientEntity  extends PatientGen {
 //    public String myusername;
 //    public char[] mypassword;
 //    public String myname;
 //    public String myfamilyName;
    // public String id;
 
-//    public PatientEntity(Patient obj) {
-//        setId(obj.getId());
-//        doctors =  new ArrayList<DoctorEntity>();
-////        setMyusername(obj.getUsername());
-////        setMypassword(obj.getPassword());
-////        setMyname(obj.getName());
-////        setMyfamilyName(obj.getFamilyName());
-//
-//    }
-
-
-
-    public PatientEntity(String username, char[] password, String name, String familyName, String id ) {
-        super(username, password, name, familyName, id);
+    public PatientEntity(Patient obj) {
+        setId(obj.getId());
+        doctors =  new ArrayList<DoctorEntity>();
+//        setMyusername(obj.getUsername());
+//        setMypassword(obj.getPassword());
+//        setMyname(obj.getName());
+//        setMyfamilyName(obj.getFamilyName());
 
     }
+
+
+
+//    public PatientEntity(String username, char[] password, String name, String familyName, String id ) {
+//        super(username, password, name, familyName, id);
+//
+//    }
 
     public PatientEntity() {
     }
@@ -53,14 +55,14 @@ public class PatientEntity  extends Patient {
 //        super();
 //    }
 
-    public Patient getPatient() {
-//        ArrayList<Doctor> doctors1 = new ArrayList<Doctor>();
-//        ArrayList<DoctorEntity> doctorsEn =getDoctors();
-//        for(int i= 0; i < doctorsEn.size(); i++){
-//            doctors1.add(doctorsEn.get(i).getDoctor())
-//        }
-        return new Patient(getId());
-    }
+//    public Patient getPatient() {
+////        ArrayList<Doctor> doctors1 = new ArrayList<Doctor>();
+////        ArrayList<DoctorEntity> doctorsEn =getDoctors();
+////        for(int i= 0; i < doctorsEn.size(); i++){
+////            doctors1.add(doctorsEn.get(i).getDoctor())
+////        }
+//        return new Patient(getId());
+//    }
 
 //    @Id
 //    @Column(name = "patient_id" )
@@ -129,17 +131,17 @@ public class PatientEntity  extends Patient {
 
 
 
-    private ArrayList<DoctorEntity> doctors ;
+    private List<DoctorEntity> doctors ;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "patient_doctor", joinColumns = {
             @JoinColumn(name = "patient_id") },
             inverseJoinColumns = { @JoinColumn(name = "doctor_id") })
 
-    public ArrayList<DoctorEntity> getDoctors() {
+    public List<DoctorEntity> getDoctors() {
         return this.doctors;
     }
 
-    public void setDoctors(ArrayList<DoctorEntity> doctors) {
+    public void setDoctors(List<DoctorEntity> doctors) {
         this.doctors = doctors;
     }
     public void addDoctors(DoctorEntity doctor) {
@@ -147,13 +149,13 @@ public class PatientEntity  extends Patient {
     }
 
 
-    private ArrayList<RecipeEntity> rcp;
+    private Set<RecipeEntity> rcp;
     @OneToMany(mappedBy = "patient")
-    public ArrayList<RecipeEntity> getRcp() {
+    public Set<RecipeEntity> getRcp() {
         return rcp;
     }
 
-    public void setRcp(ArrayList<RecipeEntity> rcp) {
+    public void setRcp(Set<RecipeEntity> rcp) {
         this.rcp = rcp;
     }
 

@@ -51,9 +51,9 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     @Override
     public User getUser(String Username) {
         //return admin from db
-        List<UserEntity> list = session.createSQLQuery("from myuser where mytype= :mytype").setParameter("mytype", "admin").list();
+        List<UserEntity> list = session.createQuery("from UserEntity where mytype= :mytype").setParameter("mytype", "admin").list();
 
-        return list.get(0).getUser();
+        return list.get(0);
     }
 //
     @Override
@@ -64,13 +64,13 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     @Override
     public ArrayList<User> search() {
         //search patient from db and return it
-        List<UserEntity> list = session.createSQLQuery("from myuser where mytype= :mytype").setParameter("mytype", "patient").list();
-        ArrayList<User> users = new ArrayList<User>();
-
-        for(int i = 0; i < list.size(); i++){
-            users.add(list.get(i).getUser());
-        }
-        return users;
+        List<UserEntity> list = session.createQuery("from UserEntity where mytype= :mytype").setParameter("mytype", "patient").list();
+//        ArrayList<User> users = new ArrayList<User>();
+//
+//        for(int i = 0; i < list.size(); i++){
+//            users.add(list.get(i).getUser());
+//        }
+        return new ArrayList<User>(list);
 
     }
 
@@ -78,23 +78,23 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     public ArrayList<User> showListOfUser() {
         //get list of all patients from db and return it
 
-        List<UserEntity> list = session.createSQLQuery("from myuser").list();
-        ArrayList<User> users = new ArrayList<User>();
-
-        for(int i = 0; i < list.size(); i++){
-            users.add(list.get(i).getUser());
-        }
-        return users;
+        List<UserEntity> list = session.createQuery("from UserEntity").list();
+//        ArrayList<User> users = new ArrayList<User>();
+//
+//        for(int i = 0; i < list.size(); i++){
+//            users.add(list.get(i).getUser());
+//        }
+        return new ArrayList<User>(list);
     }
 
     @Override
     public ArrayList<Message> readInbox(User user) {
-        List<MessageEntity> list = session.createSQLQuery("from mymessage where receiver= :receiver").setParameter("receiver", user.getId()).list();
-        ArrayList<Message> messages = new ArrayList<Message>();
-
-        for(int i = 0; i < list.size(); i++){
-            messages.add(list.get(i).getMessage());
-        }
-        return messages;
+        List<MessageEntity> list = session.createQuery("from MessageEntity where receiver= :receiver").setParameter("receiver", user.getId()).list();
+//        ArrayList<Message> messages = new ArrayList<Message>();
+//
+//        for(int i = 0; i < list.size(); i++){
+//            messages.add(list.get(i).getMessage());
+//        }
+        return new ArrayList<Message>(list);
     }
 }

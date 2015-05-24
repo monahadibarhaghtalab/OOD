@@ -7,6 +7,62 @@
     </database-info>
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="health"/>
+    <table name="mydoctor" schema="" catalog="health" type="TABLE">
+      <column name="doctor_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="typeDoctor" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="doctor_id"/>
+      <exported-key name="FK3F8723A10DF6E83" table="myrecipe" schema="" catalog="health" columns="doctor_id"/>
+      <exported-key name="FK39C3239910DF6E83" table="patient_doctor" schema="" catalog="health" columns="doctor_id"/>
+    </table>
+    <table name="mymessage" schema="" catalog="health" type="TABLE">
+      <column name="message_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="mycontent" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mydate" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="reciver_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sender_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="message_id"/>
+      <foreign-key name="FK737C78DB61BAD7C4" columns="reciver_id" ref-table="myuser" ref-schema="" ref-catalog="health" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK737C78DB6E4ED0D9" columns="sender_id" ref-table="myuser" ref-schema="" ref-catalog="health" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK737C78DB61BAD7C4" unique="false" columns="reciver_id"/>
+      <index name="FK737C78DB6E4ED0D9" unique="false" columns="sender_id"/>
+    </table>
+    <table name="mypatient" schema="" catalog="health" type="TABLE">
+      <column name="patient_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="history" sqlType="TINYBLOB" precision="255" scale="0" nullable="true" jdbcType="-2"/>
+      <primary-key name="PRIMARY" columns="patient_id"/>
+      <exported-key name="FK3F8723A1DD45437" table="myrecipe" schema="" catalog="health" columns="patient_id"/>
+      <exported-key name="FK39C323991DD45437" table="patient_doctor" schema="" catalog="health" columns="patient_id"/>
+    </table>
+    <table name="myrecipe" schema="" catalog="health" type="TABLE">
+      <column name="recipe_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="medicines" sqlType="TINYBLOB" precision="255" scale="0" nullable="true" jdbcType="-2"/>
+      <column name="doctor_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="patient_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="recipe_id"/>
+      <foreign-key name="FK3F8723A10DF6E83" columns="doctor_id" ref-table="mydoctor" ref-schema="" ref-catalog="health" ref-columns="doctor_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK3F8723A1DD45437" columns="patient_id" ref-table="mypatient" ref-schema="" ref-catalog="health" ref-columns="patient_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK3F8723A10DF6E83" unique="false" columns="doctor_id"/>
+      <index name="FK3F8723A1DD45437" unique="false" columns="patient_id"/>
+    </table>
+    <table name="myuser" schema="" catalog="health" type="TABLE">
+      <column name="user_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="myfamilyname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="myname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mypassword" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mytype" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="myusername" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="FK737C78DB61BAD7C4" table="mymessage" schema="" catalog="health" columns="reciver_id"/>
+      <exported-key name="FK737C78DB6E4ED0D9" table="mymessage" schema="" catalog="health" columns="sender_id"/>
+    </table>
+    <table name="patient_doctor" schema="" catalog="health" type="TABLE">
+      <column name="patient_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="doctor_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <foreign-key name="FK39C3239910DF6E83" columns="doctor_id" ref-table="mydoctor" ref-schema="" ref-catalog="health" ref-columns="doctor_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK39C323991DD45437" columns="patient_id" ref-table="mypatient" ref-schema="" ref-catalog="health" ref-columns="patient_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK39C3239910DF6E83" unique="false" columns="doctor_id"/>
+      <index name="FK39C323991DD45437" unique="false" columns="patient_id"/>
+    </table>
   </data-source>
   <data-source name="MySQL - healthsystem@localhost" uuid="e948ca33-c243-4d63-ba8d-ddd989bc5e17">
     <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">

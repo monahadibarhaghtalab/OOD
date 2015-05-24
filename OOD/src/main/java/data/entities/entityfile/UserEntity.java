@@ -5,15 +5,17 @@ import logical.user.doctor.Doctor;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-/**
- * Created by Mona on 3/14/2015.
- */
+
 
 @Table(name = "myuser")
 @Entity
+@PrimaryKeyJoinColumn(name="id")
 @AttributeOverride(name = "id", column = @Column(name = "user_id"))
-public class UserEntity  extends User{
+public class UserEntity  extends UserGen{
 
     public String myusername;
     public char[] mypassword;
@@ -23,19 +25,27 @@ public class UserEntity  extends User{
 
     public String mytype;
 
+
+
     public UserEntity(User obj){
         setId(obj.id);
         setMyusername(obj.getUsername());
         setMypassword(obj.getPassword());
         setMyname(obj.getName());
         setMyfamilyName(obj.getFamilyName());
-        messageSend = new ArrayList<MessageEntity>();
-        messageReceive = new ArrayList<MessageEntity>();
+        messageSend = new HashSet<MessageEntity>();
+        messageReceive = new HashSet<MessageEntity>();
 
     }
 
     public UserEntity() {
     }
+
+
+//    public User getUser(){
+//        User res = new User(this.myusername, this.mypassword, this.myname, this.myfamilyName, this.id, this.getMytype());
+//        return res;
+//    }
 
 
     @Column(name = "myusername")
@@ -85,14 +95,14 @@ public class UserEntity  extends User{
         this.mytype = mytype;
     }
 
-    @OneToMany(mappedBy = "sender")
-    private  ArrayList<MessageEntity> messageSend;
 
-    public ArrayList<MessageEntity> getMessageSend() {
+    private Set<MessageEntity> messageSend;
+    @OneToMany(mappedBy = "sender")
+    public Set<MessageEntity> getMessageSend() {
         return messageSend;
     }
 
-    public void setMessageSend(ArrayList<MessageEntity> message) {
+    public void setMessageSend(Set<MessageEntity> message) {
         this.messageSend = message;
     }
 
@@ -100,14 +110,13 @@ public class UserEntity  extends User{
         messageSend.add(newmessage);
     }
 
+    private  Set<MessageEntity> messageReceive;
     @OneToMany(mappedBy = "receiver")
-    private  ArrayList<MessageEntity> messageReceive;
-
-    public ArrayList<MessageEntity> getMessageRec() {
+    public Set<MessageEntity> getMessageRec() {
         return messageReceive;
     }
 
-    public void setMessageRec(ArrayList<MessageEntity> message) {
+    public void setMessageRec(Set<MessageEntity> message) {
         this.messageReceive = message;
     }
 
@@ -115,8 +124,5 @@ public class UserEntity  extends User{
         messageReceive.add(newmessage);
     }
 
-    public User getUser(){
-        User res = new User(this.myusername, this.mypassword, this.myname, this.myfamilyName, this.id, this.getMytype());
-        return res;
-    }
+
 }

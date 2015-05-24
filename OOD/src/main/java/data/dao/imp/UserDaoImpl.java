@@ -43,11 +43,11 @@ public class UserDaoImpl extends DaoImp implements UserDao {
     @Override
     public User getUser(String username) {
         //find user from db and return it as user object
-        List<UserEntity> user = session.createQuery("from my_user where myusername = :username")
+        List<UserEntity> user = session.createQuery("from UserEntity where myusername = :username")
                 .setParameter("username", username).list();
 
 
-        return user.get(0).getUser();
+        return user.get(0);
     }
 
     @Override

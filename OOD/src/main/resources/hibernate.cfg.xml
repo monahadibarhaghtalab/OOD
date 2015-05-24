@@ -14,7 +14,7 @@
 
         <mapping class="data.entities.entityfile.DoctorEntity"/>
         <mapping class="data.entities.entityfile.PatientEntity"/>
-        <mapping class="data.entities.entityfile.UserEntity"/>
+        <mapping class="data.entities.entityfile.RecipeEntity"/>
         <mapping class="data.entities.entityfile.MessageEntity"/>
         <mapping class="data.entities.entityfile.UserEntity"/>
 

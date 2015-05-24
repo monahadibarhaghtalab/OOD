@@ -32,9 +32,9 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     public User getUser(String username) {
         //return patient from db
 
-        List<UserEntity> list = session.createSQLQuery("from myuser where myusername= :myusername").setParameter("myusername", username).list();
+        List<UserEntity> list = session.createSQLQuery("from UserEntity where myusername= :myusername").setParameter("myusername", username).list();
 
-        return list.get(0).getUser();
+        return list.get(0);
 
     }
 
@@ -47,56 +47,52 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     public ArrayList<User> search() {
         //doctor omoomi motenaseb ba field ha ra miabim
         //liste doctorhaye omoomi az db khande va namayesh dade mishavad
-        List<UserEntity> list = session.createQuery("from myuser where mytype = :mytype")
+        List<UserEntity> list = session.createQuery("from UserEntity where mytype = :mytype")
                 .setParameter("mytype", "General").list();
-        ArrayList<User> doctorList = new ArrayList<User>();
 
-        for(int i = 0; i < list.size(); i++){
-            doctorList.add(list.get(i).getUser());
-        }
-        return doctorList;
+        return new ArrayList<User>(list);
 
     }
 
     @Override
     public ArrayList<User> showListOfUser() {
         //liste doctorhaye omoomi az db khande va namayesh dade mishavad
-        List<UserEntity> list = session.createQuery("from myuser where mytype = :mytype")
+        List<UserEntity> list = session.createQuery("from UserEntity where mytype = :mytype")
                 .setParameter("mytype", "General").list();
-        ArrayList<User> doctorList = new ArrayList<User>();
-
-        for(int i = 0; i < list.size(); i++){
-            doctorList.add(list.get(i).getUser());
-        }
-        return doctorList;
+//        ArrayList<User> doctorList = new ArrayList<User>();
+//
+//        for(int i = 0; i < list.size(); i++){
+//            doctorList.add(list.get(i).getUser());
+//        }
+        return new ArrayList<User>(list);
 
     }
 
     @Override
     public ArrayList<Message> readInbox(User user) {
         //liste payamhaye bimar
-        List<MessageEntity> list = session.createSQLQuery("from myMessage").list();
-        ArrayList<Message> messageList = new ArrayList<Message>();
-
-        for(int i = 0; i < list.size(); i++){
-            messageList.add(list.get(i).getMessage());
-        }
-        return messageList;
+        List<MessageEntity> list = session.createSQLQuery("from MessageEntity").list();
+//        ArrayList<Message> messageList = new ArrayList<Message>();
+//
+//        for(int i = 0; i < list.size(); i++){
+//            messageList.add(list.get(i).getMessage());
+//        }
+        return new ArrayList<Message>(list);
 
     }
 
-    public void addRecipe(Patient mypatient, Recipe r) {
+    public void addRecipe(Patient PatientEntity, Recipe r) {
         RecipeEntity rc = new RecipeEntity(r);
         session.save(r);
-        List<PatientEntity> patient = session.createQuery("from mypatient where patient_id = :myid")
-                .setParameter("myid", mypatient.getId()).list();
+        List<PatientEntity> patient = session.createQuery("from PatientEntity where patient_id = :myid")
+                .setParameter("myid", PatientEntity.getId()).list();
         patient.get(0). addRec(rc);
 
 
     }
 
     public void addHistory(Patient p, String hist) {
-        List<PatientEntity> patient = session.createQuery("from mypatient where patient_id = :myid")
+        List<PatientEntity> patient = session.createQuery("from PatientEntity where patient_id = :myid")
                 .setParameter("myid", p.getId()).list();
         patient.get(0). addHistory(hist);
 
@@ -105,9 +101,9 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     public Doctor findOrdDoctor(Patient p) {
 
         String id = p.getId();
-        List<PatientEntity> list = session.createQuery("from mypatient where patient_id = :myid")
+        List<PatientEntity> list = session.createQuery("from PatientEntity where patient_id = :myid")
                 .setParameter("myid", id).list();
-        ArrayList<DoctorEntity> doctors = list.get(0).getDoctors();
+        List<DoctorEntity> doctors = list.get(0).getDoctors();
         for (int i = 0; i < doctors.size(); i++){
             DoctorEntity doctor = doctors.get(i);
             if(doctor.getTypeDoctor().equals("General")){

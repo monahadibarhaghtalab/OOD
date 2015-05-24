@@ -11,14 +11,15 @@ import java.util.Date;
 /**
  * Created by Mona on 3/14/2015.
  */
+@Inheritance(strategy=InheritanceType.JOINED)
 @Table(name = "myrecipe")
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "recipe_id"))
 public class RecipeEntity extends Recipe{
 
 
-    public Doctor doctor;
-    public Patient patient;
+    public DoctorEntity doctor;
+    public PatientEntity patient;
     public Date DateOfCreate;
     public ArrayList<String> medicines;
 
@@ -27,17 +28,17 @@ public class RecipeEntity extends Recipe{
         super(rcp.NameOfDoctor, rcp.NameOfPatient, rcp.DateOfCreate);
     }
 
+    public RecipeEntity() {
+    }
 
 
     @ManyToOne
     @JoinColumn(name = "doctor_id" , nullable = false)
-//    private UserEntity sender;
-
-    public Doctor getDoctor() {
+    public DoctorEntity getDoctor() {
         return doctor;
     }
 
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(DoctorEntity doctor) {
         this.doctor = doctor;
     }
 
@@ -49,11 +50,11 @@ public class RecipeEntity extends Recipe{
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
 
-    public Patient getPatient() {
+    public PatientEntity getPatient() {
         return patient;
     }
 
-    public void setPatient(Patient patient) {
+    public void setPatient(PatientEntity patient) {
         this.patient = patient;
     }
 }

@@ -6,15 +6,17 @@ import javax.persistence.*;
 import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
  * Created by Mona on 3/14/2015.
  */
+@Inheritance(strategy=InheritanceType.JOINED)
 @Table (name = "mydoctor")
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "doctor_id"))
-public class DoctorEntity extends Doctor{
+public class DoctorEntity extends DoctorGen{
 
 //    public String myusername;
 //    public char[] mypassword;
@@ -38,9 +40,11 @@ public class DoctorEntity extends Doctor{
     public DoctorEntity() {
     }
 
+
+    String typeDoctor;
     @Column(name = "typeDoctor")
     @Basic
-    String typeDoctor;
+
     public String getTypeDoctor() {
         return typeDoctor;
     }
@@ -51,7 +55,7 @@ public class DoctorEntity extends Doctor{
 
 
 
-    private ArrayList<RecipeEntity> rcp;
+
 
 //    @Id
 //    @Column(name = "doctor_id" )
@@ -102,15 +106,15 @@ public class DoctorEntity extends Doctor{
 //    }
 //
 //
-    private ArrayList<PatientEntity> patients;
+    private List<PatientEntity> patients;
 //
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "doctors")
-    public ArrayList<PatientEntity> getPatients() {
+    public List<PatientEntity> getPatients() {
         return this.patients;
     }
 
-    public void setPatients(ArrayList<PatientEntity> patients) {
+    public void setPatients(List<PatientEntity> patients) {
         this.patients = patients;
     }
     public void addPatients(PatientEntity patient) {
@@ -122,12 +126,13 @@ public class DoctorEntity extends Doctor{
 //        return new Doctor(getMyusername())
 //    }
 
+    private List<RecipeEntity> rcp;
     @OneToMany(mappedBy = "doctor")
-    public ArrayList<RecipeEntity> getRcp() {
+    public List<RecipeEntity> getRcp() {
         return rcp;
     }
 
-    public void setRcp(ArrayList<RecipeEntity> rcp) {
+    public void setRcp(List<RecipeEntity> rcp) {
         this.rcp = rcp;
     }
 

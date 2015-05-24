@@ -7,8 +7,11 @@ import data.dao.imp.PatientDaoImpl;
 import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.ExpertDoctor;
+import logical.user.doctor.Doctor;
+
 import logical.user.patient.Patient;
 import logical.user.User;
+
 
 import ui.element.*;
 import ui.user.FirstPageAdmin;
