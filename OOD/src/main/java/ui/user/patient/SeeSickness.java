@@ -1,5 +1,9 @@
 package ui.user.patient;
 
+import data.dao.ProfileDao;
+import data.dao.imp.ProfileDaoImpl;
+import logical.disease;
+import logical.user.patient.Patient;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -7,6 +11,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Mona on 4/4/2015.
@@ -19,12 +28,14 @@ class SeeSickness extends Temp {
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search;
+    private ArrayList<disease> sickness;
+    private Patient myPatient;
 
-    SeeSickness() {
+    SeeSickness(Patient p) {
+//check
+        super();
 
-
-
-
+        myPatient = p;
         winMain = getWindow("سابقه بیماری", true);
 
         from = new myJLabel("از تاریخ");
@@ -56,8 +67,15 @@ class SeeSickness extends Temp {
             window2 = getWindow("نتایج", false);
 
 
-        Object rowData[][] = { { "تست", "تست"}  };
-        Object columnNames[] = { "", ""};
+        Object rowData[][] = new myJTextField[sickness.size()][2];
+        Object columnNames[] = { "تاریخ ثبت", "سابقه ی بیماری"};
+        for (int i = 0; i < sickness.size(); i++){
+            SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+            myJTextField t0 = new myJTextField("");
+            myJTextField t1 = new myJTextField("");
+            t0.setText(sdfr.format(sickness.get(i).getDateOfCreate()));
+            t1.setText(sickness.get(i).getSigns());
+        }
         myJTable table = new myJTable(rowData, columnNames);
 
         JScrollPane scrollPane = new JScrollPane(table);
@@ -68,6 +86,21 @@ class SeeSickness extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                ProfileDao pdao = new ProfileDaoImpl();
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date firstDate = null;
+                try {
+                    firstDate = dateFormat.parse(ntext.getText());
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
+                Date secondDate = null;
+                try {
+                    secondDate = dateFormat.parse(ftext.getText());
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
+                sickness = pdao.getHistory(firstDate, secondDate, myPatient.getProfile());
                 // new showResult();
                 window2.setVisible(true);
                 winMain.setVisible(false);

@@ -12,12 +12,11 @@ public class Recipe {
     private Date DateOfCreate;
     private ArrayList<String> medicines;
 
-    public Recipe(String doctor, String patient, Date d){
+    public Recipe(String doctor, String patient, Date d, ArrayList<String> medicines){
         NameOfDoctor = doctor;
         NameOfPatient = patient;
         DateOfCreate = d;
-        medicines = new ArrayList<String>();
-
+        this.medicines = medicines;
     }
 
     public ArrayList<String> getMedicines() {

@@ -139,20 +139,20 @@ class Enroll  extends TempFirst {
                 admin = (Admin)adminDao.getUser("admin");
                 if(type.getSelectedItem().toString().equals("پزشک عمومی")){
                     User tempUser = new OrdDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(),  wtext.getText());
-                    Message request = new Message(tempUser, admin, new Date());
+                    Message request = new Message(tempUser, admin, new Date(), "لطفا با ثبت نام اینجانب موافقت فرمایید.", "درخواست ثبت نام", 0);
                     messagedao.sendMessage(request);
 //
 
                 }
                 else if(type.getSelectedItem().toString().equals("پزشک متخصص")){
-                    User tempUser = new ExpertDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(), wtext.getText());
-                    Message request = new Message(tempUser, admin, new Date());
+                    User tempUser = new ExpertDoctor(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(), wtext.getText(),"");
+                    Message request = new Message(tempUser, admin, new Date(), "لطفا با ثبت نام اینجانب موافقت فرمایید.", "درخواست ثبت نام", 0);
                     messagedao.sendMessage(request);
 
                 }
                 else if(type.getSelectedItem().toString().equals("بیمار")){
                     User tempUser = new Patient(htext.getText(), ptext.getPassword(),  utext.getText(), ntext.getText(), wtext.getText());
-                    Message request = new Message(tempUser, admin, new Date());
+                    Message request = new Message(tempUser, admin, new Date(), "لطفا با ثبت نام اینجانب موافقت فرمایید.", "درخواست ثبت نام", 0);
                     messagedao.sendMessage(request);
                 }
 

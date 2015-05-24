@@ -10,9 +10,8 @@ public interface UserDao {
     public void SignUp(User user);  //implementation phase1
     public void Login(User user);    //implementation phase1
     public User getUser(String username);
-    public void retriveData(User user);
 
    // public void Logout();
     public ArrayList<User> search();  //implementation phase1
-    public ArrayList<User> showListOfUser();   //implementation phase1
+    public ArrayList<User> showListOfUser(User user);   //implementation phase1
 }

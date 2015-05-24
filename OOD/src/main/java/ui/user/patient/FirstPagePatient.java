@@ -1,7 +1,7 @@
 package ui.user.patient;
 
 import data.dao.UserFuncDao;
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.doctor.OrdDoctor;
 import logical.user.patient.Patient;
 import logical.user.User;
@@ -27,7 +27,7 @@ public class FirstPagePatient extends Temp {
     private myJButton inbox;
     private myJButton list;
 
-    public FirstPagePatient(final Patient patient){
+    public FirstPagePatient( Patient patient){
         super();
         myPatient = patient;
         window = getWindow("ورود به عنوان بیمار", true);
@@ -48,7 +48,7 @@ public class FirstPagePatient extends Temp {
 
         history.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new History();
+                new History(myPatient);
                 //  window.setVisible(false);
             }
         });
@@ -59,7 +59,7 @@ public class FirstPagePatient extends Temp {
 
         submitStatus.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SubmitStatus();
+                new SubmitStatus(myPatient);
                 //  window.setVisible(false);
             }
         });
@@ -70,7 +70,7 @@ public class FirstPagePatient extends Temp {
 
         chooseDoctor.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new ChooseDoctor(myPatient);
+                new ChooseDoctor(myPatient,myPatient);
                 //  window.setVisible(false);
             }
         });
@@ -81,7 +81,7 @@ public class FirstPagePatient extends Temp {
 
         consult.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new Consult();
+                new Consult(myPatient);
                 //  window.setVisible(false);
             }
         });
@@ -103,12 +103,10 @@ public class FirstPagePatient extends Temp {
 
         list.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                pationtdao = new patientDaoImpl();
-                ArrayList<OrdDoctor> doctor = new ArrayList<OrdDoctor>();
-                ArrayList<User> temp = pationtdao.showListOfUser();
-                for (int i = 0; i < temp.size();i++){
-                    doctor.add((OrdDoctor)temp.get(i));
-                }
+               // pationtdao = new patientDaoImpl();
+
+                ArrayList<OrdDoctor> doctor = PatientDaoImpl.getListOfAllOrdDoctor();
+
                 new ShowListOfDoctor(doctor);
                 //  window.setVisible(false);
             }

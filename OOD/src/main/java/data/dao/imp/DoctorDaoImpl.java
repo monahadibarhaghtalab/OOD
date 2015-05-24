@@ -28,7 +28,7 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 //    }
 
     @Override
-    public ArrayList<Message> readInbox() {
+    public ArrayList<Message> getMessages(User doctor) {
         //list payam haye pezashk
         return null;
     }
@@ -55,12 +55,7 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
 
     }
 
-    @Override
-    public void retriveData(User user) {
-        //find message list
-        //find consultation list
-        //find patient list
-    }
+
 
     @Override
     public ArrayList<User> search() {
@@ -69,10 +64,11 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
     }
 
     @Override
-    public ArrayList<User> showListOfUser() {
-        //nothing
+    public ArrayList<User> showListOfUser(User user) {
         return null;
     }
+
+
 
     @Override
     public ArrayList<Patient> showListOfPatient(Doctor doctor) {
@@ -105,6 +101,16 @@ public class DoctorDaoImpl extends DaoImp implements UserFuncDao, DoctorDao {
             }
         }
 
+        return null;
+    }
+
+    @Override
+    public void addPatient(Doctor d, int patientID) {
+
+    }
+
+    @Override
+    public ArrayList<Message> getConsults(Doctor d) {
         return null;
     }
 }

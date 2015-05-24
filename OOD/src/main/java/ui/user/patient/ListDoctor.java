@@ -2,7 +2,11 @@ package ui.user.patient;
 
 import data.dao.MessageDao;
 import data.dao.UserFuncDao;
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
+import data.dao.imp.UserDaoImpl;
+
+import logical.user.doctor.Doctor;
+import logical.user.doctor.ExpertDoctor;
 import logical.user.doctor.OrdDoctor;
 import logical.user.Message;
 import logical.user.patient.Patient;
@@ -22,19 +26,19 @@ import java.util.Date;
  */
 class ListDoctor extends Temp{
 
-    private UserFuncDao patientdao;
+    private UserFuncDao userdao;
     private myJFrame winMain, window2;
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search, search1;
-    private ArrayList<OrdDoctor> searchDoctor;
+    private ArrayList<Doctor> searchDoctor;
     private ButtonGroup bg;
-    private Patient mypatient;
+    private User myUser;
     private MessageDao messagedao;
 
-    protected ListDoctor(Patient patient){
+    protected ListDoctor(User user){
         super();
-        mypatient = patient;
+        myUser = user;
         winMain = getWindow("لیست پزشکان", true);
         bg = new ButtonGroup();
         from = new myJLabel("نام");
@@ -46,6 +50,9 @@ class ListDoctor extends Temp{
         winMain.add(until);
 
 
+
+
+
         ntext = new myJTextField("");
         ntext.set(150, 200, 150, 20, "B Nazanin", 20);
         winMain.add(ntext);
@@ -55,6 +62,10 @@ class ListDoctor extends Temp{
         winMain.add(ftext);
 
 
+
+//takhasos
+        
+
         search = new myJButton(false);
         search.setText("جستجو");
         search.set(200, 400, 100, 40, "B Nazanin", 20);
@@ -62,13 +73,23 @@ class ListDoctor extends Temp{
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
-                patientdao = new patientDaoImpl();
+               // userdao = new UserDaoImpl();
                 //field problem
-                ArrayList<User> temp = patientdao.search();
+                if(myUser.getClass().equals(Patient.class)) {
+                    ArrayList<OrdDoctor> tmp = PatientDaoImpl.getListOfOrdDoctor(ntext.getText(), ftext.getText());
+                    searchDoctor = new ArrayList<Doctor>();
+                    for(int i = 0; i < tmp.size(); i++){
+                        searchDoctor.add(tmp.get(i));
+                    }
+                }
+//takhasos
+                if(myUser.getClass().equals(Doctor.class) || myUser.getClass().equals(OrdDoctor.class)) {
+                    ArrayList<ExpertDoctor> tmp = PatientDaoImpl.getListOfProDoctor(ntext.getText(), ftext.getText());
+                    searchDoctor = new ArrayList<Doctor>();
+                    for(int i = 0; i < tmp.size(); i++){
+                        searchDoctor.add(tmp.get(i));
+                    }                }
 
-                searchDoctor = new ArrayList<OrdDoctor>();
-                for (int i = 0; i< temp.size(); i++)
-                    searchDoctor.add((OrdDoctor)temp.get(i));
                 window2.setVisible(false);
                 //  winMain.setVisible(false);
             }
@@ -82,13 +103,14 @@ class ListDoctor extends Temp{
 
         window2 = getWindow("لیست پزشکان", false);
 
-        JRadioButton rowData[][] = new JRadioButton[searchDoctor.size()][1];
-        Object columnNames[] = {"نام"};
+        JRadioButton rowData[][] = new JRadioButton[searchDoctor.size()][2];
+        Object columnNames[] = {"نام", "تخصص"};
 
         for (int i = 0; i < searchDoctor.size(); i++){
 
             rowData[i][0].setText(searchDoctor.get(i).getName() + " " + searchDoctor.get(i).getFamilyName());
             rowData[i][0].setActionCommand(Integer.toString(i));
+            rowData[i][1].setText(searchDoctor.get(i).getType());
             bg.add(rowData[i][0]);
             //rowData[i][1].setText(searchDoctor.get(i).getFamilyName());
         }
@@ -118,7 +140,15 @@ class ListDoctor extends Temp{
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
                 String num = bg.getSelection().getActionCommand();
-                Message request = new Message(mypatient, searchDoctor.get(Integer.parseInt(num)), new Date());
+                Message request;
+
+                if (myUser.getClass().equals(Patient.class)) {
+                    request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(), "", "درخواست پذیرش", Integer.parseInt(myUser.getId()));
+                }
+                else {
+                    Doctor d = (Doctor)myUser;
+                    request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(), "", "درخواست پذیرش", Integer.parseInt(d.currentPatient.getId()));
+                }
                 messagedao.sendMessage(request);
 
             }

@@ -1,5 +1,6 @@
 package ui.user.doctor;
 
+import data.dao.DoctorDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.DoctorDaoImpl;
 import logical.user.doctor.Doctor;
@@ -18,28 +19,31 @@ import java.util.ArrayList;
  * Created by Mona on 3/15/2015.
  */
 public class FirstPageDoctor extends Temp {
-    private myJFrame window;
-    private UserFuncDao doctordao;
-    private Doctor mydoctor;
+    public myJFrame window;
+    private DoctorDaoImpl doctordao;
+    private Doctor myDoctor;
     private myJButton historyPatient;
     private myJButton seeMessage;
     private myJButton seeConsult;
     private myJButton getReport;
     private myJButton seeList;
+    public int start;
+    public int height;
 
-    public  FirstPageDoctor(final Doctor doctor){
+    public  FirstPageDoctor(Doctor doctor){
         super();
-
+        myDoctor = doctor;
         window = getWindow("ورود به عنوان پزشک", true);
-        mydoctor = doctor;
+        myDoctor = doctor;
+        doctordao = new DoctorDaoImpl();
         historyPatient = new myJButton(false);
         seeMessage = new myJButton(false);
         seeConsult = new myJButton(false);
         getReport = new myJButton(false);
         seeList = new myJButton(false);
 
-        int start = 200;
-        int height = 30;
+        start = 200;
+        height = 30;
 
         historyPatient.set(150, start, 300, height, "B Nazanin", 20);
         historyPatient.setText("مشاهده سوابق بیمار");
@@ -47,7 +51,7 @@ public class FirstPageDoctor extends Temp {
 
         historyPatient.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new LookforPateint();
+                new LookforPateint(myDoctor);
                 //  window.setVisible(false);
             }
         });
@@ -58,9 +62,10 @@ public class FirstPageDoctor extends Temp {
 
         seeMessage.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                doctordao = new DoctorDaoImpl();
+
                 //noe doctor
-                ArrayList<Message> messages = doctordao.readInbox(mydoctor);
+
+                ArrayList<Message> messages = doctordao.getMessages(myDoctor);
                 new SeeMessage(messages,"doctor");
                 //  window.setVisible(false);
             }
@@ -72,7 +77,8 @@ public class FirstPageDoctor extends Temp {
 
         seeConsult.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SeeConsult();
+                ArrayList<Message> consults = doctordao.getConsults(myDoctor);
+                new SeeConsult(consults);
                 //  window.setVisible(false);
             }
         });
@@ -94,7 +100,7 @@ public class FirstPageDoctor extends Temp {
 
         seeList.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ArrayList<User> tmp = doctordao.showListOfUser();
+                ArrayList<User> tmp = doctordao.showListOfUser(myDoctor);
                 ArrayList<Patient> patients = new ArrayList<Patient>();
                 for (int i = 0; i< tmp.size(); i++){
                     patients.add((Patient) tmp.get(i));

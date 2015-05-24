@@ -1,5 +1,7 @@
 package logical.user;
 
+import logical.user.patient.Patient;
+
 import java.util.Date;
 
 /**
@@ -8,8 +10,10 @@ import java.util.Date;
 public class Message {
     private User sender;
     private User receiver;
+    private String title;
     private String Content;
     private Date dateOdCreate;
+    private int PatientId;
 
 
     public User getSender() {
@@ -45,13 +49,32 @@ public class Message {
     }
 
 
-    public Message(User sender, User receiver, Date date){
+    public Message(User sender, User receiver, Date date, String content, String title, int id){
         this.receiver = receiver;
         this.sender = sender;
         dateOdCreate = date;
+        this.Content = content;
+        this.title = title;
+        PatientId = id;
     }
 
     public void answermessage(String content){
         Content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getPatientId() {
+        return PatientId;
+    }
+
+    public void setPatientId(int patientId) {
+        PatientId = patientId;
     }
 }

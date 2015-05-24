@@ -16,15 +16,16 @@ class ShowListOfDoctor extends Temp {
     private myJFrame window;
     ShowListOfDoctor(ArrayList<OrdDoctor> doctors) {
         mydoctors = doctors;
-        window = getWindow("لیست بیماران", true);
+        window = getWindow("لیست پزشک", true);
 
         myJButton rowData[][] = new myJButton[doctors.size()][2];
         Object columnNames[] = {"نام", "نام خانوادگی"};
 
-        for (int i = 0; i < doctors.size(); i++){
-
-            rowData[i][0].setText(doctors.get(i).getName());
-            rowData[i][1].setText(doctors.get(i).getFamilyName());
+        for (int i = 0; i < mydoctors.size(); i++){
+            rowData[i][0] = new myJButton(false);
+            rowData[i][1] = new myJButton(false);
+            rowData[i][0].setText(mydoctors.get(i).getName());
+            rowData[i][1].setText(mydoctors.get(i).getFamilyName());
         }
         myJTable table = new myJTable(rowData, columnNames);
 

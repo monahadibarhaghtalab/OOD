@@ -1,12 +1,19 @@
 package ui.user.doctor;
 
+import data.dao.imp.DoctorDaoImpl;
+import logical.user.Message;
+import logical.user.doctor.Doctor;
+import logical.user.patient.Patient;
 import ui.element.myJButton;
 import ui.element.myJFrame;
+import ui.element.myJLabel;
+import ui.element.myJTextField;
 import ui.user.Temp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
+import ui.user.*;
 /**
  * Created by Mona on 3/30/2015.
  */
@@ -14,14 +21,19 @@ class SeeConsult extends Temp {
 
     private myJFrame winMain;
 
-    private int numMessage = 1;
+    private myJLabel name;
+    private myJLabel family;
+    private int numMessage;
+    private myJTextField ntext;
+    private myJTextField htext;
     private myJButton[] arrayLabel;
     private myJFrame[] arrayWin;
     private int staticHeight = 30;
+    private ArrayList<Message> myConsults;
 
-    protected SeeConsult(){
+    protected SeeConsult(ArrayList<Message> Consults){
         super();
-
+        myConsults = Consults;
         winMain = getWindow("مشاوره ها", true);
 
         arrayLabel = new myJButton[numMessage];
@@ -32,13 +44,32 @@ class SeeConsult extends Temp {
 
             arrayLabel[i] = new myJButton(true);
             arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
-            arrayLabel[i].setText("برای تست");
+            arrayLabel[i].setText(myConsults.get(i).getTitle());
 //            arrayLabel[i].setBorderPainted(false);
 //            arrayLabel[i].setFocusPainted(false);
 //            arrayLabel[i].setContentAreaFilled(false);
+            name = new myJLabel("نام فرستنده");
+            name = name.set(400, 250, 250, 20, "B Nazanin", 20);
+            arrayWin[i].add(name);
+
+            family = new myJLabel("متن پیام");
+            family =family.set(400, 300, 250, 20, "B Nazanin", 20);
+            arrayWin[i].add(family);
+
+
+
+            htext = new myJTextField("");
+            htext.set(150, 250, 150, 20, "B Nazanin", 20);
+            htext.setText(Consults.get(i).getSender().getName() + " "+Consults.get(i).getSender().getFamilyName());
+            arrayWin[i].add(htext);
+
+            ntext = new myJTextField("");
+            ntext.set(150, 300, 150, 20, "B Nazanin", 20);
+            ntext.setText(Consults.get(i).getContent());
+            arrayWin[i].add(ntext);
 
             winMain.add(arrayLabel[i]);
-
+            final int finalI = i;
             myJButton accept = new myJButton(false);
             accept.setText("پاسخ");
             accept.set(300, 400, 100, 30, "B Nazanin", 18);
@@ -46,23 +77,26 @@ class SeeConsult extends Temp {
 //            myJButton reject = new myJButton(false);
 //            reject.setText("رد درخواست");
 //            reject.set(300, 450, 30, 30, "B Nazanin", 18);
-
+            accept.addActionListener(new ActionListener() {
+                                         public void actionPerformed(ActionEvent e) {
+                                                new ShowMessage(myConsults.get(finalI));
+                                         }
+                                     });
             arrayWin[i].add(accept);
-           // arrayWin[i].add(reject);
+                    // arrayWin[i].add(reject);
 
-            final int finalI = i;
-            arrayLabel[i].addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    // new showResult();
-                    arrayWin[finalI].setVisible(true);
-                    winMain.setVisible(false);
+
+                    arrayLabel[i].addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            // new showResult();
+                            arrayWin[finalI].setVisible(true);
+                            winMain.setVisible(false);
+                        }
+                    });
+
+
                 }
-            });
 
 
+            }
         }
-
-
-
-    }
-}

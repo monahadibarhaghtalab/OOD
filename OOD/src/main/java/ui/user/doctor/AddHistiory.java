@@ -1,7 +1,9 @@
 package ui.user.doctor;
 
-import data.dao.imp.patientDaoImpl;
-import logical.Disease;
+import data.dao.ProfileDao;
+import data.dao.imp.ProfileDaoImpl;
+
+import logical.disease;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
 import ui.element.myJButton;
@@ -12,6 +14,8 @@ import ui.user.Temp;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -21,7 +25,6 @@ class AddHistiory extends Temp {
     private Patient p;
     private Doctor d;
     private myJFrame window;
-    private patientDaoImpl userdao;
     private myJLabel date;
     private myJLabel name;
     private myJLabel type;
@@ -83,10 +86,15 @@ class AddHistiory extends Temp {
         window.add(enter);
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                userdao = new patientDaoImpl();
-                Disease hist = new Disease(htext.getText(), d.getUsername(),  p.getUsername(), new Date());
+                ProfileDao pdao = new ProfileDaoImpl();
+                String temp = stext.getText();
+                String[] temp2 = temp.split("\n");
+                ArrayList<String> signs =new ArrayList<String>();
+                Collections.addAll(signs, temp2);
+
+                disease hist = new disease(htext.getText(), d.getId(),  p.getId(), new Date(), signs);
 //signs
-                userdao.addHistory(p, hist);
+                pdao.addHistory(p.getProfile(), hist);
 
             }
         });

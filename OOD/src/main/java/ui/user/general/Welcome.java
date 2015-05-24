@@ -2,7 +2,8 @@ package ui.user.general;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
-import data.dao.imp.patientDaoImpl;
+import data.dao.imp.PatientDaoImpl;
+
 import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.ExpertDoctor;
@@ -13,6 +14,7 @@ import ui.element.*;
 import ui.user.FirstPageAdmin;
 import ui.user.TempFirst;
 import ui.user.doctor.FirstPageDoctor;
+import ui.user.doctor.FirstPageOrdDoc;
 import ui.user.drugstore.FirstPageDrug;
 import ui.user.patient.FirstPagePatient;
 
@@ -166,10 +168,11 @@ public class Welcome extends TempFirst {
                     loginUser = userdao.getUser(utext.getText());
                     if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                        // userdao.Login(loginUser);
-                        userdao.retriveData(loginUser);
+                      //  userdao.retriveData(loginUser);
+                        new FirstPageOrdDoc((OrdDoctor)loginUser);
                     }
                    // System.out.println("monaaaaaaaa");
-                    new FirstPageDoctor((OrdDoctor)loginUser);
+
                     window.setVisible(false);
                 }
             });
@@ -184,9 +187,10 @@ public class Welcome extends TempFirst {
                     loginUser = userdao.getUser(utext.getText());
                     if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                         // userdao.Login(loginUser);
-                        userdao.retriveData(loginUser);
+                      //  userdao.retriveData(loginUser);
+                        new FirstPageDoctor((ExpertDoctor)loginUser);
                     }
-                    new FirstPageDoctor((ExpertDoctor)loginUser);
+
                     window.setVisible(false);
                 }
             });
@@ -195,14 +199,14 @@ public class Welcome extends TempFirst {
             System.out.println("monaaaaaaaaaaaaaaaa ");
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    userdao = new patientDaoImpl();
-
-//                    loginUser = userdao.getUser(utext.getText());
-//                    if(!(loginUser.equals(null)) &&loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
+                    userdao = new PatientDaoImpl();
+                    loginUser = userdao.getUser(utext.getText());
+                    if(!(loginUser.equals(null)) &&loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
 //                        // userdao.Login(loginUser);
 //                        userdao.retriveData(loginUser);
-//                    }
-                    new FirstPagePatient((Patient)loginUser);
+                        new FirstPagePatient((Patient)loginUser);
+                    }
+
                     window.setVisible(false);
                 }
             });
@@ -218,8 +222,9 @@ public class Welcome extends TempFirst {
                     if(!(loginUser.equals(null)) && loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                         // userdao.Login(loginUser);
                         //userdao.retriveData(loginUser);
+                        new FirstPageAdmin((Admin)loginUser);
                     }
-                    new FirstPageAdmin((Admin)loginUser);
+
                     window.setVisible(false);
                 }
             });

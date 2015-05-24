@@ -1,9 +1,5 @@
 package ui.user.patient;
 
-import logical.user.User;
-import logical.user.doctor.Doctor;
-import logical.user.doctor.ExpertDoctor;
-import logical.user.doctor.OrdDoctor;
 import logical.user.patient.Patient;
 import ui.element.myJButton;
 import ui.element.myJFrame;
@@ -14,22 +10,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Mona on 3/30/2015.
+ * Created by a on 5/22/15.
  */
-public class ChooseDoctor extends Temp {
+class FindDoctor extends Temp {
 
     private myJFrame winMain;
 
     private myJButton listDoctor;
-    private User myUser;
-    Patient myPatient;
+    private Patient mypatient;
     private myJLabel doctor;
 
 
-    public ChooseDoctor(User user, Patient p){
-        myUser = user;
-        myPatient = p;
-        winMain = getWindow("انتخاب پزشک", true);
+    protected FindDoctor(Patient patient){
+        mypatient = patient;
+        winMain = getWindow("جستجو پزشک", true);
 
         listDoctor = new myJButton(false);
         listDoctor.setText("مشاهده لیست پزشکان");
@@ -39,12 +33,8 @@ public class ChooseDoctor extends Temp {
 
         listDoctor.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if(myUser.getClass().equals(Doctor.class)||myUser.getClass().equals(ExpertDoctor.class)||myUser.getClass().equals(OrdDoctor.class)) {
-                    Doctor d = (Doctor )myUser;
-                    d.currentPatient = myPatient;
-                   // myUser.currentPatient = myPatient;
-                }
-                new ListDoctor(myUser );
+
+                new ListDoctor(mypatient );
                 //  window.setVisible(false);
             }
         });

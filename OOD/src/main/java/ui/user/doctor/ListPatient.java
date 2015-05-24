@@ -25,9 +25,10 @@ public class ListPatient extends Temp{
            Object columnNames[] = {"نام", "نام خانوادگی"};
 
            for (int i = 0; i < patients.size(); i++){
-
-               rowData[i][0].setText(patients.get(i).getName());
-               rowData[i][1].setText(patients.get(i).getFamilyName());
+               rowData[i][0] = new myJButton(false);
+               rowData[i][1] = new myJButton(false);
+               rowData[i][0].setText(mypatients.get(i).getName());
+               rowData[i][1].setText(mypatients.get(i).getFamilyName());
            }
            myJTable table = new myJTable(rowData, columnNames);
 

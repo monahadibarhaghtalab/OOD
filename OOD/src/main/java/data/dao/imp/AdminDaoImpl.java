@@ -1,5 +1,6 @@
 package data.dao.imp;
 import data.context.DatabaseContext;
+import data.dao.AdminDao;
 import data.dao.UserFuncDao;
 import data.entities.entityfile.DoctorEntity;
 import data.entities.entityfile.MessageEntity;
@@ -21,8 +22,10 @@ import java.util.UUID;
 /**
  * Created by a on 5/1/15.
  */
-public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
-
+public class AdminDaoImpl extends  DaoImp implements UserFuncDao, AdminDao {
+    public static ArrayList<Patient> showListOfAllPatients(){
+        return null;
+    }
 
 
     @Override
@@ -95,6 +98,11 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
     }
 
     @Override
+    public ArrayList<User> showListOfUser(User user) {
+        return null;
+    }
+
+    @Override
     public ArrayList<User> showListOfUser() {
         //get list of all patients from db and return it
 
@@ -105,5 +113,10 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao{
             users.add(list.get(i).getUser());
         }
         return users;
+    }
+
+    @Override
+    public ArrayList<Message> getMessages(User user) {
+        return null;
     }
 }

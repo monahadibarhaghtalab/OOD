@@ -1,8 +1,18 @@
 package ui.user.patient;
 
+import data.dao.MessageDao;
+import data.dao.imp.MessageDaoImpl;
+import logical.user.Message;
+import logical.user.User;
+import logical.user.doctor.Doctor;
+import logical.user.patient.Patient;
 import ui.element.*;
 import ui.user.Temp;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
+import ui.user.patient.*;
 /**
  * Created by Mona on 3/30/2015.
  */
@@ -18,50 +28,42 @@ class Consult extends Temp {
 
         private myJTextField ttext;
         private myJTextField mtext;
-
+        private Patient myPatient;
+        private Doctor myDoctor;
         private myJButton send;
 
+    private myJFrame winMain;
+
+    private myJButton listDoctor;
+    private User myUser;
+    private myJLabel doctor;
+    private MessageDao messagedao;
 
 
 
-        protected Consult() {
-            super();
-            window = getWindow("مشاوره", true);
+    public Consult(Patient p){
+        super();
 
+        myPatient = p;
+        winMain = getWindow("انتخاب پزشک", true);
 
-            title = new myJLabel("موضوع");
-            title = title.set(400, 200, 250, 20, "B Nazanin", 20);
-            window.add(title);
+        listDoctor = new myJButton(false);
+        listDoctor.setText("مشاهده لیست پزشکان بیمار");
+        listDoctor.set(200, 300, 200, 100, "B Nazanin", 20);
+        winMain.add(listDoctor);
+        listDoctor.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
 
-            message = new myJLabel("متن پیام");
-            message = message.set(400, 250, 250, 20, "B Nazanin", 20);
-            window.add(message);
+                new ListPatientDoctor(myPatient);
+                //  window.setVisible(false);
+            }
+        });
 
+//        doctor = new myJLabel();
+//        doctor.setText("پزشک فعلی ");
+//        doctor.set(300, 200, 100, 40, "B Nazanin", 20);
+//        winMain.add(doctor);
 
-            ttext = new myJTextField("");
-            ttext.set(150, 200, 150, 20, "B Nazanin", 20);
-            window.add(ttext);
-
-            mtext = new myJTextField("");
-            mtext.setBounds(150, 230, 150, 200);
-            window.add(mtext);
-
-            nameDr = new myJLabel("نام پزشک");
-            nameDr = message.set(400, 400, 250, 20, "B Nazanin", 20);
-            window.add(nameDr);
-
-
-            detail = new myJComboBox();
-            detail.set(150, 400, 150, 20, "B Nazanin", 20);
-            detail.addItem("دکتر مینایی - عمومی");
-            detail.addItem("دکتر حقی-متخصص قلب");
-            detail.addItem("دکتر سلامتی - متخصص تغذیه");
-
-
-            send = new myJButton(false);
-            send.setText("ارسال");
-            send.set(200, 500, 100, 40, "B Nazanin", 20);
-            window.add(send);
 
 
     }

@@ -1,5 +1,10 @@
 package ui.user.doctor;
 
+import data.dao.ProfileDao;
+import data.dao.imp.ProfileDaoImpl;
+import logical.disease;
+import logical.user.doctor.Doctor;
+import logical.user.patient.Patient;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -7,19 +12,29 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Mona on 4/20/2015.
  */
-class SeeHistory  extends Temp{
+public class SeeHistory  extends Temp{
     private myJFrame winMain, window2;
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search;
+    private Patient myPatient;
+    private Doctor myDoctor;
+    private ArrayList<disease> histories;
 
 
     private myJFrame win;
-    SeeHistory(){
+    public SeeHistory(Patient p, Doctor d){
+        myPatient = p;
+        myDoctor = d;
         winMain = getWindow("مشاهده سوابق بیمار", true);
 
 
@@ -55,8 +70,17 @@ class SeeHistory  extends Temp{
             window2 = getWindow("نتایج", false);
 
 
-            Object rowData[][] = { { "تست", "تست"}  };
-            Object columnNames[] = { "", ""};
+            Object rowData[][] = new myJTextField[histories.size()][2];
+            Object columnNames[] = { "تاریخ ثبت", "سابقه ی بیماری"};
+        for (int i = 0; i < histories.size(); i++){
+            SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
+            rowData[i][0] = new myJTextField("");
+            rowData[i][1] = new myJTextField("");
+            myJTextField t0 = (myJTextField) rowData[i][0];
+            myJTextField t1 = (myJTextField) rowData[i][0];
+            t0.setText(sdfr.format(histories.get(i).getDateOfCreate()));
+            t1.setText(histories.get(i).getSigns());
+        }
             myJTable table = new myJTable(rowData, columnNames);
 
             JScrollPane scrollPane = new JScrollPane(table);
@@ -67,6 +91,23 @@ class SeeHistory  extends Temp{
 
             search.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    ProfileDao pdao = new ProfileDaoImpl();
+                    DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date firstDate = null;
+                    try {
+                        firstDate = dateFormat.parse(ntext.getText());
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                    Date secondDate = null;
+                    try {
+                        secondDate = dateFormat.parse(ftext.getText());
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+
+
+                    histories = pdao.getHistory(firstDate, secondDate, myPatient.getProfile());
                     // new showResult();
                     window2.setVisible(true);
                     winMain.setVisible(false);

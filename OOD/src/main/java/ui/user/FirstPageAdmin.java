@@ -26,6 +26,7 @@ public class FirstPageAdmin extends Temp {
     private myJButton showPatient;
     private myJButton consult;
     private myJButton inbox;
+    private myJButton seeHist;
 
     public FirstPageAdmin(Admin admin){
         super();
@@ -70,11 +71,8 @@ public class FirstPageAdmin extends Temp {
         showPatient.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 adminDao = new AdminDaoImpl();
-                ArrayList<User> tmp = adminDao.showListOfUser();
-                ArrayList<Patient> patients = new ArrayList<Patient>();
-                for (int i = 0; i< tmp.size(); i++){
-                    patients.add((Patient) tmp.get(i));
-                }
+                ArrayList<Patient> patients = AdminDaoImpl.showListOfAllPatients();
+
                 new ListPatient(patients);
                 //  window.setVisible(false);
             }
@@ -86,7 +84,7 @@ public class FirstPageAdmin extends Temp {
 
         consult.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new LookforPateint();
+                new LookforPateintAdmin();
                 //  window.setVisible(false);
             }
         });
@@ -98,11 +96,25 @@ public class FirstPageAdmin extends Temp {
         inbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 adminDao = new AdminDaoImpl();
-                ArrayList<Message> messages =adminDao.readInbox(myAdmin);
+                ArrayList<Message> messages =adminDao.getMessages(myAdmin);
                 new SeeMessage(messages,"admin");
                 //new Inbox(messages);
                 //  window.setVisible(false);
             }
         });
+
+//        seeHist.set(150, start + 3 * height, 300, height, "B Nazanin", 20);
+//        seeHist.setText("مشاهده صندوق پیام");
+//        window.add(seeHist);
+//
+//        seeHist.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                adminDao = new AdminDaoImpl();
+//                ArrayList<Message> messages =adminDao.readInbox(myAdmin);
+//                new SeeMessage(messages,"admin");
+//                //new Inbox(messages);
+//                //  window.setVisible(false);
+//            }
+//        });
     }
 }

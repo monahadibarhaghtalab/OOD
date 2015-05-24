@@ -9,18 +9,18 @@ import java.util.ArrayList;
  */
 public class Doctor extends User {
     private ArrayList<Patient> patients;
-    public String type;
+    private String type;
     ArrayList<Message> messages;
+    public Patient currentPatient;
     //ArrayList<message> consultations;
 
-<<<<<<< HEAD
-    public Doctor(String username, char[] password, String name, String familyName, String doctorId) {
-=======
-    public Doctor(String username, char[] password, String name, String familyName, int doctorId) {
->>>>>>> 22ea7e51ffe473627c228a1dceacf0ad145985f4
+
+    public Doctor(String username, char[] password, String name, String familyName, String doctorId,String type) {
+
+
         super(username, password, name, familyName, doctorId);
         patients = new ArrayList<Patient>();
-        //this.type = type;
+        this.type = type;
     }
 
     public ArrayList<Patient> getPatients() {
@@ -29,6 +29,14 @@ public class Doctor extends User {
 
     public void setPatients(ArrayList<Patient> patients) {
         this.patients = patients;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 //
 //    public patient searchPatients(patient p){

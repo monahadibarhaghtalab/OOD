@@ -1,20 +1,37 @@
 package data.dao.imp;
 
 import antlr.debug.MessageAdapter;
+import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.entities.entityfile.MessageEntity;
 import data.entities.entityfile.UserEntity;
 import logical.user.Message;
 import logical.user.User;
 import logical.user.doctor.Doctor;
+import logical.user.doctor.ExpertDoctor;
+import logical.user.doctor.OrdDoctor;
+import logical.user.patient.Patient;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by a on 5/8/15.
  */
-public class PatientDaoImpl extends DaoImp implements UserFuncDao{
+public class PatientDaoImpl implements UserFuncDao, PatientDao {
+
+    public static ArrayList<OrdDoctor> getListOfAllOrdDoctor(){
+        return null;
+    }
+
+    public static ArrayList<OrdDoctor> getListOfOrdDoctor(String name, String familyName){
+        return null;
+    }
+
+    public static ArrayList<ExpertDoctor> getListOfProDoctor(String name, String familyName){
+        return null;
+    }
     @Override
     public ArrayList<Message> readInbox() {
         //liste payamhaye bimar
@@ -66,6 +83,11 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
     }
 
     @Override
+    public ArrayList<User> showListOfUser(User user) {
+        return null;
+    }
+
+    @Override
     public ArrayList<User> showListOfUser() {
         //liste doctorhaye omoomi az db khande va namayesh dade mishavad
         List<UserEntity> list = session.createQuery("from myuser where mytype = :mytype")
@@ -77,5 +99,15 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao{
         }
         return doctorList;
 
+    }
+
+    @Override
+    public ArrayList<Message> getMessages(User user) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Doctor> getAllDoctors(Patient p) {
+        return null;
     }
 }

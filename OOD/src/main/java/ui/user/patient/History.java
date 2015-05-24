@@ -1,5 +1,6 @@
 package ui.user.patient;
 
+import logical.user.patient.Patient;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.user.Temp;
@@ -17,11 +18,12 @@ class History extends Temp{
     private myJButton seeHealth;
     private myJButton sicknessHis;
     private myJButton seeActivity;
+    private Patient myPatient;
 
 
-    protected History(){
+    protected History(Patient p){
         super();
-
+        myPatient = p;
         window = getWindow("سوابق", true);
 
         seeHealth = new myJButton(false);
@@ -49,7 +51,7 @@ class History extends Temp{
 
         sicknessHis.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SeeSickness();
+                new SeeSickness(myPatient);
                 //  window.setVisible(false);
             }
         });

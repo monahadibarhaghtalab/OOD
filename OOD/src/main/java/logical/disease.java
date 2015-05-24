@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * Created by a on 5/1/15.
  */
-public class Disease {
+public class disease {
     private String NameOfDisease;
     private String NameOfDoctor;
     private String NameOfPatient;
@@ -45,11 +45,24 @@ public class Disease {
         DateOfCreate = dateOfCreate;
     }
 
-    public Disease(String name, String doctor, String patient, Date d){
+    public disease(String name, String doctor, String patient, Date d, ArrayList<String > signs){
         setNameOfDisease(name);
         setNameOfDoctor(doctor);
         setNameOfPatient(patient);
         setDateOfCreate(d);
-        signs = new ArrayList<String>();
+        this.signs = signs;
+    }
+
+    public String getSigns() {
+        String ans = "";
+        for(int i = 0; i < signs.size(); i++){
+            ans+=signs.get(i);
+            ans+="\n";
+        }
+        return ans;
+    }
+
+    public void setSigns(ArrayList<String> signs) {
+        this.signs = signs;
     }
 }
