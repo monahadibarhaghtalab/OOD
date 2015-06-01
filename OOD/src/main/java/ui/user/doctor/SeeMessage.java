@@ -94,7 +94,7 @@ public class SeeMessage extends Temp {
                         myUserdao = new DoctorDaoImpl();
                         DoctorDaoImpl tempMyUserDao = (DoctorDaoImpl)myUserdao;
 
-                        tempMyUserDao.addPatient( (Doctor)messages.get(finalTemp).getReceiver(), messages.get(finalTemp).getPatientId());
+                        tempMyUserDao.addPatient( (Doctor)messages.get(finalTemp).getReceiver(), Integer.parseInt(messages.get(finalTemp).getPatientId()));
 
                         //second argument is patient ID
                        // tempMyUserDao.addPatient( messages.get(finalTemp).getReceiver(),  Integer.parseInt());

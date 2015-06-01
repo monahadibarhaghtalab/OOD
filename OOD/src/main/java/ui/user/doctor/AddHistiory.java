@@ -94,7 +94,7 @@ class AddHistiory extends Temp {
 
                 disease hist = new disease(htext.getText(), d.getId(),  p.getId(), new Date(), signs);
 //signs
-                pdao.addHistory(p.getProfile(), hist);
+                pdao.addHistory(p, hist);
 
             }
         });

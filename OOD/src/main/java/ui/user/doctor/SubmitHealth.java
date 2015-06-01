@@ -118,7 +118,7 @@ class SubmitHealth extends Temp {
                 }
                 PhysicalState physicalState = new PhysicalState(Double.parseDouble(ntext.getText()), Double.parseDouble(wtext.getText()), Double.parseDouble(ptext.getText()),Double.parseDouble(gtext.getText()),inputDate);
                 ProfileDao pdao = new ProfileDaoImpl();
-                pdao.addPhysicalState(myPatient.getProfile(), physicalState);
+                pdao.addPhysicalState(myPatient, physicalState);
                 //  window.setVisible(false);
             }
         });

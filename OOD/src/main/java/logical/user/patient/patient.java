@@ -17,6 +17,7 @@ public class Patient extends User {
 
 
         super(username, password, name, familyName, id);
+       // myProfile = new Profile();
     }
 
     public Profile getProfile() {

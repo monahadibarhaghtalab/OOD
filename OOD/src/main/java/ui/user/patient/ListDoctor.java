@@ -143,11 +143,11 @@ class ListDoctor extends Temp{
                 Message request;
 
                 if (myUser.getClass().equals(Patient.class)) {
-                    request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(), "", "درخواست پذیرش", Integer.parseInt(myUser.getId()));
+                    request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(), "", "درخواست پذیرش", myUser.getId());
                 }
                 else {
                     Doctor d = (Doctor)myUser;
-                    request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(), "", "درخواست پذیرش", Integer.parseInt(d.currentPatient.getId()));
+                    request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(), "", "درخواست پذیرش", d.currentPatient.getId());
                 }
                 messagedao.sendMessage(request);
 

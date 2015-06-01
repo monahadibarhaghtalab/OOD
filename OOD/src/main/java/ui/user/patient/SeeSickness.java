@@ -100,7 +100,7 @@ class SeeSickness extends Temp {
                 } catch (ParseException e1) {
                     e1.printStackTrace();
                 }
-                sickness = pdao.getHistory(firstDate, secondDate, myPatient.getProfile());
+                sickness = pdao.getHistory(firstDate, secondDate, myPatient);
                 // new showResult();
                 window2.setVisible(true);
                 winMain.setVisible(false);

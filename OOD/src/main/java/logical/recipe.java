@@ -7,14 +7,14 @@ import java.util.Date;
  * Created by a on 5/1/15.
  */
 public class Recipe {
-    private String NameOfDoctor;
-    private String NameOfPatient;
-    private Date DateOfCreate;
-    private ArrayList<String> medicines;
+    public String idOfDoctor;
+    public String idOfPatient;
+    public Date DateOfCreate;
+    public ArrayList<String> medicines;
 
     public Recipe(String doctor, String patient, Date d, ArrayList<String> medicines){
-        NameOfDoctor = doctor;
-        NameOfPatient = patient;
+        idOfDoctor = doctor;
+        idOfPatient = patient;
         DateOfCreate = d;
         this.medicines = medicines;
     }

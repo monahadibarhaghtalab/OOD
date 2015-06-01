@@ -84,7 +84,7 @@ public class ListPatientDoctor extends Temp {
             public void actionPerformed(ActionEvent e) {
                 // new showResult();
                 String num = bg.getSelection().getActionCommand();
-                Message request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(),"","",0);
+                Message request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date(),"","","0");
                 new ShowMessage(request);
 //                Message request = new Message(myUser, searchDoctor.get(Integer.parseInt(num)), new Date());
 //                messagedao.sendMessage(request);

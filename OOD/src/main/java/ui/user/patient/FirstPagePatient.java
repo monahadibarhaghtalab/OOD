@@ -26,6 +26,7 @@ public class FirstPagePatient extends Temp {
     private myJButton consult;
     private myJButton inbox;
     private myJButton list;
+    private myJButton activity;
 
     public FirstPagePatient( Patient patient){
         super();
@@ -38,6 +39,7 @@ public class FirstPagePatient extends Temp {
         consult = new myJButton(false);
         inbox = new myJButton(false);
         list = new myJButton(false);
+        activity = new myJButton(false);
 
         int start = 200;
         int height = 30;
@@ -54,7 +56,7 @@ public class FirstPagePatient extends Temp {
         });
 
         submitStatus.set(150, start + height, 300, height, "B Nazanin", 20);
-        submitStatus.setText("ثبت وضعیت بدنی");
+        submitStatus.setText("ثبت وضعیت جسمانی");
         window.add(submitStatus);
 
         submitStatus.addActionListener(new ActionListener() {
@@ -108,6 +110,19 @@ public class FirstPagePatient extends Temp {
                 ArrayList<OrdDoctor> doctor = PatientDaoImpl.getListOfAllOrdDoctor();
 
                 new ShowListOfDoctor(doctor);
+                //  window.setVisible(false);
+            }
+        });
+
+        activity.set(150, start + 6 * height, 300, height, "B Nazanin", 20);
+        activity.setText("ثبت فعالیت بدنی");
+        window.add(activity);
+
+        activity.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // pationtdao = new patientDaoImpl();
+
+                new SubmitActivity(myPatient);
                 //  window.setVisible(false);
             }
         });

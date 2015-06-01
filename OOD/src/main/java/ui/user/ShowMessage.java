@@ -137,7 +137,7 @@ public class ShowMessage  extends TempFirst {
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-                Message request = new Message(myMessage.getReceiver(), myMessage.getSender(), new Date(),ntext.getText(),"پاسخ مشاوره",Integer.parseInt(myMessage.getSender().getId()));
+                Message request = new Message(myMessage.getReceiver(), myMessage.getSender(), new Date(),ntext.getText(),"پاسخ مشاوره",myMessage.getSender().getId());
                 messagedao.sendMessage(request);
             }
         });

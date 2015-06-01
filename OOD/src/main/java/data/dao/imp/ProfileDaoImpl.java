@@ -2,6 +2,7 @@ package data.dao.imp;
 
 import data.dao.ProfileDao;
 
+import logical.Activity;
 import logical.Profile;
 import logical.Recipe;
 import logical.disease;
@@ -17,12 +18,12 @@ import java.util.Date;
 public class ProfileDaoImpl implements ProfileDao {
 
     @Override
-    public void addHistory(Profile p, disease d) {
+    public void addHistory(Patient p, disease d) {
 
     }
 
     @Override
-    public void addPhysicalState(Profile p, PhysicalState ps) {
+    public void addPhysicalState(Patient p, PhysicalState ps) {
 
     }
 
@@ -32,7 +33,22 @@ public class ProfileDaoImpl implements ProfileDao {
     }
 
     @Override
-    public ArrayList<disease> getHistory(Date firstDate, Date secondDate, Profile p) {
+    public ArrayList<disease> getHistory(Date firstDate, Date secondDate, Patient p) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Activity> getActivity(Date firstDate, Date secondDate, Patient myPatientProfile) {
+        return null;
+    }
+
+    @Override
+    public void addActivity(Patient myPatientProfile, Activity activity) {
+
+    }
+
+    @Override
+    public ArrayList<PhysicalState> getPhysicalState(Date firstDate, Date secondDate, Patient myPatientProfile) {
         return null;
     }
 }

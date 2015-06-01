@@ -14,7 +14,6 @@ import ui.element.*;
 import ui.user.FirstPageAdmin;
 import ui.user.TempFirst;
 import ui.user.doctor.FirstPageDoctor;
-import ui.user.doctor.FirstPageOrdDoc;
 import ui.user.drugstore.FirstPageDrug;
 import ui.user.patient.FirstPagePatient;
 
@@ -169,7 +168,7 @@ public class Welcome extends TempFirst {
                     if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                        // userdao.Login(loginUser);
                       //  userdao.retriveData(loginUser);
-                        new FirstPageOrdDoc((OrdDoctor)loginUser);
+                        new FirstPageDoctor((OrdDoctor)loginUser);
                     }
                    // System.out.println("monaaaaaaaa");
 

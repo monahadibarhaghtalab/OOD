@@ -13,7 +13,7 @@ public class Message {
     private String title;
     private String Content;
     private Date dateOdCreate;
-    private int PatientId;
+    private String PatientId;
 
 
     public User getSender() {
@@ -49,7 +49,7 @@ public class Message {
     }
 
 
-    public Message(User sender, User receiver, Date date, String content, String title, int id){
+    public Message(User sender, User receiver, Date date, String content, String title, String id){
         this.receiver = receiver;
         this.sender = sender;
         dateOdCreate = date;
@@ -70,11 +70,11 @@ public class Message {
         this.title = title;
     }
 
-    public int getPatientId() {
+    public String getPatientId() {
         return PatientId;
     }
 
-    public void setPatientId(int patientId) {
+    public void setPatientId(String patientId) {
         PatientId = patientId;
     }
 }

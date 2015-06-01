@@ -107,7 +107,7 @@ public class SeeHistory  extends Temp{
                     }
 
 
-                    histories = pdao.getHistory(firstDate, secondDate, myPatient.getProfile());
+                    histories = pdao.getHistory(firstDate, secondDate, myPatient);
                     // new showResult();
                     window2.setVisible(true);
                     winMain.setVisible(false);

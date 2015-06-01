@@ -120,34 +120,14 @@ class SubmitStatus extends Temp {
                 }
                 PhysicalState physicalState = new PhysicalState(Double.parseDouble(ntext.getText()), Double.parseDouble(wtext.getText()), Double.parseDouble(ptext.getText()),Double.parseDouble(gtext.getText()),inputDate);
                 ProfileDao pdao = new ProfileDaoImpl();
-                pdao.addPhysicalState(myPatient.getProfile(), physicalState);
+                pdao.addPhysicalState(myPatient, physicalState);
                 //  window.setVisible(false);
             }
         });
 
 
 
-        connect = new myJButton(false);
-        connect.setText("اتصال دستگاه به رایانه");
-        connect.set(200, 400, 200, 40, "B Nazanin", 20);
-        window.add(connect);
 
-        final String[] devices = { "دستگاه شماره یک", "دستگاه شماره دو", "دستگاه شماره سه", "دستگاه شماره جهار" };
-
-        connect.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-
-                JFrame frame = new JFrame("Input Dialog Example 3");
-                String device = (String) JOptionPane.showInputDialog(frame,
-                        "نام دستگاه مورد نظر را انتخاب کنید",
-                        "انتخاب دستگاه",
-                        JOptionPane.QUESTION_MESSAGE,
-                        null,
-                        devices,
-                        devices[0]);
-            }
-        });
 
 
 

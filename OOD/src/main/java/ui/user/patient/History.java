@@ -40,7 +40,7 @@ class History extends Temp{
 
         seeHealth.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SeeHealth();
+                new SeeHealth(myPatient);
                 //  window.setVisible(false);
             }
         });
@@ -62,7 +62,7 @@ class History extends Temp{
 
         seeActivity.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new SeeActiviy();
+                new SeeActiviy(myPatient);
                 //  window.setVisible(false);
             }
         });
