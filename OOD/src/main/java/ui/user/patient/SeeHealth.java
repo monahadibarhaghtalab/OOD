@@ -1,5 +1,7 @@
 package ui.user.patient;
 
+import data.dao.PatientDao;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.PhysicalState;
 import ui.element.*;
 import ui.user.Temp;
@@ -23,8 +25,8 @@ import java.awt.event.ActionListener;
 
 
 
-import data.dao.ProfileDao;
-import data.dao.imp.ProfileDaoImpl;
+//import data.dao.ProfileDao;
+//import data.dao.imp.ProfileDaoImpl;
 import logical.disease;
 import logical.user.patient.Patient;
 import ui.element.*;
@@ -115,7 +117,7 @@ class SeeHealth extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ProfileDao pdao = new ProfileDaoImpl();
+                PatientDao pdao = new PatientDaoImpl();
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date firstDate = null;
                 try {

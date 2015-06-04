@@ -1,8 +1,10 @@
 package ui.user.doctor;
 
-import data.dao.ProfileDao;
-import data.dao.imp.ProfileDaoImpl;
+//import data.dao.ProfileDao;
+//import data.dao.imp.ProfileDaoImpl;
 
+import data.dao.PatientDao;
+import data.dao.imp.PatientDaoImpl;
 import logical.disease;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
@@ -86,7 +88,7 @@ class AddHistiory extends Temp {
         window.add(enter);
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                ProfileDao pdao = new ProfileDaoImpl();
+                PatientDao pdao = new PatientDaoImpl();
                 String temp = stext.getText();
                 String[] temp2 = temp.split("\n");
                 ArrayList<String> signs =new ArrayList<String>();

@@ -1,7 +1,9 @@
 package ui.user.doctor;
 
-import data.dao.ProfileDao;
-import data.dao.imp.ProfileDaoImpl;
+//import data.dao.ProfileDao;
+//import data.dao.imp.ProfileDaoImpl;
+import data.dao.PatientDao;
+import data.dao.imp.PatientDaoImpl;
 import logical.disease;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
@@ -91,7 +93,7 @@ public class SeeHistory  extends Temp{
 
             search.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    ProfileDao pdao = new ProfileDaoImpl();
+                    PatientDao pdao = new PatientDaoImpl();
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date firstDate = null;
                     try {

@@ -1,10 +1,10 @@
 package ui.user.patient;
 
 //import data.dao.ProfileDao;
-//import data.dao.imp.ProfileDaoImpl;
+// data.dao.imp.ProfileDaoImpl;
 import data.dao.PatientDao;
 import data.dao.imp.PatientDaoImpl;
-import data.dao.imp.ProfileDaoImpl;
+import logical.Activity;
 import logical.disease;
 import logical.user.patient.Patient;
 import ui.element.*;
@@ -21,20 +21,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Mona on 4/4/2015.
+ * Created by a on 6/1/15.
  */
-class SeeSickness extends Temp {
-
-
-
+public class SeeActiviy extends Temp {
     private myJFrame winMain, window2;
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search;
-    private ArrayList<disease> sickness;
+    private ArrayList<Activity> sickness;
     private Patient myPatient;
 
-    SeeSickness(Patient p) {
+    public SeeActiviy(Patient p) {
 //check
         super();
 
@@ -67,17 +64,17 @@ class SeeSickness extends Temp {
         /*
         make the second window to show the result
          */
-            window2 = getWindow("نتایج", false);
+        window2 = getWindow("نتایج", false);
 
 
         Object rowData[][] = new myJTextField[sickness.size()][2];
-        Object columnNames[] = { "تاریخ ثبت", "سابقه ی بیماری"};
+        Object columnNames[] = { "تاریخ ثبت", " وضعیت بدنی "};
         for (int i = 0; i < sickness.size(); i++){
             SimpleDateFormat sdfr = new SimpleDateFormat("dd/MM/yyyy");
             myJTextField t0 = new myJTextField("");
             myJTextField t1 = new myJTextField("");
-            t0.setText(sdfr.format(sickness.get(i).getDateOfCreate()));
-            t1.setText(sickness.get(i).getSigns());
+            t0.setText(sdfr.format(sickness.get(i).DateOfCreate));
+            t1.setText(sickness.get(i).type+" : "+sickness.get(i).calory);
         }
         myJTable table = new myJTable(rowData, columnNames);
 
@@ -103,11 +100,11 @@ class SeeSickness extends Temp {
                 } catch (ParseException e1) {
                     e1.printStackTrace();
                 }
-                sickness = pdao.getHistory(firstDate, secondDate, myPatient);
+                sickness = pdao.getActivity(firstDate, secondDate, myPatient);
                 // new showResult();
                 window2.setVisible(true);
                 winMain.setVisible(false);
             }
         });
-        }
     }
+}

@@ -4,8 +4,10 @@ package ui.user.patient;
  * Created by a on 6/1/15.
  */
 
-import data.dao.ProfileDao;
-import data.dao.imp.ProfileDaoImpl;
+//import data.dao.ProfileDao;
+//import data.dao.imp.ProfileDaoImpl;
+import data.dao.PatientDao;
+import data.dao.imp.PatientDaoImpl;
 import logical.Activity;
 import logical.user.PhysicalState;
 import logical.user.doctor.Doctor;
@@ -21,8 +23,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import data.dao.ProfileDao;
-import data.dao.imp.ProfileDaoImpl;
+//import data.dao.ProfileDao;
+//import data.dao.imp.ProfileDaoImpl;
 import logical.user.PhysicalState;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
@@ -151,7 +153,7 @@ public class SubmitActivity extends Temp {
                     e1.printStackTrace();
                 }
                 Activity activity = new Activity((String)jb.getSelectedItem(), Double.parseDouble(htext.getText()),inputDate);
-                ProfileDao pdao = new ProfileDaoImpl();
+                PatientDao pdao = new PatientDaoImpl();
                 pdao.addActivity(myPatient, activity);
                 //  window.setVisible(false);
             }

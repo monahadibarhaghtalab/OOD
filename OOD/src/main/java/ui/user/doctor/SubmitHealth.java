@@ -1,7 +1,9 @@
 package ui.user.doctor;
 
-import data.dao.ProfileDao;
-import data.dao.imp.ProfileDaoImpl;
+//import data.dao.ProfileDao;
+//import data.dao.imp.ProfileDaoImpl;
+import data.dao.PatientDao;
+import data.dao.imp.PatientDaoImpl;
 import logical.user.PhysicalState;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
@@ -117,7 +119,7 @@ class SubmitHealth extends Temp {
                     e1.printStackTrace();
                 }
                 PhysicalState physicalState = new PhysicalState(Double.parseDouble(ntext.getText()), Double.parseDouble(wtext.getText()), Double.parseDouble(ptext.getText()),Double.parseDouble(gtext.getText()),inputDate);
-                ProfileDao pdao = new ProfileDaoImpl();
+                PatientDao pdao = new PatientDaoImpl();
                 pdao.addPhysicalState(myPatient, physicalState);
                 //  window.setVisible(false);
             }

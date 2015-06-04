@@ -5,7 +5,11 @@ import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.entities.entityfile.MessageEntity;
 import data.entities.entityfile.UserEntity;
+import logical.Activity;
+import logical.Recipe;
+import logical.disease;
 import logical.user.Message;
+import logical.user.PhysicalState;
 import logical.user.User;
 import logical.user.doctor.Doctor;
 import logical.user.doctor.ExpertDoctor;
@@ -14,6 +18,7 @@ import logical.user.patient.Patient;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -108,6 +113,46 @@ public class PatientDaoImpl implements UserFuncDao, PatientDao {
 
     @Override
     public ArrayList<Doctor> getAllDoctors(Patient p) {
+        return null;
+    }
+
+    @Override
+    public OrdDoctor getOrdDoc(Patient p) {
+        return null;
+    }
+
+    @Override
+    public void addHistory(Patient p, disease d) {
+
+    }
+
+    @Override
+    public void addPhysicalState(Patient p, PhysicalState ps) {
+
+    }
+
+    @Override
+    public void addRecipe(Patient p, Recipe r) {
+
+    }
+
+    @Override
+    public ArrayList<disease> getHistory(Date firstDate, Date secondDate, Patient p) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Activity> getActivity(Date firstDate, Date secondDate, Patient myPatientProfile) {
+        return null;
+    }
+
+    @Override
+    public void addActivity(Patient myPatientProfile, Activity activity) {
+
+    }
+
+    @Override
+    public ArrayList<PhysicalState> getPhysicalState(Date firstDate, Date secondDate, Patient myPatientProfile) {
         return null;
     }
 }
