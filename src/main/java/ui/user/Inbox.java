@@ -4,6 +4,9 @@ import logical.user.Message;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -33,9 +36,11 @@ class Inbox extends Temp {
 
 
             arrayLabel[i] = new myJButton(true);
-            arrayLabel[i] = arrayLabel[i].set(300, 80 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
+            arrayLabel[i] = arrayLabel[i].set(300, 100 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
             //should change
             arrayLabel[i].setText(messages.get(i).getContent());
+            Border thickBorder = new LineBorder(Color.BLACK, 200);
+            arrayLabel[i].setBorder(thickBorder);
 //            arrayLabel[i].setBorderPainted(false);
 //            arrayLabel[i].setFocusPainted(false);
 //            arrayLabel[i].setContentAreaFilled(false);

@@ -8,6 +8,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 /**
@@ -25,6 +27,13 @@ public class ListPatient extends Temp{
         private myJFrame window;
    // window.setLayout(new BoxLayout(myPanel, BoxLayout.Y_AXIS));
        public ListPatient(ArrayList<Patient> patients) {
+           super();
+           super.profile1.addActionListener(new ActionListener() {
+               public void actionPerformed(ActionEvent e) {
+                   window.setVisible(false);
+
+               }
+           });
            mypatients = patients;
             window = getWindow("لیست بیماران", true);
 

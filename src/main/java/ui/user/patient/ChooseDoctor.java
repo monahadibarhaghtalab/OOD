@@ -26,7 +26,14 @@ public class ChooseDoctor extends Temp {
     private myJLabel doctor;
 
 
-    public ChooseDoctor(User user, Patient p){
+    public ChooseDoctor(User user, Patient p) {
+        super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
+
+            }
+        });
         myUser = user;
         myPatient = p;
         winMain = getWindow("انتخاب پزشک", true);

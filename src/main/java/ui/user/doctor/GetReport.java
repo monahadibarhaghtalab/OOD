@@ -18,7 +18,12 @@ class GetReport extends Temp {
 
     protected GetReport(){
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window.setVisible(false);
 
+            }
+        });
         window = getWindow("دریافت گزارش", true);
 
         getTotal = new myJButton(false);
@@ -28,7 +33,8 @@ class GetReport extends Temp {
 
         getTotal.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new TotalReport();
+                new ChooseTypeOfReport();
+              //  new TotalReport();
                 //  window.setVisible(false);
             }
         });
@@ -39,7 +45,7 @@ class GetReport extends Temp {
         getIndiv = getIndiv.set(200, 300, 200, 50, "B Nazanin", 20);
         window.add(getIndiv);
 
-        getTotal.addActionListener(new ActionListener() {
+        getIndiv.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new IndivReport();
                 //  window.setVisible(false);

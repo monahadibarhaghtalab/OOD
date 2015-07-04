@@ -15,7 +15,10 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class DrawGraph extends JPanel {
     private static final int MAX_SCORE = 20;
-    private static final int PREF_W = 800;
+//    private static final int PREF_W = 800;
+//    private static final int PREF_H = 650;
+//    private static final int BORDER_GAP = 30;
+private static final int PREF_W = 800;
     private static final int PREF_H = 650;
     private static final int BORDER_GAP = 30;
     private static final Color GRAPH_COLOR = Color.green;
@@ -39,11 +42,17 @@ public class DrawGraph extends JPanel {
 
         double xScale = ((double) getWidth() - 2 * BORDER_GAP) / (scores.size() - 1);
         double yScale = ((double) getHeight() - 2 * BORDER_GAP) / (MAX_SCORE - 1);
-
+        System.out.println("Xscale: "+xScale);
+        System.out.println("Yscale: "+yScale);
+        System.out.println("height: "+(getHeight() - BORDER_GAP));
+        System.out.println("width: "+(getWidth() - BORDER_GAP));
         List<Point> graphPoints = new ArrayList<Point>();
         for (int i = 0; i < scores.size(); i++) {
             int x1 = (int) (i * xScale + BORDER_GAP);
-            int y1 = (int) ((MAX_SCORE - scores.get(i)) * yScale + BORDER_GAP);
+            System.out.println("X1: "+x1);
+           //  int y1 = (int) ((MAX_SCORE - scores.get(i)) * yScale + BORDER_GAP);
+            int y1 =  getHeight()-((int) ((scores.get(i)) * yScale + BORDER_GAP));
+            System.out.println("Y1: "+y1);
             graphPoints.add(new Point(x1, y1));
         }
 

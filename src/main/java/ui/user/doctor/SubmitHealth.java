@@ -4,9 +4,11 @@ package ui.user.doctor;
 //import data.dao.imp.ProfileDaoImpl;
 import data.dao.PatientDao;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.user.PhysicalState;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -36,6 +38,7 @@ class SubmitHealth extends Temp {
     private myJLabel pressure;
     private myJLabel glycemia;
     private Patient myPatient;
+    private typeDetector detector;
     private Doctor myDoctor;
 
     private myJTextField dtext;
@@ -50,8 +53,16 @@ class SubmitHealth extends Temp {
 
     public SubmitHealth(Patient p, Doctor d) {
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+                window.setVisible(false);
+
+            }
+        });
         myPatient = p;
         myDoctor = d;
+        detector = new typeDetector();
 
         window = getWindow("ثبت وضعیت جسمانی", true);
 
@@ -120,7 +131,7 @@ class SubmitHealth extends Temp {
                     e1.printStackTrace();
                 }
                 PhysicalState physicalState = new PhysicalState(Double.parseDouble(ntext.getText()), Double.parseDouble(wtext.getText()), Double.parseDouble(ptext.getText()),Double.parseDouble(gtext.getText()),inputDate,myPatient.getId());
-                PatientDao pdao = new PatientDaoImpl();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                 pdao.addPhysicalState(myPatient, physicalState);
                 JOptionPane.showMessageDialog(null, "وضعیت جسمانی ثبت شد!", "اطلاعات"
                         , JOptionPane.INFORMATION_MESSAGE);

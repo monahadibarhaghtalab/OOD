@@ -4,10 +4,13 @@ package ui.user.doctor;
 //import data.dao.imp.ProfileDaoImpl;
 
 import data.dao.PatientDao;
+import data.dao.UserDao;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.Disease;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -30,6 +33,8 @@ import java.util.Date;
 class AddHistiory extends Temp {
     private Patient p;
     private Doctor d;
+    private typeDetector detector;
+
     private myJFrame window;
     private myJLabel date;
     private myJLabel name;
@@ -48,8 +53,15 @@ class AddHistiory extends Temp {
 
     public AddHistiory(Patient patient, Doctor doctor) {
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window.setVisible(false);
+
+            }
+        });
         p = patient;
         d = doctor;
+        detector = new typeDetector();
         window = getWindow("افزودن سابقه بیماری", true);
 
 
@@ -93,7 +105,9 @@ class AddHistiory extends Temp {
         window.add(enter);
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PatientDao pdao = new PatientDaoImpl();
+               // PatientDao pdao = new PatientDaoImpl();
+               PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
+
                 String temp = stext.getText();
                 String[] temp2 = temp.split("/");
                 ArrayList<String> signs =new ArrayList<String>();

@@ -4,6 +4,7 @@ import data.dao.MessageDao;
 import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.user.Message;
 import logical.user.User;
 import logical.user.doctor.Doctor;
@@ -33,6 +34,7 @@ public class ListPatientDoctor extends Temp {
     private myJButton search, search1;
     private ArrayList<Doctor> searchDoctor;
     private ButtonGroup bg;
+    private typeDetector detector;
     private Patient myUser;
     private MessageDao messagedao;
     private myJLabel name, family, docNum;
@@ -45,8 +47,8 @@ public class ListPatientDoctor extends Temp {
         myUser = user;
         winMain = getWindow("لیست پزشکان", true);
         bg = new ButtonGroup();
-
-        PatientDaoImpl patientDao =  new PatientDaoImpl();
+        detector = new typeDetector();
+        PatientDao patientDao = (PatientDao)detector.getPatientDao(Main.SaveType);
         searchDoctor = patientDao.getAllDoctors(myUser);
 
 

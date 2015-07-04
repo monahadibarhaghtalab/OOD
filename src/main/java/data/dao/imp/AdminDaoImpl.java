@@ -123,6 +123,7 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao, AdminDao {
 
     @Override
     public Patient searchPatient(String PatientID) {
+        init();
         List<UserEntity> list = session.createQuery("from UserEntity where mytype= :mytype and user_id = :myid ").setParameter("mytype", "patient").setParameter("myid", PatientID).list();
 //        ArrayList<User> users = new ArrayList<User>();
 //mypatient
@@ -133,7 +134,7 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao, AdminDao {
     }
 
 
-    public static ArrayList<Patient> showListOfAllPatients() {
+    public  ArrayList<Patient> showListOfAllPatients() {
 
         Session session;
         Transaction tx;
@@ -149,6 +150,17 @@ public class AdminDaoImpl extends  DaoImp implements UserFuncDao, AdminDao {
             users.add(new Patient(list.get(i)));
         }
         return users;
+    }
+
+    @Override
+    public void addAdmin(User user) {
+        init();
+
+        UserEntity useren = new UserEntity(user);
+        session.save(useren);
+
+        tx.commit();
+
     }
 
 

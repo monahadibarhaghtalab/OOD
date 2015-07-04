@@ -1,9 +1,11 @@
 package ui.user.general;
+import data.dao.UserDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
 import data.dao.imp.PatientDaoImpl;
 
+import data.typeDetector;
 import logical.user.Admin;
 import logical.user.doctor.Doctor;
 import logical.user.doctor.OrdDoctor;
@@ -11,6 +13,7 @@ import logical.user.doctor.ExpertDoctor;
 import logical.user.patient.Patient;
 import logical.user.User;
 
+import main.Main;
 import ui.element.*;
 import ui.user.FirstPageAdmin;
 import ui.user.TempFirst;
@@ -27,7 +30,8 @@ import java.awt.event.ActionListener;
  */
 public class Welcome extends TempFirst {
     private User loginUser;
-    private UserFuncDao userdao;
+    private UserDao userdao;
+    private typeDetector detector;
     //admin
 
     private static int height;
@@ -55,7 +59,9 @@ public class Welcome extends TempFirst {
     public Welcome() {
         super();
         window = getWindow("", true);
-       // window.setLayout(new FlowLayout());
+        detector = new typeDetector();
+
+               // window.setLayout(new FlowLayout());
       //  windowanel window = new windowanel();
 
         name = new myJLabel("به سامانه سلامت خوش آمدید");
@@ -163,8 +169,8 @@ public class Welcome extends TempFirst {
         if(type.getSelectedItem().toString().equals("پزشک عمومی")){
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    userdao = new DoctorDaoImpl();
-
+                   // userdao = new DoctorDaoImpl();
+                    userdao = detector.getDoctorDao(Main.SaveType);
                     loginUser = userdao.getUser(utext.getText());
                     if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                        // userdao.Login(loginUser);
@@ -182,8 +188,8 @@ public class Welcome extends TempFirst {
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     // System.out.println("monaaaaaaaa");
-                    userdao = new DoctorDaoImpl();
-
+                   // userdao = new DoctorDaoImpl();
+                    userdao = detector.getDoctorDao(Main.SaveType);
                     loginUser = userdao.getUser(utext.getText());
                     if(loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                         // userdao.Login(loginUser);
@@ -199,7 +205,8 @@ public class Welcome extends TempFirst {
             System.out.println("monaaaaaaaaaaaaaaaa ");
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    userdao = new PatientDaoImpl();
+                  //  userdao = new PatientDaoImpl();
+                    userdao = detector.getPatientDao(Main.SaveType);
                     loginUser = userdao.getUser(utext.getText());
                     if(!(loginUser.equals(null)) &&loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
 //                        // userdao.Login(loginUser);
@@ -216,8 +223,8 @@ public class Welcome extends TempFirst {
             System.out.println("monaaaaaaaaaaaaaaaa ");
             enter.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    userdao = new AdminDaoImpl();
-
+                   // userdao = new AdminDaoImpl();
+                    userdao = detector.getAdminDao(Main.SaveType);
                     loginUser = userdao.getUser(utext.getText());
                     if(!(loginUser.equals(null)) && loginUser.getPassword().length != 0 && authentication(loginUser.getPassword())){
                         // userdao.Login(loginUser);

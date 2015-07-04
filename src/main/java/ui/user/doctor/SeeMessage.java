@@ -1,9 +1,11 @@
 package ui.user.doctor;
 
-import data.dao.UserFuncDao;
+import data.dao.*;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
+import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.Doctor;
 import logical.user.Message;
@@ -16,6 +18,9 @@ import ui.element.myJTextField;
 import ui.user.Temp;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -26,6 +31,8 @@ import main.Main;
 public class SeeMessage extends Temp {
 
     private myJFrame winMain;
+    private typeDetector detector;
+
     private myJLabel name;
     private myJLabel family;
     private myJLabel Ltype;
@@ -47,6 +54,13 @@ public class SeeMessage extends Temp {
 
     public SeeMessage(ArrayList<Message> mymessages, String type){
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
+
+            }
+        });
+        detector = new typeDetector();
         messages = mymessages;
         numMessage = messages.size();
         System.out.println(messages.size()+ "  size message! ");
@@ -99,13 +113,17 @@ public class SeeMessage extends Temp {
                 nametext = new myJTextField("");
                 nametext.set(150, 400, 150, 20, "B Nazanin", 20);
                 System.out.println("patientID: "+messages.get(i).getPatientId());
-                Patient p = new PatientDaoImpl().getPatientByID(messages.get(i).getPatientId());
+                PatientDao tempdao = (PatientDao)detector.getPatientDao(Main.SaveType);
+                Patient p = tempdao.getPatientByID(messages.get(i).getPatientId());
                 nametext.setText(p.getName()+" "+p.getFamilyName());
                 arrayWin[i].add(nametext);
                 arrayWin[i].add(recname);
             }
 
             arrayLabel[i] = new myJButton(true);
+            Border thickBorder = new LineBorder(Color.BLACK, 12);
+            arrayLabel[i].setBorder(thickBorder);
+
             arrayLabel[i] = arrayLabel[i].set(300, 120 + i * staticHeight, 200, staticHeight, "B Nazanin", 16);
             arrayLabel[i].setText(messages.get(i).getSender().getName()+"   "+messages.get(i).getTitle());
 //            arrayLabel[i].setBorderPainted(false);
@@ -122,15 +140,15 @@ public class SeeMessage extends Temp {
             accept.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if(finalType.equals("doctor")) {
-                        myUserdao = new DoctorDaoImpl();
-                        DoctorDaoImpl tempMyUserDao = (DoctorDaoImpl)myUserdao;
+                       // myUserdao = (DoctorDao);
+                        DoctorDao tempMyUserDao = (DoctorDao)detector.getDoctorDao(Main.SaveType);
                         System.out.println("id: " + messages.get(finalTemp).PatientId);
                         tempMyUserDao.addPatient( new Doctor(messages.get(finalTemp).getReceiver(), messages.get(finalTemp).getReceiver().getMytype()), messages.get(finalTemp).getPatientId());
                         JOptionPane.showMessageDialog(arrayWin[finalTemp],
                                 "بیمار مورد نظر ثبت شد.", "اطلاعات",JOptionPane.INFORMATION_MESSAGE);
 
                         arrayWin[finalTemp].setVisible(false);
-                        UserFuncDao userdao = new DoctorDaoImpl();
+                        UserFuncDao userdao = (UserFuncDao)detector.getDoctorDao(Main.SaveType);
                       //  myUserdao.deleteMsgUserSend(messages.get(finalTemp).getSender());
                         ArrayList<Message> newmessages =userdao.getMessages(messages.get(finalTemp).getReceiver());
                         new SeeMessage(newmessages,"doctor");
@@ -145,11 +163,11 @@ public class SeeMessage extends Temp {
                         System.out.println(t.getClass().equals(Doctor.class));
                         System.out.println("type:"+t.getMytype());
                         if (t.getMytype().equals("Spec") || t.getMytype().equals("General") ) {
-                            myUserdao = new DoctorDaoImpl();
+                            myUserdao = (DoctorDao)detector.getDoctorDao(Main.SaveType);
                             System.out.println("Doctors");
                         }
                         if (t.getMytype().equals("patient")) {
-                            myUserdao = new PatientDaoImpl();
+                            myUserdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                             System.out.println("patient");
                         }
                         System.out.println("sender: "+ messages.get(finalTemp).getSender());
@@ -157,7 +175,7 @@ public class SeeMessage extends Temp {
                         JOptionPane.showMessageDialog(arrayWin[finalTemp],
                                 "کاربر مورد نظر ثبت شد  !",  "اطلاعات",JOptionPane.INFORMATION_MESSAGE);
                         arrayWin[finalTemp].setVisible(false);
-                        UserFuncDao userdao = new AdminDaoImpl();
+                        UserFuncDao userdao = (AdminDao)detector.getAdminDao(Main.SaveType);
                         //userdao.deleteMsgUserSend(messages.get(finalTemp).getSender());
                         ArrayList<Message> newmessages =userdao.getMessages(messages.get(finalTemp).getReceiver());
                         new SeeMessage(newmessages,"admin");
@@ -175,12 +193,12 @@ public class SeeMessage extends Temp {
                 public void actionPerformed(ActionEvent e) {
                     User t = messages.get(finalTemp).getSender();
                     if(finalType.equals("doctor")) {
-                        myUserdao = new DoctorDaoImpl();
+                        myUserdao = (DoctorDao)detector.getDoctorDao(Main.SaveType);//new DoctorDaoImpl();
                         //DoctorDaoImpl tempMyUserDao = (DoctorDaoImpl)myUserdao;
                         myUserdao.deleteMsgUserSend(t);
                         arrayWin[finalTemp].setVisible(false);
-                        UserFuncDao userdao = new DoctorDaoImpl();
-                        ArrayList<Message> newmessages =userdao.getMessages(messages.get(finalTemp).getReceiver());
+                       // UserFuncDao userdao = new DoctorDaoImpl();
+                        ArrayList<Message> newmessages =myUserdao.getMessages(messages.get(finalTemp).getReceiver());
                         new SeeMessage(newmessages,"doctor");
                        // new SeeMessage(newmessages,"doctor");
                         //second argument is patient ID
@@ -190,18 +208,18 @@ public class SeeMessage extends Temp {
                     if(finalType.equals("admin")) {
 
                         if (t.getMytype().equals("Spec") || t.getMytype().equals("General") ) {
-                            myUserdao = new DoctorDaoImpl();
+                            myUserdao = (DoctorDao)detector.getDoctorDao(Main.SaveType);
                             System.out.println("Doctors");
                         }
                         if (t.getMytype().equals("patient")) {
-                            myUserdao = new PatientDaoImpl();
+                            myUserdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                             System.out.println("patient");
                         }
                         System.out.println("sender: "+ messages.get(finalTemp).getSender());
                         myUserdao.deleteMsgUserSend(messages.get(finalTemp).getSender());
 
                         arrayWin[finalTemp].setVisible(false);
-                        UserFuncDao userdao = new AdminDaoImpl();
+                        AdminDao userdao = (AdminDao)detector.getAdminDao(Main.SaveType);
                         ArrayList<Message> newmessages =userdao.getMessages(messages.get(finalTemp).getReceiver());
                         new SeeMessage(newmessages,"admin");
                         // doctordao.addPatient((doctor) messages.get(finalTemp).getReceiver(), (patient) messages.get(finalTemp).getSender());

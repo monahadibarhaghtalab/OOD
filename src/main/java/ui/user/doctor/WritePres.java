@@ -4,9 +4,11 @@ import data.dao.PatientDao;
 import data.dao.ProfileDao;
 import data.dao.imp.PatientDaoImpl;
 import data.dao.imp.ProfileDaoImpl;
+import data.typeDetector;
 import logical.Recipe;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -26,6 +28,8 @@ import java.util.Date;
 class WritePres extends Temp{
     private Patient mypatient;
     private Doctor mydoctor;
+    private typeDetector detector;
+
     private myJFrame window;
 
     private myJLabel text;
@@ -43,6 +47,13 @@ class WritePres extends Temp{
 
     public WritePres(Patient patient, Doctor doctor) {
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window.setVisible(false);
+
+            }
+        });
+        detector = new typeDetector();
         mypatient = patient;
         mydoctor = doctor;
         window = getWindow("تجویز دارو", true);
@@ -63,9 +74,9 @@ class WritePres extends Temp{
 
         send.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PatientDao pdao = new PatientDaoImpl();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                 String temp = utext.getText();
-                String[] temp2 = temp.split("\n");
+                String[] temp2 = temp.split("/");
                 ArrayList<String> signs =new ArrayList<String>();
                 Collections.addAll(signs, temp2);
 

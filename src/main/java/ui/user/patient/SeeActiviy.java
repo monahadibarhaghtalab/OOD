@@ -4,9 +4,11 @@ package ui.user.patient;
 // data.dao.imp.ProfileDaoImpl;
 import data.dao.PatientDao;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.Activity;
 
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -30,12 +32,19 @@ public class SeeActiviy extends Temp {
     private myJButton search;
     private ArrayList<Activity> sickness;
     private Patient myPatient;
+    private typeDetector detector;
 
     public SeeActiviy(Patient p) {
 //check
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
 
+            }
+        });
         myPatient = p;
+        detector = new typeDetector();
         winMain = getWindow("فعالیت بدنی ", true);
 
         from = new myJLabel("از تاریخ");
@@ -68,7 +77,7 @@ public class SeeActiviy extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PatientDao pdao = new PatientDaoImpl();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date firstDate = null;
                 try {
@@ -121,7 +130,7 @@ public class SeeActiviy extends Temp {
                 System.out.println("hi2");
               //  JScrollPane scrollPane = new JScrollPane(table);
                 //  window.add(scrollPane, BorderLayout.CENTER);
-               // window2.add(scrollPane, BorderLayout.CENTER);
+               // window2.add(scrollPane, BorderLayout.CENTER);DDL data source
 
                 table.set(100, 200, 400, 300, "B Nazanin", 14);
                 JScrollPane scrollPane = new JScrollPane(table);

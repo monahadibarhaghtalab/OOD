@@ -4,9 +4,12 @@ package ui.user;
  * Created by a on 5/8/15.
  */
 
+import data.dao.AdminDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
+import data.typeDetector;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.user.doctor.ListPatient;
@@ -21,9 +24,11 @@ import java.util.ArrayList;
 
 public class FirstPageAdmin extends Temp {
     private myJFrame window;
-    private UserFuncDao adminDao;
+    private AdminDao adminDao;
     private Admin myAdmin;
-//    private myJButton history;
+    private typeDetector detector;
+
+    //    private myJButton history;
 //    private myJButton submitStatus;
     private myJButton showPatient;
     private myJButton consult;
@@ -32,7 +37,15 @@ public class FirstPageAdmin extends Temp {
 
     public FirstPageAdmin(Admin admin){
         super();
+        System.out.println(super.profile1);
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window.setVisible(false);
+
+            }
+        });
         myAdmin = admin;
+        detector = new typeDetector();
         window = getWindow("ورود به عنوان مدیر سامانه", true);
 
 //        history = new myJButton(false);
@@ -72,8 +85,9 @@ public class FirstPageAdmin extends Temp {
 
         showPatient.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                adminDao = new AdminDaoImpl();
-                ArrayList<Patient> patients = AdminDaoImpl.showListOfAllPatients();
+                adminDao = (AdminDao)detector.getAdminDao(Main.SaveType);
+
+                ArrayList<Patient> patients = adminDao.showListOfAllPatients();
                 if(patients.size() == 0){
                     JOptionPane.showMessageDialog(null, "بیماری یافت نشد!","اطلاعات",
                             JOptionPane.INFORMATION_MESSAGE);
@@ -102,7 +116,7 @@ public class FirstPageAdmin extends Temp {
 
         inbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                adminDao = new AdminDaoImpl();
+                adminDao = (AdminDao)detector.getAdminDao(Main.SaveType);
                 ArrayList<Message> messages =adminDao.getMessages(myAdmin);
                 if(messages.size() == 0){
                     JOptionPane.showMessageDialog(null, "پیامی یافت نشد!","اطلاعات"

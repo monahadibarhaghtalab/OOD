@@ -1,16 +1,19 @@
 package ui.user.general;
 
+import data.dao.AdminDao;
 import data.dao.MessageDao;
 import data.dao.UserDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.MessageDaoImpl;
+import data.typeDetector;
 import logical.user.Admin;
 import logical.user.doctor.OrdDoctor;
 import logical.user.doctor.ExpertDoctor;
 import logical.user.Message;
 import logical.user.patient.Patient;
 import logical.user.User;
+import main.Main;
 import ui.element.*;
 import ui.user.TempFirst;
 
@@ -24,7 +27,7 @@ import java.util.Date;
  */
 class Enroll  extends TempFirst {
 
-    private UserDao userdao;
+    private typeDetector detector;
     private MessageDao messagedao;
     private Admin admin;
     private  myJComboBox type;
@@ -53,11 +56,12 @@ class Enroll  extends TempFirst {
 
     public Enroll(User user) {
         super();
+        detector = new typeDetector();
         //change
        // tempUser = user;
 
         window = getWindow("ثبت نام", true);
-        messagedao = new MessageDaoImpl();
+        messagedao = detector.getMessageDao(Main.SaveType);
 
 //
 //        date = new myJLabel("نام");
@@ -137,7 +141,9 @@ class Enroll  extends TempFirst {
             public void actionPerformed(ActionEvent e) {
                 // System.out.println("monaaaaaaaa");
                 //check type of user
-                UserFuncDao adminDao = new AdminDaoImpl();
+              //  UserDao adminDao = new AdminDaoImpl();
+
+                UserDao adminDao = detector.getAdminDao(Main.SaveType);
                 User tmpAdmin = adminDao.getUser("admin");
                 admin = new Admin(tmpAdmin.getUsername(),tmpAdmin.getPassword(),tmpAdmin.getName(),tmpAdmin.getFamilyName(),tmpAdmin.getId());
                 if(type.getSelectedItem().toString().equals("پزشک عمومی")){

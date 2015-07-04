@@ -1,11 +1,13 @@
 package ui.user.patient;
 
 import data.dao.MessageDao;
+import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.MessageDaoImpl;
 import data.dao.imp.PatientDaoImpl;
 import data.dao.imp.UserDaoImpl;
 
+import data.typeDetector;
 import logical.user.doctor.Doctor;
 import logical.user.doctor.ExpertDoctor;
 import logical.user.doctor.OrdDoctor;
@@ -36,13 +38,21 @@ class ListDoctor extends Temp{
     private ArrayList<Doctor> searchDoctor;
     private ButtonGroup bg;
     private User myUser;
+    private typeDetector detector;
     private MessageDao messagedao;
     private myJLabel name, family, docNum;
     private myJTextField ntext1;
     final private boolean inSearch1 = false;
     protected ListDoctor(User user){
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
+
+            }
+        });
         myUser = user;
+        detector = new typeDetector();
         winMain = getWindow("لیست پزشکان", true);
         bg = new ButtonGroup();
         from = new myJLabel("نام");
@@ -54,7 +64,7 @@ class ListDoctor extends Temp{
         winMain.add(until);
 
 
-        messagedao = new MessageDaoImpl();
+        messagedao = detector.getMessageDao(Main.SaveType);
 
 
 
@@ -80,9 +90,11 @@ class ListDoctor extends Temp{
                 // new showResult();
                // userdao = new UserDaoImpl();
                 //field problem
+                PatientDao myPatientDao = (PatientDao)detector.getPatientDao(Main.SaveType);
+
                 if(myUser.getMytype().equals("patient")) {
                     System.out.println("find General");
-                    ArrayList<OrdDoctor> tmp = PatientDaoImpl.getListOfOrdDoctor(ntext.getText(), ftext.getText());
+                    ArrayList<OrdDoctor> tmp = myPatientDao.getListOfOrdDoctor(ntext.getText(), ftext.getText());
                     searchDoctor = new ArrayList<Doctor>();
                     for(int i = 0; i < tmp.size(); i++){
                         searchDoctor.add(tmp.get(i));
@@ -91,7 +103,7 @@ class ListDoctor extends Temp{
                 }
 //takhasos
                 if(myUser.getMytype().equals("Spec") ||myUser.getMytype().equals("General") ) {
-                    ArrayList<ExpertDoctor> tmp = PatientDaoImpl.getListOfProDoctor(ntext.getText(), ftext.getText());
+                    ArrayList<ExpertDoctor> tmp = myPatientDao.getListOfProDoctor(ntext.getText(), ftext.getText());
                     searchDoctor = new ArrayList<Doctor>();
                     for(int i = 0; i < tmp.size(); i++){
                         searchDoctor.add(tmp.get(i));
@@ -140,10 +152,10 @@ class ListDoctor extends Temp{
 
                 search1 = new myJButton(false);
                 search1.setText("فرستادن درخواست");
-                search1.set(200, 150, 100, 40, "B Nazanin", 20);
+                search1.set(200, 160, 160, 40, "B Nazanin", 20);
                 window2.add(search1);
 
-                table.set(100, 200, 400, 300, "B Nazanin", 14);
+                table.set(100, 300, 400, 300, "B Nazanin", 14);
                 JScrollPane scrollPane = new JScrollPane(table);
                 scrollPane.setBounds(100, 200, 400, 300);
                 // window2.getContentPane().add(scrollPane);
@@ -155,10 +167,10 @@ class ListDoctor extends Temp{
                // window2.add(table);
 
                 docNum = new myJLabel("شماره سطر");
-                docNum = docNum.set(300, 100, 100, 20, "B Nazanin", 20);
+                docNum = docNum.set(300, 140, 100, 20, "B Nazanin", 20);
                 window2.add(docNum);
                 ntext1 = new myJTextField("");
-                ntext1.set(150, 100, 50, 20, "B Nazanin", 20);
+                ntext1.set(150, 140, 50, 20, "B Nazanin", 20);
                 window2.add(ntext1);
                 System.out.println("go to window 2!");
                         window2.setVisible(true);

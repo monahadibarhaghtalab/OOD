@@ -46,6 +46,12 @@ class Inbox extends Temp {
         super();
         messages = mymessages;
         numMessage = messages.size();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
+
+            }
+        });
         System.out.println(messages.size()+ "  size message! ");
         winMain = getWindow("پیام ها", true);
 

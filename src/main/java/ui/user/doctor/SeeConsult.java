@@ -33,7 +33,12 @@ public class SeeConsult extends Temp {
 
     public SeeConsult(ArrayList<Message> Consults){
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
 
+            }
+        });
         myConsults = Consults;
         numMessage = myConsults.size();
         winMain = getWindow("مشاوره ها", true);

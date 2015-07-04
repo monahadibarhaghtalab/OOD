@@ -3,10 +3,12 @@ package ui.user.patient;
 import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.user.Message;
 import logical.user.doctor.OrdDoctor;
 import logical.user.patient.Patient;
 import logical.user.User;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -25,6 +27,8 @@ public class FirstPagePatient extends Temp {
     private myJFrame window;
     private Patient myPatient;
     private UserFuncDao pationtdao;
+    private typeDetector detector;
+
     private myJButton history;
     private myJButton submitStatus;
     private myJButton chooseDoctor;
@@ -39,6 +43,7 @@ public class FirstPagePatient extends Temp {
         myPatient = patient;
         window = getWindow("ورود به عنوان بیمار", true);
 
+        detector = new typeDetector();
         history = new myJButton(false);
         submitStatus = new myJButton(false);
         chooseDoctor = new myJButton(false);
@@ -56,8 +61,9 @@ public class FirstPagePatient extends Temp {
 
         ntext = new myJTextField("");
         ntext.set(150, 200, 120, 20, "B Nazanin", 20);
+        PatientDao pdao1 = (PatientDao)detector.getPatientDao(Main.SaveType);
 
-        OrdDoctor ord = new PatientDaoImpl().getOrdDoc(myPatient);
+        OrdDoctor ord = pdao1.getOrdDoc(myPatient);
         if(ord==null){
             ntext.setText("ندارد");
         }
@@ -116,7 +122,7 @@ public class FirstPagePatient extends Temp {
 
         inbox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PatientDaoImpl pdao = new PatientDaoImpl();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                ArrayList<Message> messages=pdao.getMessages(myPatient);
                 if(messages.size() == 0){
                     JOptionPane.showMessageDialog(null, "پیامی یافت نشد!","اطلاعات"
@@ -135,8 +141,8 @@ public class FirstPagePatient extends Temp {
         list.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                // pationtdao = new patientDaoImpl();
-
-                ArrayList<OrdDoctor> doctor = PatientDaoImpl.getListOfAllOrdDoctor();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
+                ArrayList<OrdDoctor> doctor = pdao.getListOfAllOrdDoctor();
                 if(doctor.size() == 0){
                     JOptionPane.showMessageDialog(null, "پزشکی یافت نشد!", "اطلاعات",
                             JOptionPane.INFORMATION_MESSAGE);

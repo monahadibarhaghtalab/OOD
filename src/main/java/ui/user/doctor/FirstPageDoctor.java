@@ -1,12 +1,15 @@
 package ui.user.doctor;
 
 import data.dao.DoctorDao;
+import data.dao.UserDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.DoctorDaoImpl;
+import data.typeDetector;
 import logical.user.doctor.Doctor;
 import logical.user.Message;
 import logical.user.patient.Patient;
 import logical.user.User;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.user.Temp;
@@ -21,7 +24,8 @@ import java.util.ArrayList;
  */
 public class FirstPageDoctor extends Temp {
     public myJFrame window;
-    private DoctorDaoImpl doctordao;
+    private DoctorDao doctordao;
+    private typeDetector detector;
     private Doctor myDoctor;
     private myJButton historyPatient;
     private myJButton seeMessage;
@@ -36,7 +40,8 @@ public class FirstPageDoctor extends Temp {
         myDoctor = doctor;
         window = getWindow("ورود به عنوان پزشک", true);
         myDoctor = doctor;
-        doctordao = new DoctorDaoImpl();
+        detector = new typeDetector();
+        doctordao = (DoctorDao)detector.getDoctorDao(Main.SaveType);
         historyPatient = new myJButton(false);
         seeMessage = new myJButton(false);
         seeConsult = new myJButton(false);
@@ -65,8 +70,8 @@ public class FirstPageDoctor extends Temp {
             public void actionPerformed(ActionEvent e) {
 
                 //noe doctor
-
-                ArrayList<Message> messages = doctordao.getMessages(myDoctor);
+                UserFuncDao docDao = (UserFuncDao)detector.getDoctorDao(Main.SaveType);
+                ArrayList<Message> messages = docDao.getMessages(myDoctor);
                 if(messages.size() == 0){
                     JOptionPane.showMessageDialog(null, "پیامی یافت نشد!", "اطلاعات"
                             , JOptionPane.INFORMATION_MESSAGE);

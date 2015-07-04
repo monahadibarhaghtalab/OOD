@@ -9,9 +9,11 @@ import data.dao.PatientDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
+import data.typeDetector;
 import logical.user.User;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJLabel;
@@ -46,6 +48,8 @@ import java.util.ArrayList;
  */
 public class LookforPateintAdmin  extends Temp {
     private UserFuncDao userdao;
+    private typeDetector detector;
+;
     private Patient p;
     private Doctor d;
     private myJButton seeHistory;
@@ -59,7 +63,13 @@ public class LookforPateintAdmin  extends Temp {
 
     public LookforPateintAdmin() {
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window1.setVisible(false);
 
+            }
+        });
+        detector = new typeDetector();
         window1 = getWindow("جستجوی بیمار", true);
 
         // window1anel window1 = new window1anel();
@@ -190,8 +200,8 @@ public class LookforPateintAdmin  extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                AdminDao admindao = new AdminDaoImpl();
-                PatientDao pdao = new PatientDaoImpl();
+                AdminDao admindao = (AdminDao) detector.getAdminDao(Main.SaveType);
+                PatientDao pdao = (PatientDao) detector.getPatientDao(Main.SaveType);
 
                 p = admindao.searchPatient(ntext.getText());
                 d = pdao.getOrdDoc(p);

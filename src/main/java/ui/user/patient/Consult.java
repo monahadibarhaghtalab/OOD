@@ -43,7 +43,12 @@ class Consult extends Temp {
 
     public Consult(Patient p){
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
 
+            }
+        });
         myPatient = p;
         winMain = getWindow("انتخاب پزشک", true);
 

@@ -24,6 +24,12 @@ class History extends Temp{
     protected History(Patient p){
         super();
         myPatient = p;
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window.setVisible(false);
+
+            }
+        });
         window = getWindow("سوابق", true);
 
         seeHealth = new myJButton(false);

@@ -15,6 +15,9 @@ import java.util.Date;
 @AttributeOverride(name = "id", column = @Column(name = "activity_id"))
 public class ActivityEntity extends ActivityGen {
 
+    private double duringTime;
+    private long startTime;
+    private long endTime;
 
     private String patientId;
     private String type;
@@ -31,6 +34,9 @@ public class ActivityEntity extends ActivityGen {
         setCalory(act.calory);
         setDate(act.DateOfCreate);
         setPatient(act.PatientId);
+        setDuringTime(act.duringTime);
+        setEndTime(act.endTime);
+        setStartTime(act.StartTime);
     }
 
 
@@ -79,5 +85,42 @@ public class ActivityEntity extends ActivityGen {
     public void setPatient(String patient) {
         this.patientId = patient;
     }
+
+
+
+    @Column(name = "myduringtime")
+    @Basic
+    public double getDuringTime() {
+        return duringTime;
+    }
+
+    public void setDuringTime(double duringTime) {
+        this.duringTime = duringTime;
+    }
+
+
+
+    @Column(name = "mystarttime")
+    @Basic
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+
+    @Column(name = "myendtime")
+    @Basic
+    public long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
+
+
 
 }

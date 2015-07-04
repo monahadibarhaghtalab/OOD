@@ -13,5 +13,7 @@ public interface UserDao {
 
    // public void Logout();
     public ArrayList<User> search();  //implementation phase1
+
+
 //    public ArrayList<User> showListOfUser(User user);   //implementation phase1
 }

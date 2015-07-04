@@ -102,9 +102,9 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao, PatientDao {
                 .setParameter("id", p.getId()).list();
         List<DoctorEntity> doctors = list.get(0).getDoctors();
         ArrayList<Doctor> dr = new ArrayList<Doctor>();
-        for(int i = 0; i < list.size(); i++){
+        for(int i = 0; i < doctors.size(); i++){
             List<UserEntity> user = session.createQuery("from UserEntity where user_id= :myid").setParameter("myid", doctors.get(i).getId()).list();
-            dr.add(new Doctor(user.get(i), doctors.get(i).getTypeDoctor()));
+            dr.add(new Doctor(user.get(0), doctors.get(i).getTypeDoctor()));
         }
         return  dr;
     }
@@ -158,7 +158,7 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao, PatientDao {
         return messages;
     }
 
-    public static ArrayList<OrdDoctor> getListOfAllOrdDoctor() {
+    public  ArrayList<OrdDoctor> getListOfAllOrdDoctor() {
 
         Session session;
         Transaction tx;
@@ -172,13 +172,13 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao, PatientDao {
         ArrayList<OrdDoctor> ordDr = new ArrayList<OrdDoctor>();
         for(int i = 0; i < list.size(); i++){
             List<UserEntity> user = session.createQuery("from UserEntity where user_id= :myid").setParameter("myid", list.get(i).getId()).list();
-            ordDr.add(new OrdDoctor(user.get(i)));
+            ordDr.add(new OrdDoctor(user.get(0)));
         }
 
         return ordDr;
     }
 
-    public static ArrayList<OrdDoctor> getListOfOrdDoctor(String text, String text1) {
+    public  ArrayList<OrdDoctor> getListOfOrdDoctor(String text, String text1) {
 
         Session session;
         Transaction tx;
@@ -202,7 +202,7 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao, PatientDao {
     }
 
 
-    public static ArrayList<ExpertDoctor> getListOfProDoctor(String text, String text1) {
+    public  ArrayList<ExpertDoctor> getListOfProDoctor(String text, String text1) {
 
         Session session;
         Transaction tx;
@@ -257,7 +257,8 @@ public class PatientDaoImpl extends DaoImp implements UserFuncDao, PatientDao {
 
     public void addRecipe(Patient PatientEntity, Recipe r) {
         RecipeEntity rc = new RecipeEntity(r);
-        session.save(r);
+        init();
+        session.save(rc);
         tx.commit();
 //        List<PatientEntity> patient = session.createQuery("from PatientEntity where patient_id = :myid")
 //                .setParameter("myid", PatientEntity.getId()).list();

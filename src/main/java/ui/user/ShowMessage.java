@@ -5,6 +5,7 @@ import data.dao.imp.AdminDaoImpl;
 import data.dao.imp.DoctorDaoImpl;
 import data.dao.imp.MessageDaoImpl;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.user.Admin;
 import logical.user.Message;
 import logical.user.User;
@@ -12,6 +13,7 @@ import logical.user.doctor.Doctor;
 import logical.user.doctor.ExpertDoctor;
 import logical.user.doctor.OrdDoctor;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.*;
 import ui.user.doctor.SeeConsult;
 import ui.user.general.Welcome;
@@ -29,6 +31,8 @@ import java.util.Date;
 public class ShowMessage  extends TempFirst {
 
     private UserDao userdao;
+    private typeDetector detector;
+
     private MessageDao messagedao;
     private Admin admin;
     private myJComboBox type;
@@ -61,6 +65,7 @@ public class ShowMessage  extends TempFirst {
 
     public ShowMessage(final User sender, final User receiver, String title) {
         super();
+        detector = new typeDetector();
         //myMessage = m;
         //change
         // tempUser = user;
@@ -144,7 +149,7 @@ public class ShowMessage  extends TempFirst {
 
         enter.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                messagedao = new MessageDaoImpl();
+                messagedao = detector.getMessageDao(Main.SaveType);
 
                 //System.out.println(receiver.getId());
                 JOptionPane.showMessageDialog(null, "پیام مورد نظر ثبت شد.", "اطلاعات",
@@ -159,7 +164,7 @@ public class ShowMessage  extends TempFirst {
                 else if(sender.getMytype().equals("Spec") || sender.getMytype().equals("General")){
                     Message request = new Message(sender, receiver, new Date(),ntext.getText(),mytitle,"0",0);
                     messagedao.sendMessage(request);
-                    DoctorDao doctordao = new DoctorDaoImpl();
+                    DoctorDao doctordao = (DoctorDao)detector.getDoctorDao(Main.SaveType);
 
                     ArrayList<Message> consults = doctordao.getConsults(new Doctor(receiver.getUsername(), receiver.getPassword(), receiver.getName(), receiver.getFamilyName(), receiver.getId(),receiver.getMytype()));
 

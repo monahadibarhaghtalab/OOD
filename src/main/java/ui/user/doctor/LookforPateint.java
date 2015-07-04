@@ -1,15 +1,19 @@
 package ui.user.doctor;
 
+import data.dao.DoctorDao;
 import data.dao.UserFuncDao;
 import data.dao.imp.DoctorDaoImpl;
+import data.typeDetector;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
 import logical.user.User;
+import main.Main;
 import ui.element.myJButton;
 import ui.element.myJFrame;
 import ui.element.myJTextField;
 import ui.element.myJLabel;
 import ui.user.Temp;
+import ui.user.general.Welcome;
 import ui.user.patient.ChooseDoctor;
 
 import javax.swing.*;
@@ -22,9 +26,11 @@ import java.util.ArrayList;
  * Created by Mona on 3/15/2015.
  */
 public class LookforPateint  extends Temp {
-    private DoctorDaoImpl docDao;
+    private DoctorDao docDao;
     private Patient p;
     private Doctor myDoctor;
+    private typeDetector detector;
+
     private  myJButton seeHistory;
     private myJFrame window1, window2;
     private myJLabel name, family, docNum;
@@ -36,8 +42,15 @@ public class LookforPateint  extends Temp {
 
     public LookforPateint(Doctor d) {
         super();
-        myDoctor = d;
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                window1.setVisible(false);
 
+            }
+        });
+
+        myDoctor = d;
+        detector = new typeDetector();
         window1 = getWindow("جستجوی بیمار", true);
 
        // window1anel window1 = new window1anel();
@@ -87,24 +100,24 @@ public class LookforPateint  extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                docDao = new DoctorDaoImpl();
+                docDao = (DoctorDao)detector.getDoctorDao(Main.SaveType);
                 ArrayList<Patient> patients = docDao.showListOfPatient(myDoctor);
                 boolean seen = false;
-                for(int i = 0; i < patients.size(); i++){
-                    if(patients.get(i).getId() == ntext.getText()){
-                        seen = true;
-                        break;
-                    }
-                }
-                if(!seen){
-                    JOptionPane.showMessageDialog(null, "بیمار با کد ملی داده شده یافت نشد!", "اطلاعات"
-                            , JOptionPane.INFORMATION_MESSAGE);
-                    new LookforPateint(myDoctor);
-                    return;
-
-                }
+//                for(int i = 0; i < patients.size(); i++){
+//                    if(patients.get(i).getId() == ntext.getText()){
+//                        seen = true;
+//                        break;
+//                    }
+//                }
+//                if(!seen){
+//                    JOptionPane.showMessageDialog(null, "بیمار با کد ملی داده شده یافت نشد!", "اطلاعات"
+//                            , JOptionPane.INFORMATION_MESSAGE);
+//                    new LookforPateint(myDoctor);
+//                    return;
+//
+//                }
                 p = docDao.searchPatient(myDoctor,ntext.getText());
-
+System.out.println(p.getName());
                 window2 = getWindow("پرونده ی بیمار", false);
 
                 submitHealth = new myJButton(false);

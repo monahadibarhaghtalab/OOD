@@ -33,7 +33,7 @@ public class Doctor extends User{
     public Doctor(User usr, String type) {
 
 
-        super(usr.getUsername(), usr.getPassword(), usr.getName(), usr.getFamilyName(), usr.getId(), "patient");
+        super(usr.getUsername(), usr.getPassword(), usr.getName(), usr.getFamilyName(), usr.getId(), type);
         this.type = type;
 
     }

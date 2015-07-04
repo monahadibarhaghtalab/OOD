@@ -5,9 +5,11 @@ import data.dao.PatientDao;
 import data.dao.ProfileDao;
 import data.dao.imp.PatientDaoImpl;
 import data.dao.imp.ProfileDaoImpl;
+import data.typeDetector;
 import logical.Disease;
 import logical.user.doctor.Doctor;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -27,6 +29,8 @@ import java.util.Date;
 public class SeeHistory  extends Temp{
     private myJFrame winMain, window2;
     private myJLabel from, until;
+    private typeDetector detector;
+
     private myJTextField ntext, ftext, itext;
     private myJButton search;
     private Patient myPatient;
@@ -36,10 +40,17 @@ public class SeeHistory  extends Temp{
 
     private myJFrame win;
     public SeeHistory(Patient p, Doctor d){
+        super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
+
+            }
+        });
         myPatient = p;
         myDoctor = d;
         winMain = getWindow("مشاهده سوابق بیمار", true);
-
+        detector = new typeDetector();
 
 
 
@@ -74,7 +85,7 @@ public class SeeHistory  extends Temp{
 
             search.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    PatientDao pdao = new PatientDaoImpl();
+                    PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                     DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date firstDate = null;
                     try {

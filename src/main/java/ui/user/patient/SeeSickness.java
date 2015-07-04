@@ -6,8 +6,10 @@ import data.dao.PatientDao;
 import data.dao.imp.PatientDaoImpl;
 import data.dao.imp.ProfileDaoImpl;
 
+import data.typeDetector;
 import logical.Disease;
 import logical.user.patient.Patient;
+import main.Main;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -32,14 +34,22 @@ class SeeSickness extends Temp {
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search;
+    private typeDetector detector;
+
     private ArrayList<Disease> sickness;
     private Patient myPatient;
 
     SeeSickness(Patient p) {
 //check
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
 
+            }
+        });
         myPatient = p;
+        detector = new typeDetector();
         winMain = getWindow("سابقه بیماری", true);
 
         from = new myJLabel("از تاریخ");
@@ -72,7 +82,7 @@ class SeeSickness extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PatientDao pdao = new PatientDaoImpl();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date firstDate = null;
                 try {

@@ -2,7 +2,9 @@ package ui.user.patient;
 
 import data.dao.PatientDao;
 import data.dao.imp.PatientDaoImpl;
+import data.typeDetector;
 import logical.user.PhysicalState;
+import main.Main;
 import ui.element.*;
 import ui.user.Temp;
 
@@ -52,14 +54,22 @@ class SeeHealth extends Temp {
     private myJLabel from, until;
     private myJTextField ntext, ftext, itext;
     private myJButton search;
+    private typeDetector detector;
+
     private ArrayList<PhysicalState> sickness;
     private Patient myPatient;
 
     SeeHealth(Patient p) {
 //check
         super();
+        super.profile1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                winMain.setVisible(false);
 
+            }
+        });
         myPatient = p;
+        detector = new typeDetector();
         winMain = getWindow("وضعیت جسمانی ", true);
 
         from = new myJLabel("از تاریخ");
@@ -92,7 +102,7 @@ class SeeHealth extends Temp {
 
         search.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                PatientDao pdao = new PatientDaoImpl();
+                PatientDao pdao = (PatientDao)detector.getPatientDao(Main.SaveType);
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 Date firstDate = null;
                 try {
